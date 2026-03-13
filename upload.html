@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>燕云十六声 | 玩家上传</title>
+<title>玩家上传 | 燕云十六声</title>
 <link rel="icon" href="logo-icon.svg">
 <style>
 :root{--bg:#08080f;--card:#14141f;--border:#2a2a3a;--gold:#d4af37;--text:#e5e5eb;--muted:#8b8b9f}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+body{font-family:"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
 .container{max-width:1200px;margin:0 auto;padding:0 32px}
 .navbar{position:fixed;top:0;height:72px;background:rgba(13,13,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.3);z-index:1000}
 .nav-container{max-width:1200px;margin:0 auto;padding:0 32px;height:100%;display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:14px}
 .logo-icon{width:50px;height:50px;background-image:url('logo-icon.svg');background-size:contain}
-.logo-text{font-size:28px;font-family:"STXingkai","KaiTi",serif;background:linear-gradient(180deg,#ffd700,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo-text{font-size:28px;font-family:"STXingkai","KaiTi";background:linear-gradient(180deg,#ffd700,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-menu{display:flex;gap:6px;list-style:none}
 .nav-menu a{padding:10px 18px;font-size:14px;color:var(--muted);border-radius:8px;text-decoration:none}
 .nav-menu a:hover,.nav-menu a.active{color:var(--gold);background:rgba(212,175,55,0.12)}
@@ -26,12 +26,40 @@ h1{font-size:48px;text-align:center;background:linear-gradient(135deg,#d4af37,#f
 .form-group{margin-bottom:20px}
 .form-group label{display:block;color:var(--muted);margin-bottom:8px}
 .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:15px}
-.form-group textarea{min-height:100px;resize:vertical}
 .upload-area{border:2px dashed var(--border);border-radius:16px;padding:50px;text-align:center;background:var(--bg);cursor:pointer;transition:all 0.3s}
 .upload-area:hover{border-color:var(--gold);background:rgba(212,175,55,0.05)}
-.upload-area.dragover{border-color:var(--gold);background:rgba(212,175,55,0.1)}
 .upload-icon{font-size:64px;margin-bottom:16px}
-.upload-text{color:var(--muted);margin-bottom:12px}
-.upload-hint{font-size:13px;color:var(--muted)}
-.file-list{margin-top:20px}
-.file-item{display:flex;align-items:center;gap
+.btn{padding:12px 24px;background:var(--gold);border:none;border-radius:8px;color:#000;font-size:15px;font-weight:600;cursor:pointer;width:100%;margin-top:20px}
+.uploads-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-top:40px}
+.upload-item{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.upload-item:hover{border-color:var(--gold);transform:translateY(-4px)}
+.upload-preview{width:100%;height:200px;object-fit:cover;background:var(--bg)}
+.upload-meta{padding:20px}
+.upload-title{font-size:18px;color:var(--gold);margin-bottom:8px}
+.upload-desc{font-size:14px;color:var(--muted);margin-bottom:12px}
+.dye-preview{display:flex;gap:4px;margin-top:12px}
+.dye-dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--border)}
+</style>
+</head>
+<body>
+<nav class="navbar"><div class="nav-container"><a href="index.html" class="logo"><div class="logo-icon"></div><span class="logo-text">燕云十六声</span></a><ul class="nav-menu"><li><a href="index.html">首页</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html">武学</a></li><li><a href="weapon.html">武器</a></li><li><a href="upload.html" class="active">上传</a></li></ul></div></nav>
+<section class="section"><div class="container">
+<h1>玩家上传</h1>
+<p class="subtitle">分享你的染色方案、截图和视频</p>
+<div class="upload-card"><h2>📤 上传文件</h2>
+<form id="uploadForm">
+<div class="form-group"><label>时装名称</label><input type="text" id="fashionName" placeholder="例如：沧海龙吟" required></div>
+<div class="form-group"><label>分类</label><select id="category"><option value="image">染色截图</option><option value="video">视频展示</option></select></div>
+<div class="form-group"><label>描述</label><textarea id="description" placeholder="分享你的染色灵感..."></textarea></div>
+<div class="upload-area" id="dropZone"><div class="upload-icon">📁</div><div class="upload-text">拖拽文件到此处或点击上传</div><div class="upload-hint">支持 JPG/PNG/GIF 图片，MP4/WebM 视频，最大 10MB</div><input type="file" id="fileInput" accept="image/*,video/*" style="display:none"></div>
+<button type="submit" class="btn">上传</button>
+</form></div>
+<h2 style="text-align:center;margin-bottom:20px">🎨 玩家分享</h2>
+<div class="uploads-grid" id="uploadsGrid"></div>
+</div></section>
+<script src="data-all.js"></script>
+<script>
+const UploadSys={uploads:[],init(){this.load();this.setup();this.render()},load(){try{this.uploads=JSON.parse(localStorage.getItem('yanyun_uploads')||'[]')}catch(e){this.uploads=[]}},save(){localStorage.setItem('yanyun_uploads',JSON.stringify(this.uploads))},setup(){document.getElementById('dropZone')?.addEventListener('click',()=>document.getElementById('fileInput')?.click());document.getElementById('uploadForm')?.addEventListener('submit',e=>{e.preventDefault();this.upload()});document.getElementById('fileInput')?.addEventListener('change',e=>this.handleFiles(e.target.files))},handleFiles(files){[...files].forEach(f=>{if(f.size>10*1024*1024){alert('文件超过 10MB');return}const r=new FileReader();r.onload=e=>this.add({file:e.target.result,name:f.name,type:f.type});r.readAsDataURL(f)})},add(data){const upload={id:Date.now(),...data,fashionName:document.getElementById('fashionName').value,category:document.getElementById('category').value,description:document.getElementById('description').value,date:new Date().toISOString(),likes:0};this.uploads.unshift(upload);this.save();this.render();this.reset();alert('上传成功！')},reset(){document.getElementById('uploadForm').reset();document.getElementById('fileInput').value=''},render(){const grid=document.getElementById('uploadsGrid');if(!grid)return;grid.innerHTML=this.uploads.map(u=>`<div class="upload-item"><div class="upload-meta"><h3 class="upload-title">${u.fashionName||'未命名'}</h3><p class="upload-desc">${u.description||''}</p>${u.dyes?`<div class="dye-preview">${u.dyes.map(d=>'<div class="dye-dot" style="background:'+d+'"></div>').join('')}</div>`:''}<div style="margin-top:12px;font-size:12px;color:var(--muted)">${new Date(u.date).toLocaleDateString()}</div></div></div>`).join('')||'<p style="text-align:center;color:var(--muted);padding:40px">暂无上传，快来分享吧！</p>'}};UploadSys.init();
+</script>
+</body>
+</html>

@@ -118,7 +118,7 @@ footer{background:var(--secondary);padding:40px 0;margin-top:80px;border-top:1px
 <button class="filter-btn active" data-filter="all">全部</button>
 <button class="filter-btn" data-filter="lingyin">聆音</button>
 <button class="filter-btn" data-filter="heming">和鸣</button>
-<button class="filter-btn" data-filter="shop">商城直售</button>
+<button class="filter-btn" data-filter="shop_2580">商城直售</button>
 <button class="filter-btn" data-filter="zhanling">战令</button>
 <button class="filter-btn" data-filter="fuyao">扶摇录</button>
 </div>
@@ -278,10 +278,285 @@ date:"2025-10",source:"国庆/五一转盘",price:"转盘抽取",
 desc:"醉酒仙人主题 · 节日限定",
 features:"节日限定/支持染色",
 dyes:["#228B22","#90EE90","#FFD700","#FF69B4","#E6E6FA"]
+// 完整时装数据库 - 持续更新
+const fashionData = [
+// ==================== 聆音大套（鸣瑞之音）====================
+{
+id:1,name:"沧海龙吟",category:"lingyin",grade:"传说",icon:"🐉",
+date:"2025-01",source:"聆音·春闹",price:"保底约6000+元",
+desc:"白龙主题 · 可交易绝世外观 · 2025新春限定",
+features:"可交易/支持裁造/专属动作",
+dyes:["#FFFFFF","#1a1a2e","#8B0000","#FFD700","#4169E1"]
+},
+{
+id:2,name:"西极坠日",category:"lingyin",grade:"传说",icon:"🌅",
+date:"2025-01",source:"聆音·春闹",price:"保底约6000+元",
+desc:"敦煌风格金乌坠落主题",
+features:"敦煌风格/专属动作",
+dyes:["#DAA520","#8B4513","#FF4500","#FFD700","#B22222"]
+},
+{
+id:3,name:"天上白玉京",category:"lingyin",grade:"传说",icon:"🏛️",
+date:"2025-07",source:"聆音活动",price:"保底约7553元",
+desc:"天上白玉京，十二楼五城 · 高阶外观",
+features:"高阶外观/专属动作",
+dyes:["#E6E6FA","#4169E1","#00CED1","#FFD700","#8A2BE2"]
+},
+{
+id:4,name:"龙腾岁宴",category:"lingyin",grade:"传说",icon:"🐲",
+date:"2026-01",source:"聆音·响岁",price:"保底约6000+元",
+desc:"支持裁造可切换龙战于野款式 · 附带异瞳妆容",
+features:"支持裁造/异瞳妆容/专属动作",
+dyes:["#FF0000","#8B0000","#FFD700","#1a1a2e","#9400D3"]
+},
+{
+id:5,name:"鸣鹿寻春",category:"lingyin",grade:"传说",icon:"🦌",
+date:"2026-01",source:"聆音·响岁",price:"保底约6000+元",
+desc:"敦煌神鹿主题 · 丹霞底色配石绿点染",
+features:"敦煌神韵/专属动作",
+dyes:["#FF6B6B","#228B22","#FFD700","#F0E68C","#DC143C"]
+},
+{
+id:6,name:"将星入命",category:"lingyin",grade:"传说",icon:"⭐",
+date:"2025-07",source:"聆音活动",price:"保底约5000+元",
+desc:"武将主题时装",
+features:"武将风格/专属动作",
+dyes:["#8B0000","#FFD700","#1a1a2e","#4B0082","#DC143C"]
+},
+{
+id:7,name:"丹渊寰宇",category:"lingyin",grade:"传说",icon:"🌌",
+date:"2026-01",source:"聆音·响岁",price:"保底约6000+元",
+desc:"玄豹纹饰 · 可变身为霄晖驭影",
+features:"支持裁造/变身效果/专属动作",
+dyes:["#1a1a1a","#4A4A4A","#8B0000","#FFD700","#191970"]
+},
+{
+id:8,name:"千山落木",category:"lingyin",grade:"传说",icon:"🍂",
+date:"2025-10",source:"聆音活动",price:"保底约5000+元",
+desc:"秋季主题时装",
+features:"专属动作",
+dyes:["#8B4513","#DAA520","#FF6347","#A0522D","#CD853F"]
+},
+{
+id:9,name:"万古云霜",category:"lingyin",grade:"传说",icon:"☁️",
+date:"2025-11",source:"聆音活动",price:"保底约5000+元",
+desc:"冬季主题时装",
+features:"专属动作",
+dyes:["#E0FFFF","#B0E0E6","#87CEEB","#4682B4","#708090"]
+},
+
+// ==================== 聆音小套（单件）====================
+{
+id:10,name:"龙战于野",category:"lingyin_small",grade:"史诗",icon:"🐲",
+date:"2026-01",source:"聆音·响岁",price:"单件约500+元",
+desc:"龙腾岁宴同款款式 · 单独获取",
+features:"支持裁造",
+dyes:["#FF0000","#8B0000","#FFD700","#1a1a2e"]
+},
+{
+id:11,name:"霄晖驭影",category:"lingyin_small",grade:"史诗",icon:"🌟",
+date:"2026-01",source:"聆音·响岁",price:"单件约500+元",
+desc:"丹渊寰宇变身款",
+features:"变身效果",
+dyes:["#1a1a1a","#4A4A4A","#8B0000"]
+},
+
+// ==================== 和鸣套装（八音窍）====================
+{
+id:12,name:"莲渡幽罗",category:"heming",grade:"史诗",icon:"🪷",
+date:"2026-02",source:"和鸣商店/八音窍",price:"2个八音窍",
+desc:"忘川河畔接引之莲 · 附结算演出+动态头像",
+features:"上下装拆分/染色/裁造/结算演出/动态头像",
+dyes:["#191970","#4169E1","#8B0000","#FFD700","#FF69B4","#00CED1"]
+},
+{
+id:13,name:"青鸾瑶音",category:"heming",grade:"史诗",icon:"🦅",
+date:"2026-02",source:"和鸣商店/八音窍",price:"2个八音窍",
+desc:"青鸟神形 · 支持发型染色",
+features:"上下装拆分/染色/头冠/特效发饰/耳饰",
+dyes:["#006400","#00FF7F","#FFD700","#87CEEB","#FF69B4","#E6E6FA"]
+},
+{
+id:14,name:"丹雀",category:"heming",grade:"稀有",icon:"🐦",
+date:"2024-12",source:"商城直售",price:"6元",
+desc:"6元封神时装 · 丹红色如朝霞映照下的鹤羽",
+features:"支持染色/性价比之王",
+dyes:["#FF6347","#FF4500","#DC143C","#FFD700","#FF69B4"]
+},
+{
+id:15,name:"瑞鹤仙",category:"heming",grade:"史诗",icon:"🦢",
+date:"2025-10",source:"国庆/五一转盘",price:"转盘抽取",
+desc:"仙鹤主题时装 · 节日限定",
+features:"节日限定/支持染色",
+dyes:["#E6E6FA","#4169E1","#FFD700","#FF69B4","#87CEEB"]
+},
+{
+id:16,name:"醉蓬莱",category:"heming",grade:"史诗",icon:"🍶",
+date:"2025-10",source:"国庆/五一转盘",price:"转盘抽取",
+desc:"醉酒仙人主题 · 节日限定",
+features:"节日限定/支持染色",
+dyes:["#228B22","#90EE90","#FFD700","#FF69B4","#E6E6FA"]
+},
+{
+id:17,name:"飞光如电",category:"heming",grade:"史诗",icon:"⚡",
+date:"2025-05",source:"五一转盘",price:"转盘抽取",
+desc:"雷电主题时装",
+features:"节日限定/支持染色",
+dyes:["#FFD700","#FFA500","#E6E6FA","#4169E1","#9400D3"]
+},
+{
+id:18,name:"火树银花",category:"heming",grade:"史诗",icon:"🎆",
+date:"2025-02",source:"春节转盘",price:"转盘抽取",
+desc:"烟花主题时装",
+features:"节日限定/支持染色",
+dyes:["#FF6347","#FFD700","#FF69B4","#E6E6FA","#00CED1"]
 },
 
 // ==================== 商城直售 2580====================
 {
+id:19,name:"明河载雪",category:"shop",grade:"史诗",icon:"❄️",
+date:"2026-01",source:"商城直售",price:"2580长鸣珠",
+desc:"月白晕染淡紫基底 · 丐版瑞鹤仙",
+features:"上下装拆分/全件染色",
+dyes:["#E6E6FA","#B0C4DE","#87CEEB","#FF69B4","#FFD700"]
+},
+{
+id:20,name:"探梅逢春",category:"shop",grade:"史诗",icon:"🌸",
+date:"2026-02",source:"花间十二客",price:"2580长鸣珠",
+desc:"梅花主题 · 素白衣袍拟白雪纷纷红梅漫展",
+features:"上下装拆分/染色",
+dyes:["#FFFFFF","#FF69B4","#DC143C","#FFD700","#E6E6FA"]
+},
+{
+id:21,name:"宿露轻盈",category:"shop",grade:"史诗",icon:"🌺",
+date:"2026-02",source:"花间十二客",price:"2580长鸣珠",
+desc:"牡丹主题 · 首发套装",
+features:"上下装拆分/染色",
+dyes:["#FF69B4","#FFDAB9","#DC143C","#FF6347","#E6E6FA"]
+},
+{
+id:22,name:"锦鳞送瑞",category:"shop",grade:"史诗",icon:"🐠",
+date:"2026-03",source:"元宵活动",price:"2580长鸣珠",
+desc:"锦鳞衔宝向人间 · 元宵纪念",
+features:"上下装拆分/染色",
+dyes:["#FFD700","#FF6347","#DC143C","#FF69B4","#00CED1"]
+},
+{
+id:23,name:"万壑清响",category:"shop",grade:"稀有",icon:"🏔️",
+date:"2025-12",source:"商城直售",price:"300长鸣珠(限时)",
+desc:"书院文人风格 · 青嶂叠翠烟水微茫",
+features:"书院风格/限时折扣",
+dyes:["#708090","#B0C4DE","#228B22","#006400","#FFD700"]
+},
+{
+id:24,name:"云中君",category:"shop",grade:"史诗",icon:"☁️",
+date:"2025-08",source:"商城直售",price:"2580长鸣珠",
+desc:"云雾主题时装",
+features:"上下装拆分/染色",
+dyes:["#E6E6FA","#87CEEB","#B0E0E6","#FF69B4","#FFD700"]
+},
+{
+id:25,name:"山鬼",category:"shop",grade:"史诗",icon:"👻",
+date:"2025-09",source:"商城直售",price:"2580长鸣珠",
+desc:"山灵鬼魅主题",
+features:"上下装拆分/染色",
+dyes:["#2F2F2F","#4B0082","#8B0000","#FFD700","#228B22"]
+},
+{
+id:26,"花间客",category:"shop",grade:"史诗",icon:"🌺",
+date:"2025-06",source:"商城直售",price:"2580长鸣珠",
+desc:"花间主题时装",
+features:"上下装拆分/染色",
+dyes:["#FF69B4","#FFB6C1","#FFD700","#E6E6FA","#98FB98"]
+},
+
+// ==================== 商城直售 1280====================
+{
+id:27,name:"马上有乾",category:"shop_1280",grade:"史诗",icon:"🐴",
+date:"2025-02",source:"新春活动",price:"1280长鸣珠(活动)",
+desc:"寓意马上有钱 · 新春气息",
+features:"上下装拆分/染色",
+dyes:["#DC143C","#FFD700","#FF6347","#8B0000","#FF69B4"]
+},
+{
+id:28,name:"岁岁平安",category:"shop_1280",grade:"史诗",icon:"🧧",
+date:"2026-01",source:"新春活动",price:"1280长鸣珠(活动)",
+desc:"新春吉祥主题",
+features:"上下装拆分/染色",
+dyes:["#DC143C","#FFD700","#FF6347","#E6E6FA","#FF69B4"]
+},
+
+// ==================== 商城直售 68====================
+{
+id:29,name:"素月分辉",category:"shop_68",grade:"稀有",icon:"🌙",
+date:"2025-04",source:"商城直售",price:"68长鸣珠",
+desc:"素雅月光主题",
+features:"支持染色",
+dyes:["#E6E6FA","#B0C4DE","#87CEEB","#FFD700","#FF69B4"]
+},
+{
+id:30,name:"清风徐来",category:"shop_68",grade:"稀有",icon:"🍃",
+date:"2025-06",source:"商城直售",price:"68长鸣珠",
+desc:"清风微拂主题",
+features:"支持染色",
+dyes:["#90EE90","#98FB98","#E6E6FA","#87CEEB","#FFD700"]
+},
+
+// ==================== 6元特价 ====================
+{
+id:31,name:"惊鸿照影",category:"shop_6",grade:"普通",icon:"🦢",
+date:"2025-03",source:"商城特惠",price:"6元",
+desc:"惊鸿一瞥主题",
+features:"基础染色",
+dyes:["#E6E6FA","#FF69B4","#87CEEB","#FFD700"]
+},
+{
+id:32,name:"江湖夜雨",category:"shop_6",grade:"普通",icon:"🌧️",
+date:"2025-07",source:"商城特惠",price:"6元",
+desc:"江湖夜雨十年灯主题",
+features:"基础染色",
+dyes:["#2F2F2F","#4A4A4A","#696969","#87CEEB"]
+},
+
+// ==================== 战令套装 ====================
+{
+id:33,name:"青锋映雪",category:"zhanling",grade:"稀有",icon:"❄️",
+date:"2026-01",source:"精英战令",price:"战令解锁",
+desc:"雪山剑客风格 · 素白毛领点睛之笔",
+features:"雪山风格/典藏送置景聊天气泡",
+dyes:["#F0F8FF","#B0C4DE","#696969","#B8860B","#E6E6FA"]
+},
+{
+id:34,name:"赤心一寸",category:"zhanling",grade:"稀有",icon:"🔥",
+date:"2025-07",source:"精英战令",price:"6元精英贺仪",
+desc:"河西英雄主题 · 深灰为底赤金点缀",
+features:"西域风格",
+dyes:["#696969","#B8860B","#8B0000","#DC143C","#FFD700"]
+},
+{
+id:35,name:"破阵",category:"zhanling",grade:"稀有",icon:"⚔️",
+date:"2025-04",source:"精英战令",price:"战令解锁",
+desc:"战场杀伐主题",
+features:"战令风格",
+dyes:["#8B0000","#DC143C","#FFD700","#2F2F2F","#696969"]
+},
+{
+id:36,name:"千里走单骑",category:"zhanling",grade:"稀有",icon:"🐎",
+date:"2025-10",source:"精英战令",price:"战令解锁",
+desc:"单骑闯关主题",
+features:"战令风格",
+dyes:["#DAA520","#8B4513","#F0E68C","#696969","#8B0000"]
+},
+
+// ==================== 扶摇录 ====================
+{
+id:37,name:"丹渊寰宇(扶摇)",category:"fuyao",grade:"稀有",icon:"🌌",
+date:"2026-01",source:"扶摇录",price:"扶摇录升级",
+desc:"扶摇录成长型时装 · 玄豹纹饰",
+features:"上衣和腰饰支持裁造",
+dyes:["#2F2F2F","#4A4A4A","#8B0000","#FFD700","#191970"]
+}
+];
 id:15,name:"明河载雪",category:"shop",grade:"史诗",icon:"❄️",
 date:"2026-01",source:"商城直售",price:"2580长鸣珠",
 desc:"月白晕染淡紫基底 · 丐版瑞鹤仙",
@@ -352,14 +627,238 @@ dyes:["#2F2F2F","#4A4A4A","#8B0000","#FFD700","#191970"]
 }
 ];
 
+// 时装数据库（完整版）
+const fashionData = [
+// ==================== 聆音大套（鸣瑞之音）====================
+{
+id:1,name:"沧海龙吟",category:"lingyin",grade:"传说",icon:"🐉",
+date:"2025-01",source:"聆音·春闹",price:"保底约6000+元",
+desc:"白龙主题 · 可交易绝世外观 · 2025新春限定",
+features:"可交易/支持裁造/专属动作",
+dyes:["#FFFFFF","#1a1a2e","#8B0000","#FFD700","#4169E1"]
+},
+{
+id:2,name:"西极坠日",category:"lingyin",grade:"传说",icon:"🌅",
+date:"2025-01",source:"聆音·春闹",price:"保底约6000+元",
+desc:"敦煌风格金乌坠落主题",
+features:"敦煌风格/专属动作",
+dyes:["#DAA520","#8B4513","#FF4500","#FFD700","#B22222"]
+},
+{
+id:3,name:"天上白玉京",category:"lingyin",grade:"传说",icon:"🏛️",
+date:"2025-07",source:"聆音活动",price:"保底约7553元",
+desc:"天上白玉京，十二楼五城 · 高阶外观",
+features:"高阶外观/专属动作",
+dyes:["#E6E6FA","#4169E1","#00CED1","#FFD700","#8A2BE2"]
+},
+{
+id:4,name:"龙腾岁宴",category:"lingyin",grade:"传说",icon:"🐲",
+date:"2026-01",source:"聆音·响岁",price:"保底约6000+元",
+desc:"支持裁造可切换龙战于野款式 · 附带异瞳妆容",
+features:"支持裁造/异瞳妆容/专属动作",
+dyes:["#FF0000","#8B0000","#FFD700","#1a1a2e","#9400D3"]
+},
+{
+id:5,name:"鸣鹿寻春",category:"lingyin",grade:"传说",icon:"🦌",
+date:"2026-01",source:"聆音·响岁",price:"保底约6000+元",
+desc:"敦煌神鹿主题 · 丹霞底色配石绿点染",
+features:"敦煌神韵/专属动作",
+dyes:["#FF6B6B","#228B22","#FFD700","#F0E68C","#DC143C"]
+},
+{
+id:6,name:"将星入命",category:"lingyin",grade:"传说",icon:"⭐",
+date:"2025-07",source:"聆音活动",price:"保底约5000+元",
+desc:"武将主题时装",
+features:"武将风格/专属动作",
+dyes:["#8B0000","#FFD700","#1a1a2e","#4B0082","#DC143C"]
+},
+{
+id:7,name:"丹渊寰宇",category:"lingyin",grade:"传说",icon:"🌌",
+date:"2026-01",source:"聆音·响岁",price:"保底约6000+元",
+desc:"玄豹纹饰 · 可变身为霄晖驭影",
+features:"支持裁造/变身效果/专属动作",
+dyes:["#1a1a1a","#4A4A4A","#8B0000","#FFD700","#191970"]
+},
+{
+id:8,name:"千山落木",category:"lingyin",grade:"传说",icon:"🍂",
+date:"2025-10",source:"聆音活动",price:"保底约5000+元",
+desc:"秋季主题时装",
+features:"专属动作",
+dyes:["#8B4513","#DAA520","#FF6347","#A0522D","#CD853F"]
+},
+{
+id:9,name:"万古云霜",category:"lingyin",grade:"传说",icon:"☁️",
+date:"2025-11",source:"聆音活动",price:"保底约5000+元",
+desc:"冬季主题时装",
+features:"专属动作",
+dyes:["#E0FFFF","#B0E0E6","#87CEEB","#4682B4","#708090"]
+},
+// ==================== 聆音小套（单件）====================
+{
+id:10,name:"龙战于野",category:"lingyin_small",grade:"史诗",icon:"🐲",
+date:"2026-01",source:"聆音·响岁",price:"单件约500+元",
+desc:"龙腾岁宴同款款式 · 单独获取",
+features:"支持裁造",
+dyes:["#FF0000","#8B0000","#FFD700","#1a1a2e"]
+},
+{
+id:11,name:"霄晖驭影",category:"lingyin_small",grade:"史诗",icon:"🌟",
+date:"2026-01",source:"聆音·响岁",price:"单件约500+元",
+desc:"丹渊寰宇变身款",
+features:"变身效果",
+dyes:["#1a1a1a","#4A4A4A","#8B0000"]
+},
+// ==================== 和鸣套装（八音窍）====================
+{
+id:12,name:"莲渡幽罗",category:"heming",grade:"史诗",icon:"🪷",
+date:"2026-02",source:"和鸣商店/八音窍",price:"2个八音窍",
+desc:"忘川河畔接引之莲 · 附结算演出+动态头像",
+features:"上下装拆分/染色/裁造/结算演出/动态头像",
+dyes:["#191970","#4169E1","#8B0000","#FFD700","#FF69B4","#00CED1"]
+},
+{
+id:13,name:"青鸾瑶音",category:"heming",grade:"史诗",icon:"🦅",
+date:"2026-02",source:"和鸣商店/八音窍",price:"2个八音窍",
+desc:"青鸟神形 · 支持发型染色",
+features:"上下装拆分/染色/头冠/特效发饰/耳饰",
+dyes:["#006400","#00FF7F","#FFD700","#87CEEB","#FF69B4","#E6E6FA"]
+},
+{
+id:14,name:"丹雀",category:"heming",grade:"稀有",icon:"🐦",
+date:"2024-12",source:"商城直售",price:"6元",
+desc:"6元封神时装 · 丹红色如朝霞映照下的鹤羽",
+features:"支持染色/性价比之王",
+dyes:["#FF6347","#FF4500","#DC143C","#FFD700","#FF69B4"]
+},
+{
+id:15,name:"瑞鹤仙",category:"heming",grade:"史诗",icon:"🦢",
+date:"2025-10",source:"国庆/五一转盘",price:"转盘抽取",
+desc:"仙鹤主题时装 · 节日限定",
+features:"节日限定/支持染色",
+dyes:["#E6E6FA","#4169E1","#FFD700","#FF69B4","#87CEEB"]
+},
+{
+id:16,name:"醉蓬莱",category:"heming",grade:"史诗",icon:"🍶",
+date:"2025-10",source:"国庆/五一转盘",price:"转盘抽取",
+desc:"醉酒仙人主题 · 节日限定",
+features:"节日限定/支持染色",
+dyes:["#228B22","#90EE90","#FFD700","#FF69B4","#E6E6FA"]
+},
+// ==================== 商城直售 2580====================
+{
+id:19,name:"明河载雪",category:"shop_2580",grade:"史诗",icon:"❄️",
+date:"2026-01",source:"商城直售",price:"2580长鸣珠",
+desc:"月白晕染淡紫基底 · 丐版瑞鹤仙",
+features:"上下装拆分/全件染色",
+dyes:["#E6E6FA","#B0C4DE","#87CEEB","#FF69B4","#FFD700"]
+},
+{
+id:20,name:"探梅逢春",category:"shop_2580",grade:"史诗",icon:"🌸",
+date:"2026-02",source:"花间十二客",price:"2580长鸣珠",
+desc:"梅花主题 · 素白衣袍拟白雪纷纷红梅漫展",
+features:"上下装拆分/染色",
+dyes:["#FFFFFF","#FF69B4","#DC143C","#FFD700","#E6E6FA"]
+},
+{
+id:21,name:"宿露轻盈",category:"shop_2580",grade:"史诗",icon:"🌺",
+date:"2026-02",source:"花间十二客",price:"2580长鸣珠",
+desc:"牡丹主题 · 首发套装",
+features:"上下装拆分/染色",
+dyes:["#FF69B4","#FFDAB9","#DC143C","#FF6347","#E6E6FA"]
+},
+{
+id:22,name:"锦鳞送瑞",category:"shop_2580",grade:"史诗",icon:"🐠",
+date:"2026-03",source:"元宵活动",price:"2580长鸣珠",
+desc:"锦鳞衔宝向人间 · 元宵纪念",
+features:"上下装拆分/染色",
+dyes:["#FFD700","#FF6347","#DC143C","#FF69B4","#00CED1"]
+},
+{
+id:23,name:"万壑清响",category:"shop_2580",grade:"稀有",icon:"🏔️",
+date:"2025-12",source:"商城直售",price:"300长鸣珠(限时)",
+desc:"书院文人风格 · 青嶂叠翠烟水微茫",
+features:"书院风格/限时折扣",
+dyes:["#708090","#B0C4DE","#228B22","#006400","#FFD700"]
+},
+// ==================== 商城直售 1280====================
+{
+id:27,name:"马上有乾",category:"shop_1280",grade:"史诗",icon:"🐴",
+date:"2025-02",source:"新春活动",price:"1280长鸣珠(活动)",
+desc:"寓意马上有钱 · 新春气息",
+features:"上下装拆分/染色",
+dyes:["#DC143C","#FFD700","#FF6347","#8B0000","#FF69B4"]
+},
+{
+id:28,name:"岁岁平安",category:"shop_1280",grade:"史诗",icon:"🧧",
+date:"2026-01",source:"新春活动",price:"1280长鸣珠(活动)",
+desc:"新春吉祥主题",
+features:"上下装拆分/染色",
+dyes:["#DC143C","#FFD700","#FF6347","#E6E6FA","#FF69B4"]
+},
+// ==================== 6元特价 ====================
+{
+id:31,name:"惊鸿照影",category:"shop_6",grade:"普通",icon:"🦢",
+date:"2025-03",source:"商城特惠",price:"6元",
+desc:"惊鸿一瞥主题",
+features:"基础染色",
+dyes:["#E6E6FA","#FF69B4","#87CEEB","#FFD700"]
+},
+{
+id:32,name:"江湖夜雨",category:"shop_6",grade:"普通",icon:"🌧️",
+date:"2025-07",source:"商城特惠",price:"6元",
+desc:"江湖夜雨十年灯主题",
+features:"基础染色",
+dyes:["#2F2F2F","#4A4A4A","#696969","#87CEEB"]
+},
+// ==================== 战令套装 ====================
+{
+id:33,name:"青锋映雪",category:"zhanling",grade:"稀有",icon:"❄️",
+date:"2026-01",source:"精英战令",price:"战令解锁",
+desc:"雪山剑客风格 · 素白毛领点睛之笔",
+features:"雪山风格/典藏送置景聊天气泡",
+dyes:["#F0F8FF","#B0C4DE","#696969","#B8860B","#E6E6FA"]
+},
+{
+id:34,name:"赤心一寸",category:"zhanling",grade:"稀有",icon:"🔥",
+date:"2025-07",source:"精英战令",price:"6元精英贺仪",
+desc:"河西英雄主题 · 深灰为底赤金点缀",
+features:"西域风格",
+dyes:["#696969","#B8860B","#8B0000","#DC143C","#FFD700"]
+},
+// ==================== 扶摇录 ====================
+{
+id:37,name:"丹渊寰宇(扶摇)",category:"fuyao",grade:"稀有",icon:"🌌",
+date:"2026-01",source:"扶摇录",price:"扶摇录升级",
+desc:"扶摇录成长型时装 · 玄豹纹饰",
+features:"上衣和腰饰支持裁造",
+dyes:["#2F2F2F","#4A4A4A","#8B0000","#FFD700","#191970"]
+}
+];
+
 // 渲染时装卡片
 function renderFashion(filterCategory='all', filterGrade='all', filterYear='all', searchText='') {
 const grid = document.getElementById('fashion-grid');
 grid.innerHTML = '';
 
 let filtered = fashionData.filter(item => {
-if (filterCategory !== 'all' && item.category !== filterCategory && 
-!item.category.startsWith(filterCategory)) return false;
+let categoryMatch = false;
+if (filterCategory === 'all') {
+categoryMatch = true;
+} else if (filterCategory === 'lingyin') {
+categoryMatch = item.category === 'lingyin' || item.category === 'lingyin_small';
+} else if (filterCategory === 'heming') {
+categoryMatch = item.category === 'heming';
+} else if (filterCategory === 'shop') {
+categoryMatch = item.category.startsWith('shop');
+} else if (filterCategory === 'zhanling') {
+categoryMatch = item.category === 'zhanling';
+} else if (filterCategory === 'fuyao') {
+categoryMatch = item.category === 'fuyao';
+} else {
+categoryMatch = item.category === filterCategory;
+}
+
+if (!categoryMatch) return false;
 if (filterGrade !== 'all' && item.grade !== filterGrade) return false;
 if (filterYear !== 'all' && !item.date.startsWith(filterYear)) return false;
 if (searchText && !item.name.toLowerCase().includes(searchText.toLowerCase())) return false;
@@ -370,99 +869,33 @@ filtered.forEach(item => {
 const card = document.createElement('div');
 card.className = 'fashion-card';
 card.onclick = () => openModal(item);
-card.innerHTML = `
-<div class="fashion-visual" style="background:linear-gradient(135deg,${item.dyes[0]}33,${item.dyes[0]}11)">
-<span class="fashion-tag ${item.name.includes('新')?'new':''}">${item.category==='lingyin'?'聆音大套':item.category==='lingyin_small'?'聆音小套':item.category==='heming'?'和鸣':item.category==='shop'?'商城':item.category==='zhanling'?'战令':'扶摇'}</span>
-<span class="fashion-icon">${item.icon}</span>
+let categoryLabel = item.category==='lingyin'?'聆音大套':item.category==='lingyin_small'?'聆音小套':item.category==='heming'?'和鸣':item.category.startsWith('shop')?'商城':item.category==='zhanling'?'战令':'扶摇';
+card.innerHTML = \`
+<div class="fashion-visual" style="background:linear-gradient(135deg,\${item.dyes[0]}33,\${item.dyes[0]}11)">
+<span class="fashion-tag">\${categoryLabel}</span>
+<span class="fashion-icon">\${item.icon}</span>
 </div>
 <div class="fashion-info">
-<h3>${item.name}</h3>
-<p class="desc">${item.desc}</p>
+<h3>\${item.name}</h3>
+<p class="desc">\${item.desc}</p>
 <div class="fashion-meta">
-<span>📅 ${item.date}</span>
-<span class="price">💰 ${item.price}</span>
+<span>📅 \${item.date}</span>
+<span class="price">💰 \${item.price}</span>
 </div>
 <div class="fashion-actions">
-<span class="action-btn" onclick="event.stopPropagation();openModal(${item.id})">查看详情</span>
+<span class="action-btn" onclick="event.stopPropagation();openModal(\${item.id})">查看详情</span>
 </div>
 </div>
-`;
+\`;
 grid.appendChild(card);
 });
 
 // 更新统计
 document.getElementById('total-count').textContent = filtered.length;
-document.getElementById('lingyin-count').textContent = fashionData.filter(i=>i.category.startsWith('lingyin')).length;
+document.getElementById('lingyin-count').textContent = fashionData.filter(i=>i.category==='lingyin' || i.category==='lingyin_small').length;
 document.getElementById('heming-count').textContent = fashionData.filter(i=>i.category==='heming').length;
-document.getElementById('shop-count').textContent = fashionData.filter(i=>i.category==='shop').length;
+document.getElementById('shop-count').textContent = fashionData.filter(i=>i.category.startsWith('shop')).length;
 }
-
-// 打开弹窗
-function openModal(item) {
-document.getElementById('modal-title').textContent = item.name;
-document.getElementById('modal-img').textContent = item.icon;
-document.getElementById('modal-source').textContent = item.source;
-document.getElementById('modal-price').textContent = item.price;
-document.getElementById('modal-date').textContent = item.date;
-document.getElementById('modal-feature').textContent = item.features;
-
-const tags = document.getElementById('modal-tags');
-tags.innerHTML = `<span class="tag">${item.grade}</span><span class="tag">${item.category==='lingyin'?'聆音大套':item.category==='lingyin_small'?'聆音小套':item.category==='heming'?'和鸣':item.category==='shop'?'商城':item.category==='zhanling'?'战令':'扶摇'}</span>`;
-
-// 染色方案
-const dyeGrid = document.getElementById('modal-dyes');
-dyeGrid.innerHTML = '';
-item.dyes.forEach((color, idx) => {
-const swatch = document.createElement('div');
-swatch.className = 'dye-swatch';
-swatch.style.background = color;
-swatch.title = color;
-dyeGrid.appendChild(swatch);
-});
-
-document.getElementById('fashion-modal').classList.add('active');
-}
-
-function closeModal() {
-document.getElementById('fashion-modal').classList.remove('active');
-}
-
-// 筛选事件
-document.querySelectorAll('.filter-btn').forEach(btn => {
-btn.addEventListener('click', () => {
-btn.classList.toggle('active');
-const filterType = btn.dataset.filter || btn.dataset.grade;
-const filterRow = btn.parentElement;
-const allBtns = filterRow.querySelectorAll('.filter-btn');
-allBtns.forEach(b => b.classList.remove('active'));
-btn.classList.add('active');
-
-renderFashion(
-document.querySelector('[data-filter].active')?.dataset.filter || 'all',
-document.querySelector('[data-grade].active')?.dataset.grade || 'all',
-document.getElementById('year-filter').value,
-document.getElementById('search-input').value
-);
-});
-});
-
-document.getElementById('year-filter').addEventListener('change', () => {
-renderFashion(
-document.querySelector('[data-filter].active')?.dataset.filter || 'all',
-document.querySelector('[data-grade].active')?.dataset.grade || 'all',
-document.getElementById('year-filter').value,
-document.getElementById('search-input').value
-);
-});
-
-document.getElementById('search-input').addEventListener('input', () => {
-renderFashion(
-document.querySelector('[data-filter].active')?.dataset.filter || 'all',
-document.querySelector('[data-grade].active')?.dataset.grade || 'all',
-document.getElementById('year-filter').value,
-document.getElementById('search-input').value
-);
-});
 
 // 初始渲染
 renderFashion();

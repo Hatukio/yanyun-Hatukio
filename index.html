@@ -95,12 +95,12 @@ a {text-decoration: none;color: inherit;transition: color 0.3s;}
 }
 
 .logo-icon {
-  width: 42px;
-  height: 42px;
+  width: 80px;
+  height: 80px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+  background-image: url('logo.png');
 }
 
 .logo-text {
@@ -1681,6 +1681,17 @@ footer {
   filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
 }
 
+.footer-logo {
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('logo.png');
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
+  display: inline-block;
+}
+
 .footer-brand h3 {
   font-size: 18px;
   margin-bottom: 6px;
@@ -1779,19 +1790,7 @@ footer {
 </head>
 <body>
 <nav class="navbar"><div class="nav-container"><a href="#" class="logo" onclick="showSection('home')">
-  <div class="logo-icon">
-    <svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="50" r="45" fill="url(#goldGrad)"/>
-      <path d="M50 20C50 20 30 40 30 55C30 65 40 70 50 70C60 70 70 65 70 55C70 40 50 20 50 20Z" fill="#0a0a12"/>
-      <circle cx="50" cy="50" r="15" fill="url(#goldGrad)"/>
-      <defs>
-        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#d4af37"/>
-          <stop offset="100%" style="stop-color:#ffd700"/>
-        </linearGradient>
-      </defs>
-    </svg>
-  </div>
+  <div class="logo-icon"></div>
   <span class="logo-text">燕云十六声</span>
   <span class="logo-sub">权威资料站</span>
 </a><ul class="nav-menu"><li><a onclick="showSection('home')" class="active" data-section="home">首页</a></li><li><a href="appearance.html">外观系统</a></li><li><a href="martial.html">武学</a></li><li></li><li><a href="guide.html">攻略</a></li><li></li><li></li><li></li><li><a href="https://yy163.com" target="_blank" class="nav-official">官网</a></li></ul><button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button></div></nav>
@@ -1910,7 +1909,7 @@ footer {
 <div id="qishu-combo" class="tool-modal"><div class="tool-modal-content"><span class="close-btn" onclick="closeTool('qishu-combo')">&times;</span><h2>⚔️ 奇术搭配推荐</h2><div class="calc-result-area" style="text-align:left"><p><strong>🔥 爆发流：</strong>太白醉月 + 神龙吐火</p><p style="margin-top:12px"><strong>🛡️ 生存流：</strong>无相金身 + 杳无形</p><p style="margin-top:12px"><strong>⚡ 跑图流：</strong>凌云踏 + 冯虚御风 + 飒沓流星</p><p style="margin-top:12px"><strong>🎵 辅助流：</strong>箫吟千浪 + 百鬼打穴手</p></div></div></div>
 </div></section>
 
-<footer><div class="container"><div class="footer-content"><div class="footer-brand"><span>🏮</span><div><h3>燕云十六声权威资料站</h3><p>粉丝自发整理 · 基于<a href="https://yy163.com" target="_blank" style="color:var(--accent-gold)">官方资料</a></p></div></div><div class="footer-links"><p><a href="https://yy163.com" target="_blank" class="footer-link">访问官网</a> · <a href="https://www.yysls.cn" target="_blank" class="footer-link">国服官网</a></p><p>本页面非官方，仅供学习交流使用</p><p class="copyright">© 2026 燕云十六声资料站</p></div></div></footer>
+<footer><div class="container"><div class="footer-content"><div class="footer-brand"><span class="footer-logo"></span><div><h3>燕云十六声权威资料站</h3><p>粉丝自发整理 · 基于<a href="https://yy163.com" target="_blank" style="color:var(--accent-gold)">官方资料</a></p></div></div><div class="footer-links"><p><a href="https://yy163.com" target="_blank" class="footer-link">访问官网</a> · <a href="https://www.yysls.cn" target="_blank" class="footer-link">国服官网</a></p><p>本页面非官方，仅供学习交流使用</p><p class="copyright">© 2026 燕云十六声资料站</p></div></div></footer>
 
 <script>
 function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav-menu a').forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.nav-menu a[data-section="${id}"]`);if(a)a.classList.add('active');window.scrollTo(0,0)}

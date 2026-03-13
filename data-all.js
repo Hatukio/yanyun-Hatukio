@@ -90,3 +90,43 @@ const freeFashion = [
 {id:506,name:"双飞燕",icon:"🕊️",source:"师徒商店",desc:"师徒奖励",tags:["免费","师徒"]},
 {id:507,name:"一人心",icon:"💕",source:"侠缘商店",desc:"侠缘奖励",tags:["免费","侠缘"]},
 {id:508,name:"苍狼",icon:"
+// ========== 玩家上传系统 ==========
+const UploadSystem = {
+  uploads: [],
+  init() {
+    this.loadUploads();
+    if (window.location.pathname.includes('upload')) {
+      this.setupUploadPage();
+    }
+  },
+  loadUploads() {
+    try {
+      const saved = localStorage.getItem('yanyun_uploads');
+      this.uploads = saved ? JSON.parse(saved) : [];
+    } catch(e) { this.uploads = []; }
+  },
+  saveUploads() {
+    localStorage.setItem('yanyun_uploads', JSON.stringify(this.uploads));
+  },
+  addUpload(data) {
+    const upload = {
+      id: Date.now(),
+      ...data,
+      date: new Date().toISOString(),
+      likes: 0,
+      views: 0
+    };
+    this.uploads.unshift(upload);
+    this.saveUploads();
+    return upload;
+  },
+  deleteUpload(id) {
+    this.uploads = this.uploads.filter(u => u.id !== id);
+    this.saveUploads();
+  },
+  likeUpload(id) {
+    const upload = this.uploads.find(u => u.id === id);
+    if (upload) { upload.likes++; this.saveUploads(); }
+  }
+};
+if (typeof window !== 'undefined') window.UploadSystem = UploadSystem;

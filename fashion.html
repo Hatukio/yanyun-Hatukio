@@ -401,6 +401,7 @@ card.innerHTML = `
 ${item.dyes ? '<div class="dye-grid" style="display:flex;gap:4px;margin-top:8px">' + item.dyes.slice(0,5).map(d => '<div style="width:20px;height:20px;border-radius:50%;background:'+d+';border:1px solid #333"></div>').join('') + '</div>' : ''}
 </div>
 `;
+card.onclick = () => window.location.href='detail.html?id='+item.id;
 grid.appendChild(card);
 });
 

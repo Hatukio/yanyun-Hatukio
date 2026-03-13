@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>燕云十六声 | 外观系统 - 权威资料站</title>
+<style>
+:root{--primary:#0d0d14;--secondary:#12121a;--accent:#c9a227;--accent-gold:#d4af37;--text:#e5e5e5;--text-muted:#9ca3af;--bg:#08080c;--card-bg:#14141c;--border:#252530;--gradient-gold:linear-gradient(135deg,#d4af37 0%,#ffd700 100%);--gradient-dark:linear-gradient(180deg,#0d0d14 0%,#151520 100%)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
+a{text-decoration:none;color:inherit}
+.container{max-width:1400px;margin:0 auto;padding:0 24px}
+.navbar{position:fixed;top:0;left:0;right:0;height:70px;background:rgba(13,13,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.15);z-index:1000}
+.nav-container{max-width:1400px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{font-size:32px}
+.logo-text{font-size:24px;font-weight:800;background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.logo-sub{font-size:12px;color:var(--text-muted);padding:4px 8px;background:rgba(212,175,55,0.1);border-radius:4px}
+.nav-menu{display:flex;gap:8px;list-style:none}
+.nav-menu a{padding:10px 16px;font-size:14px;color:var(--text-muted);border-radius:8px;transition:all 0.3s;cursor:pointer}
+.nav-menu a:hover,.nav-menu a.active{color:var(--accent-gold);background:rgba(212,175,55,0.1)}
+.nav-official{color:var(--accent-gold)!important;border:1px solid var(--accent-gold)!important;padding:8px 16px!important;border-radius:6px!important;margin-left:8px}
+.nav-official:hover{background:var(--accent-gold)!important;color:var(--primary)!important}
+.mobile-menu-btn{display:none;background:none;border:none;color:var(--text);font-size:28px;cursor:pointer}
+.hero{position:relative;padding:80px 0 60px;background:var(--gradient-dark);text-align:center}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,175,55,0.1),transparent 60%)}
+.hero-content{position:relative;z-index:1}
+.hero-badge{display:inline-block;padding:8px 20px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);border-radius:30px;font-size:13px;color:var(--accent-gold);margin-bottom:20px}
+.hero h1{font-size:56px;font-weight:900;letter-spacing:6px;background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.hero .subtitle{font-size:18px;letter-spacing:8px;color:var(--accent-gold);margin-bottom:16px}
+.hero-stats{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;margin-top:30px}
+.stat-item{text-align:center;cursor:pointer;padding:16px 24px;border-radius:12px;transition:all 0.3s}
+.stat-item:hover,.stat-item.active{background:rgba(212,175,55,0.15);border:1px solid var(--accent-gold)}
+.stat-number{display:block;font-size:36px;font-weight:800;color:var(--accent-gold);line-height:1;margin-bottom:4px}
+.stat-label{font-size:13px;color:var(--text-muted)}
+
+/* 分类标签 */
+.category-tabs{display:flex;gap:8px;padding:20px 0;background:var(--card-bg);border-bottom:1px solid var(--border);margin-bottom:30px;flex-wrap:wrap;justify-content:center}
+.category-btn{padding:12px 28px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--text-muted);font-size:15px;cursor:pointer;transition:all 0.3s}
+.category-btn:hover,.category-btn.active{background:var(--accent-gold);border-color:var(--accent-gold);color:var(--primary)}
+
+/* 筛选 */
+.filter-section{padding:24px;background:var(--card-bg);border-radius:12px;margin-bottom:30px}
+.filter-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.filter-row:last-child{margin-bottom:0}
+.filter-label{font-size:14px;color:var(--text-muted);min-width:80px}
+.filter-btn{padding:8px 18px;background:transparent;border:1px solid var(--border);border-radius:20px;color:var(--text-muted);font-size:13px;cursor:pointer;transition:all 0.3s}
+.filter-btn:hover,.filter-btn.active{background:var(--accent-gold);border-color:var(--accent-gold);color:var(--primary)}
+.filter-select{padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;min-width:140px}
+
+/* 外观网格 */
+.appearance-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:60px}
+.appearance-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s;cursor:pointer}
+.appearance-card:hover{border-color:var(--accent-gold);transform:translateY(-4px);box-shadow:0 12px 30px rgba(212,175,55,0.15)}
+.appearance-visual{height:180px;position:relative;display:flex;align-items:center;justify-content:center}
+.appearance-icon{font-size:64px}
+.appearance-tag{position:absolute;top:12px;right:12px;padding:4px 12px;background:rgba(0,0,0,0.7);border-radius:20px;font-size:12px;color:white}
+.appearance-tag.new{background:var(--accent-gold);color:var(--primary)}
+.appearance-info{padding:20px}
+.appearance-info h3{font-size:18px;color:var(--accent-gold);margin-bottom:8px}
+.appearance-info .desc{font-size:13px;color:var(--text-muted);margin-bottom:12px;line-height:1.5}
+.appearance-meta{display:flex;flex-direction:column;gap:6px;font-size:12px}
+.appearance-meta span{color:var(--text-muted)}
+.appearance-meta .price{color:var(--accent-gold);font-weight:600}
+
+/* 颜色展示 */
+.color-display{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.color-swatch{width:20px;height:20px;border-radius:50%;border:2px solid var(--border)}
+
+/* 弹窗 */
+.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.9);z-index:2000;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+.modal.active{display:flex}
+.modal-content{background:var(--card-bg);border:1px solid var(--border);border-radius:20px;padding:40px;max-width:900px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
+.modal-close{position:absolute;top:20px;right:24px;font-size:32px;color:var(--text-muted);cursor:pointer}
+.modal-close:hover{color:var(--accent-gold)}
+.modal-header{display:flex;gap:30px;margin-bottom:30px}
+.modal-img{width:300px;height:350px;background:linear-gradient(135deg,#1a1a2e,#2a2a4e);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:100px}
+.modal-detail{flex:1}
+.modal-detail h2{font-size:28px;color:var(--accent-gold);margin-bottom:16px}
+.modal-detail .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.modal-detail .tag{padding:4px 12px;background:rgba(212,175,55,0.15);color:var(--accent-gold);border-radius:12px;font-size:12px}
+.modal-detail .info-row{display:flex;gap:20px;margin-bottom:12px;font-size:14px}
+.modal-detail .info-row span{color:var(--text-muted)}
+.modal-section{margin-top:30px;padding-top:30px;border-top:1px solid var(--border)}
+.modal-section h3{font-size:18px;color:var(--accent-gold);margin-bottom:16px}
+.modal-colors{display:flex;gap:12px;flex-wrap:wrap}
+.modal-color{width:40px;height:40px;border-radius:8px;border:2px solid var(--border);cursor:pointer;transition:all 0.2s}
+.modal-color:hover{border-color:var(--accent-gold)}
+
+/* 页脚 */
+footer{background:var(--secondary);padding:40px 0;margin-top:80px;border-top:1px solid var(--border)}
+.footer-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:30px}
+.footer-brand{display:flex;align-items:center;gap:16px}
+.footer-brand span{font-size:32px}
+.footer-brand h3{font-size:18px;margin-bottom:4px}
+.footer-brand p{font-size:13px;color:var(--text-muted)}
+.footer-link{color:var(--accent-gold);text-decoration:none}
+.footer-link:hover{text-decoration:underline}
+
+/* 等待数据提示 */
+.waiting-tip{text-align:center;padding:60px 20px;color:var(--text-muted)}
+.waiting-tip h3{font-size:24px;color:var(--accent-gold);margin-bottom:16px}
+.waiting-tip p{font-size:16px;margin-bottom:20px}
+.waiting-tip .contact{background:var(--card-bg);padding:20px;border-radius:12px;display:inline-block}
+
+@media(max-width:1200px){.appearance-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.appearance-grid{grid-template-columns:repeat(2,1fr)}.modal-header{flex-direction:column}.modal-img{width:100%;height:250px}}
+@media(max-width:768px){.nav-menu{display:none;position:absolute;top:70px;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px;gap:4px;border-bottom:1px solid var(--border)}.nav-menu.active{display:flex}.mobile-menu-btn{display:block}.hero h1{font-size:36px}.hero-stats{gap:30px}.stat-number{font-size:32px}.appearance-grid{grid-template-columns:1fr}.filter-row{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<nav class="navbar"><div class="nav-container"><a href="index.html" class="logo"><span class="logo-icon">🏮</span><span class="logo-text">燕云十六声</span><span class="logo-sub">权威资料站</span></a><ul class="nav-menu"><li><a href="index.html">首页</a></li><li><a href="appearance.html" class="active">外观系统</a></li><li><a href="martial.html">武学</a></li><li><a href="guide.html">攻略</a></li><li><a href="https://yy163.com" target="_blank" class="nav-official">官网</a></li></ul></div></nav>
+
+<div class="hero"><div class="hero-content"><div class="hero-badge">收集整理中 · 期待你的数据支持</div><h1>外观系统</h1><p class="subtitle">WHERE WINDS MEET</p><div class="hero-stats"><div class="stat-item active" data-category="fashion"><span class="stat-number" id="fashion-count">0</span><span class="stat-label">时装</span></div><div class="stat-item" data-category="weapon"><span class="stat-number" id="weapon-count">0</span><span class="stat-label">武器外观</span></div><div class="stat-item" data-category="effect"><span class="stat-number" id="effect-count">0</span><span class="stat-label">武学特效</span></div><div class="stat-item" data-category="hair"><span class="stat-number" id="hair-count">0</span><span class="stat-label">头发染色</span></div></div></div></div>
+
+<div class="container">
+<!-- 分类切换 -->
+<div class="category-tabs">
+<button class="category-btn active" data-category="fashion">全部外观</button>
+<button class="category-btn" data-category="fashion_cloth">时装</button>
+<button class="category-btn" data-category="weapon_appearance">武器外观</button>
+<button class="category-btn" data-category="weapon_effect">武学特效</button>
+<button class="category-btn" data-category="hair_dye">头发染色</button>
+</div>
+
+<!-- 筛选 -->
+<div class="filter-section" id="filter-section">
+<div class="filter-row">
+<span class="filter-label">来源:</span>
+<button class="filter-btn active" data-filter="all">全部</button>
+<button class="filter-btn" data-filter="lingyin">聆音</button>
+<button class="filter-btn" data-filter="heming">和鸣</button>
+<button class="filter-btn" data-filter="shop">商城</button>
+<button class="filter-btn" data-filter="zhanling">战令</button>
+<button class="filter-btn" data-filter="event">活动</button>
+</div>
+<div class="filter-row">
+<span class="filter-label">等级:</span>
+<button class="filter-btn grade-btn active" data-grade="all">全部</button>
+<button class="filter-btn grade-btn" data-grade="传说">传说</button>
+<button class="filter-btn grade-btn" data-grade="史诗">史诗</button>
+<button class="filter-btn grade-btn" data-grade="稀有">稀有</button>
+</div>
+<div class="filter-row">
+<span class="filter-label">时间:</span>
+<select class="filter-select" id="year-filter">
+<option value="all">全部年份</option>
+<option value="2026">2026年</option>
+<option value="2025">2025年</option>
+<option value="2024">2024年</option>
+</select>
+<input type="text" class="search-box" id="search-input" placeholder="搜索名称..." style="padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:14px;flex:1;max-width:300px">
+</div>
+</div>
+
+<!-- 等待数据提示 -->
+<div class="waiting-tip" id="waiting-tip">
+<h3>📋 数据收集中...</h3>
+<p>外观系统正在整理中，期待你的数据支持！</p>
+<div class="contact">
+<p>如果你有准确的外观数据，可以联系我们补充</p>
+<p style="margin-top:10px;color:var(--accent-gold)">数据来源：官方公告、游戏内、百度AI等</p>
+</div>
+</div>
+
+<!-- 外观列表 -->
+<div class="appearance-grid" id="appearance-grid"></div>
+</div>
+
+<!-- 详情弹窗 -->
+<div class="modal" id="appearance-modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal()">&times;</span>
+<div class="modal-header">
+<div class="modal-img" id="modal-img">👘</div>
+<div class="modal-detail">
+<h2 id="modal-title">名称</h2>
+<div class="tags" id="modal-tags"></div>
+<div class="info-row"><span>获取方式:</span><span id="modal-source">-</span></div>
+<div class="info-row"><span>价格:</span><span id="modal-price">-</span></div>
+<div class="info-row"><span>上架时间:</span><span id="modal-date">-</span></div>
+<div class="info-row"><span>特色功能:</span><span id="modal-feature">-</span></div>
+</div>
+</div>
+<div class="modal-section" id="dye-section" style="display:none">
+<h3>🎨 染色方案</h3>
+<div class="modal-colors" id="modal-dyes"></div>
+</div>
+</div>
+</div>
+
+<footer><div class="container"><div class="footer-content"><div class="footer-brand"><span>🏮</span><div><h3>燕云十六声资料站</h3><p>粉丝自发整理 · <a href="https://yy163.com" target="_blank" class="footer-link">官方资料</a></p></div></div><div class="footer-links"><p>© 2026 燕云十六声资料站</p></div></div></footer>
+
+<script>
+// ==================== 数据结构 ====================
+// 格式：{id, name, category, subCategory, grade, icon, date, source, price, desc, features, dyes[]}
+// category: fashion_cloth/fashion_effect/weapon_appearance/hair_dye
+// subCategory: lingyin/heming/shop/zhanling/fuyao/event/free
+
+// ==================== 时装数据 ====================
+const fashionData = [
+// 聆音大套
+{id:1,name:"沧海龙吟",category:"fashion_cloth",subCategory:"lingyin",grade:"传说",icon:"🐉",date:"2025-01",source:"聆音·春闹",price:"保底约6000+元",desc:"白龙主题 · 可交易绝世外观 · 2025新春限定",features:"可交易/支持裁造/专属动作",dyes:["#FFFFFF","#1a1a2e","#8B0000","#FFD700","#4169E1"]},
+{id:2,name:"龙腾岁宴",category:"fashion_cloth",subCategory:"lingyin",grade:"传说",icon:"🐲",date:"2026-01",source:"聆音·响岁",price:"保底约6000+元",desc:"支持裁造可切换龙战于野款式 · 附带异瞳妆容",features:"支持裁造/异瞳妆容/专属动作",dyes:["#FF0000","#8B0000","#FFD700","#1a1a2e","#9400D3"]},
+{id:3,name:"莲渡幽罗",category:"fashion_cloth",subCategory:"heming",grade:"史诗",icon:"🪷",date:"2026-02",source:"和鸣商店/八音窍",price:"2个八音窍",desc:"忘川河畔接引之莲 · 附结算演出+动态头像",features:"上下装拆分/染色/裁造/结算演出/动态头像",dyes:["#191970","#4169E1","#8B0000","#FFD700","#FF69B4"]},
+{id:4,name:"锦鳞送瑞",category:"fashion_cloth",subCategory:"shop",grade:"史诗",icon:"🐠",date:"2026-03",source:"元宵活动",price:"2580长鸣珠",desc:"锦鳞衔宝向人间 · 元宵纪念",features:"上下装拆分/染色",dyes:["#FFD700","#FF6347","#DC143C","#FF69B4","#00CED1"]},
+// 更多数据待补充...
+];
+
+// ==================== 武器外观数据 ====================
+const weaponData = [
+// 藏音系统
+// 待补充准确数据...
+];
+
+// ==================== 武学特效数据 ====================
+const effectData = [
+// 待补充准确数据...
+];
+
+// ==================== 头发染色数据 ====================
+const hairData = [
+// 待补充准确数据...
+];
+
+// 合并所有数据
+const allData = [...fashionData, ...weaponData, ...effectData, ...hairData];
+
+let currentCategory = 'fashion'; // fashion/weapon/effect/hair
+
+// 初始化
+document.getElementById('fashion-count').textContent = fashionData.length;
+document.getElementById('weapon-count').textContent = weaponData.length;
+document.getElementById('effect-count').textContent = effectData.length;
+document.getElementById('hair-count').textContent = hairData.length;
+
+// 分类点击
+document.querySelectorAll('.stat-item').forEach(item => {
+item.addEventListener('click', () => {
+document.querySelectorAll('.stat-item').forEach(i => i.classList.remove('active'));
+item.classList.add('active');
+currentCategory = item.dataset.category;
+renderData();
+});
+});
+
+// 分类切换
+document.querySelectorAll('.category-btn').forEach(btn => {
+btn.addEventListener('click', () => {
+document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+renderData();
+});
+});
+
+// 筛选
+document.querySelectorAll('.filter-btn').forEach(btn => {
+btn.addEventListener('click', () => {
+const row = btn.parentElement;
+row.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+renderData();
+});
+});
+
+document.getElementById('year-filter').addEventListener('change', renderData);
+document.getElementById('search-input').addEventListener('input', renderData);
+
+// 渲染数据
+function renderData() {
+const grid = document.getElementById('appearance-grid');
+const waiting = document.getElementById('waiting-tip');
+
+let category = document.querySelector('.category-btn.active').dataset.category;
+let filter = document.querySelector('.filter-btn:not(.grade-btn).active')?.dataset.filter || 'all';
+let grade = document.querySelector('.grade-btn.active')?.dataset.grade || 'all';
+let year = document.getElementById('year-filter').value;
+let search = document.getElementById('search-input').value;
+
+// 根据主分类筛选
+let filtered = allData;
+if (category === 'fashion_cloth') filtered = allData.filter(d => d.category === 'fashion_cloth');
+else if (category === 'weapon_appearance') filtered = allData.filter(d => d.category === 'weapon_appearance');
+else if (category === 'weapon_effect') filtered = allData.filter(d => d.category === 'weapon_effect');
+else if (category === 'hair_dye') filtered = allData.filter(d => d.category === 'hair_dye');
+
+// 来源筛选
+if (filter !== 'all') {
+filtered = filtered.filter(d => d.subCategory === filter);
+}
+// 等级筛选
+if (grade !== 'all') {
+filtered = filtered.filter(d => d.grade === grade);
+}
+// 年份筛选
+if (year !== 'all') {
+filtered = filtered.filter(d => d.date.startsWith(year));
+}
+// 搜索
+if (search) {
+filtered = filtered.filter(d => d.name.toLowerCase().includes(search.toLowerCase()));
+}
+
+// 显示/隐藏等待提示
+if (filtered.length === 0) {
+waiting.style.display = 'block';
+grid.style.display = 'none';
+} else {
+waiting.style.display = 'none';
+grid.style.display = 'grid';
+grid.innerHTML = '';
+
+filtered.forEach(item => {
+const card = document.createElement('div');
+card.className = 'appearance-card';
+card.onclick = () => openModal(item);
+let typeLabel = item.subCategory === 'lingyin' ? '聆音' : 
+item.subCategory === 'heming' ? '和鸣' :
+item.subCategory === 'shop' ? '商城' :
+item.subCategory === 'zhanling' ? '战令' :
+item.subCategory === 'event' ? '活动' : '其他';
+card.innerHTML = `
+<div class="appearance-visual" style="background:linear-gradient(135deg,${item.dyes?.[0] || '#1a1a2e'}33,${item.dyes?.[0] || '#1a1a2e'}11)">
+<span class="appearance-tag ${item.date.startsWith('2026')?'new':''}">${typeLabel}</span>
+<span class="appearance-icon">${item.icon}</span>
+</div>
+<div class="appearance-info">
+<h3>${item.name}</h3>
+<p class="desc">${item.desc || ''}</p>
+<div class="appearance-meta">
+<span>📅 ${item.date}</span>
+<span class="price">${item.price || '-'}</span>
+</div>
+${item.dyes ? `<div class="color-display">${item.dyes.slice(0,5).map(c=>`<div class="color-swatch" style="background:${c}"></div>`).join('')}</div>` : ''}
+</div>
+`;
+grid.appendChild(card);
+});
+}
+}
+
+// 打开弹窗
+function openModal(item) {
+document.getElementById('modal-title').textContent = item.name;
+document.getElementById('modal-img').textContent = item.icon;
+document.getElementById('modal-source').textContent = item.source || '-';
+document.getElementById('modal-price').textContent = item.price || '-';
+document.getElementById('modal-date').textContent = item.date || '-';
+document.getElementById('modal-feature').textContent = item.features || '-';
+
+const tags = document.getElementById('modal-tags');
+tags.innerHTML = `<span class="tag">${item.grade || ''}</span><span class="tag">${item.category}</span>`;
+
+// 染色
+const dyeSection = document.getElementById('dye-section');
+if (item.dyes && item.dyes.length > 0) {
+dyeSection.style.display = 'block';
+document.getElementById('modal-dyes').innerHTML = item.dyes.map(c => `<div class="modal-color" style="background:${c}" title="${c}"></div>`).join('');
+} else {
+dyeSection.style.display = 'none';
+}
+
+document.getElementById('appearance-modal').classList.add('active');
+}
+
+function closeModal() {
+document.getElementById('appearance-modal').classList.remove('active');
+}
+
+// 初始渲染
+renderData();
+</script>
+</body>
+</html>

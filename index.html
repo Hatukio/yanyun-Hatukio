@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>燕云十六声 | 权威资料站</title>
+<style>
+:root{--primary:#0a0a12;--secondary:#12121f;--accent:#c9a227;--accent-gold:#d4af37;--text:#e8e8e8;--text-muted:#8a8a9a;--bg:#08080d;--card-bg:#14141f;--border:#2a2a3a;--gradient-gold:linear-gradient(135deg,#d4af37 0%,#ffd700 100%)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
+a{text-decoration:none;color:inherit}
+.container{max-width:1300px;margin:0 auto;padding:0 24px}
+.navbar{position:fixed;top:0;left:0;right:0;height:70px;background:rgba(8,8,13,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.1);z-index:1000}
+.nav-container{max-width:1300px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{font-size:32px}
+.logo-text{font-size:24px;font-weight:800;background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.logo-sub{font-size:12px;color:var(--text-muted);padding:4px 8px;background:rgba(212,175,55,0.1);border-radius:4px}
+.nav-menu{display:flex;gap:8px;list-style:none}
+.nav-menu a{padding:10px 16px;font-size:14px;color:var(--text-muted);border-radius:8px;transition:all 0.3s;cursor:pointer}
+.nav-menu a:hover,.nav-menu a.active{color:var(--accent-gold);background:rgba(212,175,55,0.1)}
+.mobile-menu-btn{display:none;background:none;border:none;color:var(--text);font-size:28px;cursor:pointer}
+.section{display:none;min-height:100vh;padding-top:70px}
+.section.active{display:block;animation:fadeIn 0.4s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero{position:relative;padding:100px 0 80px;background:linear-gradient(180deg,#0a0a12,#14141f);text-align:center}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 20%,rgba(212,175,55,0.08),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(139,0,0,0.08),transparent 50%)}
+.hero-content{position:relative;z-index:1}
+.hero-badge{display:inline-block;padding:8px 20px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);border-radius:30px;font-size:13px;color:var(--accent-gold);margin-bottom:24px}
+.hero h1{font-size:72px;font-weight:900;letter-spacing:8px;background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.hero .subtitle{font-size:22px;letter-spacing:12px;color:var(--accent-gold);margin-bottom:16px}
+.hero .description{font-size:18px;color:var(--text-muted);margin-bottom:24px}
+.hero-info{display:flex;justify-content:center;gap:32px;margin-bottom:48px;flex-wrap:wrap;font-size:14px;color:var(--text-muted)}
+.hero-stats{display:flex;justify-content:center;gap:60px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-number{display:block;font-size:56px;font-weight:800;color:var(--accent-gold);line-height:1;margin-bottom:8px}
+.stat-label{font-size:14px;color:var(--text-muted);text-transform:uppercase;letter-spacing:2px}
+.quick-links,.section-block{padding:60px 0}
+.links-header,.section-header{text-align:center;margin-bottom:40px}
+.links-header h2,.section-header h2{font-size:32px;margin-bottom:12px}
+.links-header p,.section-header p{color:var(--text-muted)}
+.links-grid,.fashion-grid,.martial-grid,.news-grid,.areas-grid,.qishu-grid,.combo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.link-card,.fashion-card,.martial-card,.gameplay-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:28px;text-align:center;cursor:pointer;transition:all 0.3s}
+.link-card:hover,.fashion-card:hover,.martial-card:hover,.gameplay-card:hover{transform:translateY(-6px);border-color:var(--accent-gold);box-shadow:0 20px 40px rgba(212,175,55,0.15)}
+.link-icon,.martial-icon,.gameplay-icon{font-size:42px;display:block;margin-bottom:14px}
+.link-title,.martial-card h3,.gameplay-card h3{display:block;font-size:17px;font-weight:600;color:var(--text);margin-bottom:6px}
+.link-desc,.martial-card p,.gameplay-card p{font-size:13px;color:var(--text-muted)}
+.fashion-img{height:140px;position:relative;background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:16px 16px 0 0;display:flex;align-items:flex-start;justify-content:flex-end;padding:12px}
+.fashion-tag{position:absolute;top:12px;right:12px;padding:4px 12px;background:rgba(0,0,0,0.6);border-radius:20px;font-size:12px;color:white}
+.fashion-tag.hot{background:#8b0000}
+.fashion-info{padding:16px}
+.fashion-info h3{font-size:16px;color:var(--accent-gold);margin-bottom:6px}
+.fashion-info p{font-size:13px;color:var(--text-muted)}
+.page-header{text-align:center;padding:60px 0 40px}
+.section-title{font-size:42px;font-weight:800;background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.section-desc{color:var(--text-muted)}
+.filter-bar,.martial-tabs,.video-tabs,.category-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;padding:16px;background:var(--card-bg);border-radius:12px;border:1px solid var(--border)}
+.filter-btn,.tab-btn{padding:10px 20px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--text-muted);font-size:14px;cursor:pointer;transition:all 0.3s}
+.filter-btn:hover,.filter-btn.active,.tab-btn:hover,.tab-btn.active{background:var(--accent-gold);border-color:var(--accent-gold);color:var(--primary)}
+.fashion-group,.martial-tab,.video-tab,.guide-tab{display:none;margin-bottom:60px}
+.fashion-group.active,.martial-tab.active,.video-tab.active,.guide-tab.active{display:block}
+.fashion-group h2{font-size:26px;margin-bottom:12px}
+.fashion-group .group-desc{font-size:15px;color:var(--text-muted);margin-bottom:24px}
+.fashion-item{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s}
+.fashion-item:hover{border-color:var(--accent-gold);transform:translateY(-4px)}
+.fashion-visual{height:160px;position:relative}
+.fashion-badge{position:absolute;top:12px;right:12px;padding:5px 14px;background:rgba(0,0,0,0.7);border-radius:20px;font-size:12px;color:white}
+.fashion-detail{padding:20px}
+.fashion-detail h3{font-size:20px;color:var(--accent-gold);margin-bottom:10px}
+.fashion-detail p{font-size:14px;color:var(--text-muted);margin-bottom:14px}
+.fashion-meta{display:flex;flex-direction:column;gap:6px;font-size:13px}
+.weapon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.weapon-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:32px 24px;text-align:center;transition:all 0.3s}
+.weapon-card:hover{border-color:var(--accent-gold);transform:translateY(-4px)}
+.weapon-icon{font-size:48px;margin-bottom:16px}
+.weapon-card h3{font-size:20px;margin-bottom:8px}
+.weapon-card>p{font-size:14px;color:var(--text-muted);margin-bottom:14px}
+.martial-tag{display:inline-block;padding:4px 12px;background:rgba(212,175,55,0.15);color:var(--accent-gold);border-radius:20px;font-size:12px;font-weight:600}
+.qishu-rank{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:40px}
+.qishu-rank h3{font-size:20px;margin-bottom:20px}
+.rank-list{display:flex;flex-direction:column;gap:12px}
+.rank-item{display:flex;align-items:center;gap:16px;padding:14px 18px;background:rgba(212,175,55,0.05);border-radius:10px}
+.rank-item.top1{background:rgba(212,175,55,0.15);border:1px solid var(--accent-gold)}
+.rank-num{font-size:16px;width:30px}
+.rank-name{flex:1;font-size:15px}
+.rank-dmg{font-size:14px;color:var(--accent-gold);font-weight:600}
+.qishu-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:24px}
+.qishu-card h4{font-size:18px;color:var(--accent-gold);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.qishu-card ul{list-style:none}
+.qishu-card li{font-size:14px;color:var(--text-muted);padding:8px 0;border-bottom:1px solid var(--border)}
+.qishu-card li strong{color:var(--text)}
+.combo-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:24px}
+.combo-card h4{font-size:18px;margin-bottom:10px}
+.combo-card>p{font-size:14px;color:var(--text-muted);margin-bottom:14px}
+.news-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all 0.3s}
+.news-card:hover{border-color:var(--accent-gold)}
+.news-date{font-size:13px;color:var(--accent-gold);margin-bottom:8px}
+.news-card h3{font-size:17px;margin-bottom:8px}
+.news-card p{font-size:14px;color:var(--text-muted);margin-bottom:12px}
+.news-card .news-tag{display:inline-block;padding:3px 10px;background:rgba(212,175,55,0.15);color:var(--accent-gold);border-radius:12px;font-size:12px}
+.story-intro{background:var(--card-bg);border:1px solid var(--border);border-radius:20px;padding:40px;margin-bottom:50px;text-align:center}
+.story-intro h2{font-size:28px;margin-bottom:20px}
+.story-intro>p{font-size:18px;line-height:1.9;color:var(--text-muted);max-width:800px;margin:0 auto 24px}
+.story-tags{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.story-tag{padding:8px 20px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);border-radius:20px;font-size:14px;color:var(--accent-gold)}
+.area-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:28px;text-align:center;transition:all 0.3s}
+.area-card:hover{border-color:var(--accent-gold)}
+.area-icon{font-size:40px;margin-bottom:14px}
+.area-card h3{font-size:18px;margin-bottom:8px}
+.area-card p{font-size:14px;color:var(--text-muted)}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.video-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s}
+.video-card:hover{border-color:var(--accent-gold);transform:translateY(-4px)}
+.video-placeholder{height:180px;background:linear-gradient(135deg,#1a1a3e,#2a2a5e);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.play-icon{width:60px;height:60px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px}
+.video-card h3{font-size:16px;padding:16px 16px 8px}
+.video-card>p{font-size:13px;color:var(--text-muted);padding:0 16px 16px}
+.news-list-full{display:flex;flex-direction:column;gap:16px}
+.news-item-full{display:flex;gap:20px;background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all 0.3s}
+.news-item-full:hover{border-color:var(--accent-gold)}
+.news-date-badge{min-width:70px;text-align:center;padding:12px;background:rgba(212,175,55,0.1);border-radius:12px}
+.news-day{display:block;font-size:28px;font-weight:700;color:var(--accent-gold);line-height:1}
+.news-month{font-size:12px;color:var(--text-muted)}
+.news-body{flex:1}
+.news-body .news-tag{display:inline-block;padding:4px 12px;background:rgba(212,175,55,0.15);color:var(--accent-gold);border-radius:12px;font-size:12px;margin-bottom:10px}
+.news-body h3{font-size:18px;margin-bottom:8px}
+.news-body p{font-size:14px;color:var(--text-muted)}
+.tools-showcase{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:50px}
+.tool-box{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:32px 24px;text-align:center;cursor:pointer;transition:all 0.3s}
+.tool-box:hover{border-color:var(--accent-gold);transform:translateY(-4px)}
+.tool-box span{font-size:42px;display:block;margin-bottom:14px}
+.tool-box h3{font-size:17px;margin-bottom:8px}
+.tool-box p{font-size:14px;color:var(--text-muted)}
+.tool-modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.tool-modal.active{display:flex}
+.tool-modal-content{background:var(--card-bg);border:1px solid var(--border);border-radius:24px;padding:40px;max-width:500px;width:100%;position:relative;max-height:85vh;overflow-y:auto}
+.close-btn{position:absolute;top:20px;right:24px;font-size:32px;color:var(--text-muted);cursor:pointer}
+.close-btn:hover{color:#8b0000}
+.tool-modal-content h2{font-size:24px;color:var(--accent-gold);margin-bottom:24px;text-align:center}
+.sim-preview-area{background:var(--bg);border-radius:16px;padding:40px;text-align:center;margin-bottom:24px}
+.sim-character{font-size:80px;margin-bottom:16px}
+.sim-result{font-size:16px;color:var(--text-muted)}
+.sim-controls{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.sim-controls select,.calc-form input,.calc-form select{padding:14px;background:var(--bg);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:15px;width:100%}
+.sim-btn{width:100%;padding:16px;background:var(--accent-gold);border:none;border-radius:10px;color:var(--primary);font-size:16px;font-weight:600;cursor:pointer}
+.calc-form{display:flex;flex-direction:column;gap:16px;margin-bottom:24px}
+.calc-form label{font-size:14px;color:var(--text-muted)}
+.calc-form button{padding:16px;background:var(--accent-gold);border:none;border-radius:10px;color:var(--primary);font-size:16px;font-weight:600;cursor:pointer;width:100%}
+.calc-result-area{background:var(--bg);border-radius:16px;padding:24px;text-align:center}
+.calc-result-area p{color:var(--text-muted);font-size:15px}
+.calc-result-area .price{font-size:36px;color:var(--accent-gold);font-weight:700;margin-top:12px}
+footer{background:var(--secondary);padding:50px 0;margin-top:80px;border-top:1px solid var(--border)}
+.footer-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:30px}
+.footer-brand{display:flex;align-items:center;gap:16px}
+.footer-brand span{font-size:40px}
+.footer-brand h3{font-size:20px;margin-bottom:6px}
+.footer-brand p{font-size:14px;color:var(--text-muted)}
+.footer-links{text-align:right}
+.footer-links p{font-size:14px;color:var(--text-muted);margin-bottom:6px}
+.copyright{margin-top:12px;opacity:0.7}
+.keyboard-section{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:30px}
+.keyboard-section h3{font-size:20px;color:var(--accent-gold);margin-bottom:16px}
+.key-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.key-item{display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg);border-radius:8px}
+.key{display:inline-block;padding:4px 10px;background:var(--border);border-radius:4px;font-size:12px;font-weight:600;color:var(--accent-gold)}
+.key-desc{font-size:13px;color:var(--text-muted)}
+.mechanic-section{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:20px}
+.mechanic-section h3{font-size:20px;color:var(--accent-gold);margin-bottom:16px}
+.mechanic-section p{font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:12px}
+.mechanic-section strong{color:var(--accent-gold)}
+.faction-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:30px}
+.faction-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center}
+.faction-card h4{font-size:18px;color:var(--accent-gold);margin-bottom:10px}
+.faction-card p{font-size:14px;color:var(--text-muted)}
+@media(max-width:1024px){.links-grid,.fashion-grid,.martial-grid,.qishu-grid,.combo-grid,.areas-grid{grid-template-columns:repeat(2,1fr)}.weapon-grid,.video-grid,.tools-showcase{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.nav-menu{display:none;position:absolute;top:70px;left:0;right:0;background:var(--bg);flex-direction:column;padding:20px;gap:4px;border-bottom:1px solid var(--border)}.nav-menu.active{display:flex}.mobile-menu-btn{display:block}.hero h1{font-size:42px;letter-spacing:4px}.hero .subtitle{font-size:16px;letter-spacing:6px}.hero-stats{gap:30px}.stat-number{font-size:40px}.links-grid,.fashion-grid,.martial-grid,.news-grid,.areas-grid,.weapon-grid,.video-grid,.tools-showcase,.faction-grid,.key-grid{grid-template-columns:1fr}.hero-info{flex-direction:column;gap:12px}.footer-content{flex-direction:column;text-align:center}.footer-links{text-align:center}.section-title{font-size:32px}.news-item-full{flex-direction:column}}
+</style>
+</head>
+<body>
+<nav class="navbar"><div class="nav-container"><a href="#" class="logo" onclick="showSection('home')"><span class="logo-icon">🏮</span><span class="logo-text">燕云十六声</span><span class="logo-sub">权威资料站</span></a><ul class="nav-menu"><li><a onclick="showSection('home')" class="active" data-section="home">首页</a></li><li><a onclick="showSection('fashion')" data-section="fashion">时装</a></li><li><a onclick="showSection('martial')" data-section="martial">武学</a></li><li><a onclick="showSection('gameplay')" data-section="gameplay">玩法</a></li><li><a onclick="showSection('guide')" data-section="guide">攻略</a></li><li><a onclick="showSection('story')" data-section="story">剧情</a></li><li><a onclick="showSection('news')" data-section="news">资讯</a></li><li><a onclick="showSection('tools')" data-section="tools">工具</a></li></ul><button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button></div></nav>
+
+<section id="home" class="section active">
+<div class="hero"><div class="hero-content"><div class="hero-badge">粉丝自发整理 · 持续更新</div><h1>燕云十六声</h1><p class="subtitle">WHERE WINDS MEET</p><p class="description">开放世界武侠动作角色扮演游戏</p><div class="hero-info"><span>🎮 网易游戏 EVERTONE</span><span>📅 公测 2024.12.27</span><span>🌐 PC/iOS/Android/PS5/Steam</span><span>⚙️ 引擎: Messiah</span></div><div class="hero-stats"><div class="stat-item"><span class="stat-number">4</span><span class="stat-label">大区域</span></div><div class="stat-item"><span class="stat-number">43</span><span class="stat-label">奇术</span></div><div class="stat-item"><span class="stat-number">30+</span><span class="stat-label">时装</span></div><div class="stat-item"><span class="stat-number">8</span><span class="stat-label">门派</span></div></div></div></div>
+<div class="container">
+<div class="quick-links"><div class="links-header"><h2>快速导航</h2><p>全方位了解燕云十六声</p></div><div class="links-grid"><div class="link-card" onclick="showSection('fashion')"><span class="link-icon">👘</span><span class="link-title">时装系统</span><span class="link-desc">聆音/和鸣/商城/战令</span></div><div class="link-card" onclick="showSection('martial')"><span class="link-icon">⚔️</span><span class="link-title">武学系统</span><span class="link-desc">43种奇术/武器/战斗</span></div><div class="link-card" onclick="showSection('gameplay')"><span class="link-icon">🎮</span><span class="link-title">玩法系统</span><span class="link-desc">战斗/探索/操作</span></div><div class="link-card" onclick="showSection('guide')"><span class="link-icon">📖</span><span class="link-title">攻略大全</span><span class="link-desc">新手/进阶/高玩</span></div><div class="link-card" onclick="showSection('story')"><span class="link-icon">📜</span><span class="link-title">剧情背景</span><span class="link-desc">五代十国/门派</span></div><div class="link-card" onclick="showSection('news')"><span class="link-icon">📰</span><span class="link-title">版本timeline</span><span class="link-desc">更新历史</span></div><div class="link-card" onclick="showSection('tools')"><span class="link-icon">🔧</span><span class="link-title">实用工具</span><span class="link-desc">计算器/模拟器</span></div></div></div>
+<div class="section-block"><div class="section-header"><h2>🔥 热门时装</h2></div><div class="fashion-grid" style="grid-template-columns:repeat(3,1fr)"><div class="fashion-card"><div class="fashion-img" style="background:linear-gradient(135deg,#8B0000,#FF4500)"><span class="fashion-tag hot">聆音顶奢</span></div><div class="fashion-info"><h3>沧海龙吟</h3><p>白龙主题 · 可交易绝世外观 · 2025新春</p></div></div><div class="fashion-card"><div class="fashion-img" style="background:linear-gradient(135deg,#4B0082,#FF00FF)"><span class="fashion-tag">聆音</span></div><div class="fashion-info"><h3>龙腾岁宴</h3><p>支持裁造/龙战于野款式 · 2026新春</p></div></div><div class="fashion-card"><div class="fashion-img" style="background:linear-gradient(135deg,#191970,#4169E1)"><span class="fashion-tag">和鸣</span></div><div class="fashion-info"><h3>莲渡幽罗</h3><p>附结算演出/动态头像 · 2026.2.27</p></div></div></div></div>
+<div class="section-block"><div class="section-header"><h2>⚔️ 强力奇术 TOP5</h2></div><div class="martial-grid"><div class="martial-card"><div class="martial-icon">🔥</div><h3>神龙吐火+太白醉月</h3><p>3989%倍率 · PVE爆发最高</p><span class="martial-tag">T0</span></div><div class="martial-card"><div class="martial-icon">🐉</div><h3>骑龙回马</h3><p>668%伤害+15%气血爆发</p><span class="martial-tag">T0</span></div><div class="martial-card"><div class="martial-icon">🐕</div><h3>狗嘴夺食</h3><p>单体爆发+强控</p><span class="martial-tag">T1</span></div><div class="martial-card"><div class="martial-icon">🎵</div><h3>箫吟千浪</h3><p>群体攻击+12秒20%增伤</p><span class="martial-tag">T1</span></div></div></div>
+</div></section>
+
+<section id="fashion" class="section">
+<div class="container"><div class="page-header"><h1 class="section-title">时装系统</h1><p class="section-desc">最全面的时装获取指南</p></div>
+<div class="filter-bar"><button class="filter-btn active" data-filter="all">全部</button><button class="filter-btn" data-filter="lingyin">聆音套装</button><button class="filter-btn" data-filter="heming">和鸣套装</button><button class="filter-btn" data-filter="shop">商城直售</button><button class="filter-btn" data-filter="zhanling">战令</button><button class="filter-btn" data-filter="fuyao">扶摇录</button></div>
+
+<div class="fashion-group active" data-category="lingyin"><h2>🎵 聆音套装（顶级限定）</h2><p class="group-desc">通过鸣瑞之音抽取，最顶级的时装系列</p><div class="fashion-grid">
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#1a1a2e,#16213e)"><span class="fashion-badge">2025新春</span></div><div class="fashion-detail"><h3>沧海龙吟</h3><p>月化五白龙，翻飞凌九天。九叠云霄上，飞出白浪起。贵客身着此衣，或可如苍龙出云入海，飞潜升降。</p><div class="fashion-meta"><span>📍 聆音春闹活动抽取</span><span>✨ 可交易绝世外观</span><span>💰 保底约6000+元</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#8B4513,#DAA520)"><span class="fashion-badge">2025新春</span></div><div class="fashion-detail"><h3>西极坠日</h3><p>金乌欲上海如血，翠色一点蓬莱光。西天之极，金乌坠落。楼兰遗梦，生彼月窟。</p><div class="fashion-meta"><span>📍 聆音春闹活动抽取</span><span>✨ 敦煌风格</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#2F4F4F,#00CED1)"><span class="fashion-badge">2025暑期</span></div><div class="fashion-detail"><h3>天上白玉京</h3><p>天上白玉京，十二楼五城</p><div class="fashion-meta"><span>📍 聆音活动</span><span>✨ 高阶外观</span><span>💰 保底约7553元</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#4B0082,#FF00FF)"><span class="fashion-badge">2026新春</span></div><div class="fashion-detail"><h3>龙腾岁宴</h3><p>龙腾云起，岁宴春归。红色衣袍如烈焰，肩部装饰神龙，配备龙角面饰。支持裁造功能可切换为"龙战于野"款式，附带异瞳妆容。</p><div class="fashion-meta"><span>📍 聆音响岁活动</span><span>✨ 支持裁造</span><span>👤 附带异瞳妆容</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#228B22,#7FFFD4)"><span class="fashion-badge">2026新春</span></div><div class="fashion-detail"><h3>鸣鹿寻春</h3><p>丹霞底色配以石绿点染，袖摆间跃动的鹿影仿佛穿越千年而来。设计灵感源自敦煌壁画中的神鹿。</p><div class="fashion-meta"><span>📍 聆音响岁活动</span><span>✨ 敦煌神韵</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#8B0000,#FFD700)"><span class="fashion-badge">2025暑期</span></div><div class="fashion-detail"><h3>将星入命</h3><p>将星入命，气势如虹</p><div class="fashion-meta"><span>📍 聆音活动</span><span>✨ 武将主题</span></div></div></div>
+</div></div>
+
+<div class="fashion-group" data-category="heming"><h2>🎶 和鸣套装（八音窍）</h2><p class="group-desc">通过八音窍在和鸣商店获取，支持上下装拆分、染色</p><div class="fashion-grid">
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#191970,#4169E1)"><span class="fashion-badge">和鸣</span></div><div class="fashion-detail"><h3>莲渡幽罗</h3><p>清辉渡莲魂归去，蒿里幽罗命无寻。取意自忘川河畔的接引之莲</p><div class="fashion-meta"><span>📍 2个八音窍或抽奖</span><span>✨ 上下装拆分/染色/裁造</span><span>🎬 附结算演出+动态头像</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#006400,#00FF7F)"><span class="fashion-badge">和鸣</span></div><div class="fashion-detail"><h3>青鸾瑶音</h3><p>杳渺蓬山远，翩然衔书去。凭风渡云海，万里传佳音。取青鸟神形</p><div class="fashion-meta"><span>📍 2个八音窍</span><span>✨ 支持发型染色</span><span>👑 附头冠/特效发饰/耳饰</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#8B0000,#FF6347)"><span class="fashion-badge">性价比</span></div><div class="fashion-detail"><h3>丹雀</h3><p>6元封神时装，丹红色如朝霞映照下的鹤羽</p><div class="fashion-meta"><span>💰 6元</span><span>✨ 支持染色</span><span>🏆 性价比之王</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#4B0082,#9370DB)"><span class="fashion-badge">转盘</span></div><div class="fashion-detail"><h3>瑞鹤仙</h3><p>仙鹤主题时装</p><div class="fashion-meta"><span>📍 五一/国庆转盘</span><span>✨ 节日限定</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#2F4F4F,#90EE90)"><span class="fashion-badge">转盘</span></div><div class="fashion-detail"><h3>醉蓬莱</h3><p>醉酒仙人主题</p><div class="fashion-meta"><span>📍 五一/国庆转盘</span><span>✨ 节日限定</span></div></div></div>
+</div></div>
+
+<div class="fashion-group" data-category="shop"><h2>🏪 商城直售/活动</h2><p class="group-desc">商店直接购买的长鸣珠时装</p><div class="fashion-grid">
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#E6E6FA,#B0C4DE)"><span class="fashion-badge">直售</span></div><div class="fashion-detail"><h3>明河载雪</h3><p>月白晕染淡紫基底，袖口植入冰晶银雪特效</p><div class="fashion-meta"><span>💰 2580长鸣珠</span><span>✨ 上下装拆分/全件染色</span><span>📌 丐版瑞鹤仙</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#DC143C,#FFD700)"><span class="fashion-badge">直售</span></div><div class="fashion-detail"><h3>马上有乾</h3><p>寓意"马上有钱"，充满新春气息</p><div class="fashion-meta"><span>💰 1280长鸣珠(活动价)</span><span>✨ 上下装拆分/染色</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#9370DB,#E6E6FA)"><span class="fashion-badge">花间十二客</span></div><div class="fashion-detail"><h3>探梅逢春</h3><p>襟袖余芳缕，犹记此清欢。梅魂牵客梦，客意寄梅边。素白衣袍拟白雪纷纷，红梅在白缎上漫展</p><div class="fashion-meta"><span>💰 2580长鸣珠</span><span>✨ 梅花主题/上下装拆分/染色</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#FF69B4,#FFDAB9)"><span class="fashion-badge">花间十二客</span></div><div class="fashion-detail"><h3>宿露轻盈</h3><p>以"芳菲之首"牡丹为设计灵感。异香开玉合，轻粉泥银盘。晓贮露华湿，宵倾月魄寒</p><div class="fashion-meta"><span>💰 2580长鸣珠</span><span>✨ 牡丹主题/首发套装</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#FFD700,#FFA500)"><span class="fashion-badge">元宵</span></div><div class="fashion-detail"><h3>锦鳞送瑞</h3><p>锦鳞衔宝向人间，千灯如昼映月圆</p><div class="fashion-meta"><span>💰 2580长鸣珠</span><span>✨ 元宵纪念/上下装拆分/染色</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#708090,#B0C4DE)"><span class="fashion-badge">商城</span></div><div class="fashion-detail"><h3>万壑清响</h3><p>青衿列坐，群山初醒。衣间隐染青嶂叠翠、烟水微茫</p><div class="fashion-meta"><span>💰 300长鸣珠(限时折扣)</span><span>✨ 书院文人风格</span></div></div></div>
+</div></div>
+
+<div class="fashion-group" data-category="zhanling"><h2>⚔️ 战令套装</h2><p class="group-desc">购买战斗通行证解锁</p><div class="fashion-grid">
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#F0F8FF,#B0C4DE)"><span class="fashion-badge">战令</span></div><div class="fashion-detail"><h3>青锋映雪</h3><p>素白的衣袍上点缀着锈金流光，下摆的铜绿晕染仿佛诉说着江湖的风霜。肩头的素白毛领点睛之笔</p><div class="fashion-meta"><span>📍 精英战令</span><span>✨ 雪山剑客风格</span><span>🎁 典藏战令送置景/聊天气泡</span></div></div></div>
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#696969,#B8860B)"><span class="fashion-badge">战令</span></div><div class="fashion-detail"><h3>赤心一寸</h3><p>一袭征袍，犹带凉州霜雪、塞上风沙。以深灰为底，以赤金点缀，纹样兼具中原审美与西域特色</p><div class="fashion-meta"><span>💰 6元精英贺仪</span><span>✨ 河西英雄主题</span></div></div></div>
+</div></div>
+
+<div class="fashion-group" data-category="fuyao"><h2>📈 扶摇录套装</h2><p class="group-desc">提升扶摇录等级获取的成长型时装</p><div class="fashion-grid">
+<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#2F2F2F,#4A4A4A)"><span class="fashion-badge">扶摇录</span></div><div class="fashion-detail"><h3>丹渊寰宇</h3><p>以玄色为主调，胸前的玄豹纹饰凝神欲扑，肩侧垂泻的兽羽狂野不驯。身侧佩戴的苗刀暗藏幽光</p><div class="fashion-meta"><span>📍 扶摇录等级提升</span><span>✨ 上衣和腰饰支持裁造</span><span>🔄 可变身为"霄晖驭影"</span></div></div></div>
+</div></div>
+</div></section>
+
+<section id="martial" class="section">
+<div class="container"><div class="page-header"><h1 class="section-title">武学系统</h1><p class="section-desc">武器、奇术、武学流派完全指南</p></div>
+<div class="martial-tabs"><button class="tab-btn active" onclick="showTab('weapon')">武器</button><button class="tab-btn" onclick="showTab('qishu')">奇术</button><button class="tab-btn" onclick="showTab('keyboard')">操作按键</button></div>
+
+<div id="weapon" class="martial-tab active"><h2 style="margin-bottom:24px">🗡️ 武器类型</h2><div class="weapon-grid"><div class="weapon-card"><div class="weapon-icon">⚔️</div><h3>剑</h3><p>轻灵飘逸，剑走轻灵</p><span class="martial-tag">速度型</span></div><div class="weapon-card"><div class="weapon-icon">🗡️</div><h3>刀</h3><p>刚猛有力，刀法威猛</p><span class="martial-tag">力量型</span></div><div class="weapon-card"><div class="weapon-icon">🔱</div><h3>枪</h3><p>长兵之王，枪出如龙</p><span class="martial-tag">范围型</span></div><div class="weapon-card"><div class="weapon-icon">🪓</div><h3>斧</h3><p>大开大合，势大力沉</p><span class="martial-tag">力量型</span></div><div class="weapon-card"><div class="weapon-icon">🥊</div><h3>拳</h3><p>刚柔并济，拳法多变</p><span class="martial-tag">技巧型</span></div><div class="weapon-card"><div class="weapon-icon">🎋</div><h3>暗器</h3><p>出其不意，攻其不备</p><span class="martial-tag">远程型</span></div></div></div>
+
+<div id="qishu" class="martial-tab">
+<div class="qishu-rank"><h3>📊 奇术伤害排行榜 TOP4</h3><div class="rank-list"><div class="rank-item top1"><span class="rank-num">🥇</span><span class="rank-name">神龙吐火 + 太白醉月组合</span><span class="rank-dmg">3989.4% 倍率</span></div><div class="rank-item"><span class="rank-num">🥈</span><span class="rank-name">骑龙回马</span><span class="rank-dmg">668.69% 倍率</span></div><div class="rank-item"><span class="rank-num">🥉</span><span class="rank-name">狗嘴夺食</span><span class="rank-dmg">640.2% 倍率</span></div><div class="rank-item"><span class="rank-num">4</span><span class="rank-name">叶龙骧首</span><span class="rank-dmg">最强群体输出</span></div></div></div>
+<div class="qishu-grid">
+<div class="qishu-card"><h4>🗺️ 清河地区 (17种)</h4><ul><li><strong>太极</strong> - 搬运宝箱/清扫落叶</li><li><strong>金玉手</strong> - 点穴技能</li><li><strong>摄星拿月</strong> - 偷师模仿</li><li><strong>凌云踏</strong> - 轻功飞跃</li><li><strong>狮吼正声</strong> - 声波攻击</li><li><strong>金蟾腾跃</strong> - 跃起反击</li><li><strong>红尘障目</strong> - 迷雾失明</li><li><strong>鹰爪连凿</strong> - 破防</li><li><strong>荧光晖夜</strong> - 照明</li><li><strong>杳无形</strong> - 隐身</li><li><strong>凌虚一指</strong> - 1900%背刺</li><li><strong>韦陀正法</strong> - 范围击倒</li><li><strong>流星坠火</strong> - 高伤害</li><li><strong>药叉破魔</strong> - 强力技能</li><li><strong>自在无碍</strong> - 强力技能</li><li><strong>万钧坠</strong> - 下击</li><li><strong>缩骨功</strong> - 缩小穿狭窄通道</li></ul></div>
+<div class="qishu-card"><h4>🏯 开封地区 (6种)</h4><ul><li><strong>百鬼打穴手</strong> - 五目标穿梭定身</li><li><strong>狗嘴夺食</strong> - 单体强控</li><li><strong>骑龙回马</strong> - 突进爆发</li><li><strong>神龙吐火</strong> - 喷火攻击</li><li><strong>无相金身</strong> - 护盾减伤</li><li><strong>阴阳迷踪步</strong> - 隐身移动</li></ul></div>
+<div class="qishu-card"><h4>🏜️ 河西地区 (1种)</h4><ul><li><strong>箫吟千浪</strong> - 远程群体+20%增伤<br/>可自定义战斗BGM</li></ul></div>
+<div class="qishu-card"><h4>⭐ 特殊/活动 (8种)</h4><ul><li><strong>太白醉月</strong> - 假醉状态856%</li><li><strong>叶龙骧首</strong> - 全部精元最强群体</li><li><strong>停渊止水</strong> - 特殊技能</li><li><strong>一剑千里</strong> - 活动奖励</li><li><strong>冯虚御风</strong> - 轻功</li><li><strong>飞檐·步仞</strong> - 蹊跷轻功</li><li><strong>飞檐·逐影</strong> - 蹊跷轻功</li><li><strong>玉扇游山</strong> - 特殊轻功</li><li><strong>飒沓流星</strong> - 快速位移</li></ul></div></div>
+<div class="combo-grid"><div class="combo-card"><h4>🔥 爆发输出</h4><p>太白醉月 + 神龙吐火</p><span class="martial-tag">PVE最高爆发</span></div><div class="combo-card"><h4>🔄 循环清怪</h4><p>箫吟千浪 + 百鬼/衍九矢</span></div><div class="combo-card"><h4>⚡ 快速位移</h4><p>凌云踏 + 飒沓流星</p><span class="martial-tag">探索必备</span></div><div class="combo-card"><h4>🛡️ 生存保命</h4><p>无相金身 + 杳无形</p><span class="martial-tag">PVP生存</span></div></div>
+</div>
+
+<div id="keyboard" class="martial-tab">
+<div class="keyboard-section"><h3>⌨️ PC端默认按键</h3><div class="key-grid"><div class="key-item"><span class="key">WASD</span><span class="key-desc">移动</span></div><div class="key-item"><span class="key">空格</span><span class="key-desc">跳跃</span></div><div class="key-item"><span class="key">Shift</span><span class="key-desc">疾跑/闪避</span></div><div class="key-item"><span class="key">鼠标左键</span><span class="key-desc">轻击</span></div><div class="key-item"><span class="key">鼠标右键</span><span class="key-desc">防御</span></div><div class="key-item"><span class="key">E</span><span class="key-desc">卸势</span></div><div class="key-item"><span class="key">R</span><span class="key-desc">重击</span></div><div class="key-item"><span class="key">Q</span><span class="key-desc">武学技</span></div><div class="key-item"><span class="key">~</span><span class="key-desc">特殊技</span></div><div class="key-item"><span class="key">Tab</span><span class="key-desc">易武技</span></div><div class="key-item"><span class="key">1-4</span><span class="key-desc">奇术(第一页)</span></div><div class="key-item"><span class="key">Alt+1-4</span><span class="key-desc">奇术(第二页)</span></div></div></div>
+<div class="mechanic-section"><h3>⚔️ 战斗核心机制</h3><p><strong>卸势：</strong>在敌人攻击命中前使用可拆招化解。连续卸势可大幅削减敌人真气。红光攻击为投技，卸势成功消耗大量金光攻击无法卸势，只能闪避和走位。</p><p><strong>处决：</strong>当敌人真气被打空，屏幕出现黄色菱形"F"互动框时，按F处决。技巧：先继续输出，在处决倒计时即将结束瞬间再处决，实现DPS最大化。</p></div>
+</div></div></section>
+
+<section id="gameplay" class="section">
+<div class="container"><div class="page-header"><h1 class="section-title">玩法系统</h1><p class="section-desc">战斗、探索、休闲玩法全攻略</p></div>
+<div class="links-grid" style="grid-template-columns:repeat(4,1fr)"><div class="gameplay-card"><div class="gameplay-icon">⚔️</div><h3>战斗玩法</h3><p>据点挑战/世界BOSS/镇守/侠迹/PVP</p></div><div class="gameplay-card"><div class="gameplay-icon">🗺️</div><h3>探索玩法</h3><p>十六州探索/解谜/宝箱/成就/扶摇录</p></div><div class="gameplay-card"><div class="gameplay-icon">🎭</div><h3>休闲玩法</h3><p>投壶/叶子戏/红炉雅集/琴戏/弈棋</p></div><div class="gameplay-card"><div class="gameplay-icon">👥</div><h3>社交玩法</h3><p>多人副本/帮会/结义师徒/交易行</p></div></div>
+</div></section>
+
+<section id="guide" class="section">
+<div class="container"><div class="page-header"><h1 class="section-title">攻略大全</h1><p class="section-desc">新手入门到高玩进阶</p></div>
+<div class="category-tabs"><button class="tab-btn active" onclick="showTab('newbie')">新手入门</button><button class="tab-btn" onclick="showTab('advance')">进阶攻略</button></div>
+<div id="newbie" class="guide-tab active"><div class="links-grid"><div class="link-card"><span class="link-icon">📖</span><span class="link-title">新手入门指南</span><span class="link-desc">从创建角色到击败第一个Boss</span></div><div class="link-card"><span class="link-icon">⚔️</span><span class="link-title">武学获取攻略</span><span class="link-desc">全43种奇术获取方式</span></div><div class="link-card"><span class="link-icon">👘</span><span class="link-title">时装系统指南</span><span class="link-desc">各类型时装获取与性价比</span></div><div class="link-card"><span class="link-icon">💰</span><span class="link-title">货币资源详解</span><span class="link-desc">长鸣珠/八音窍获取</span></div></div></div>
+<div id="advance" class="guide-tab"><div class="links-grid"><div class="link-card"><span class="link-icon">🎯</span><span class="link-title">战斗系统解析</span><span class="link-desc">卸势/识破/TA机制</span></div><div class="link-card"><span class="link-icon">🏆</span><span class="link-title">最强奇术搭配</span><span class="link-desc">各流派组合与输出循环</span></div><div class="link-card"><span class="link-icon">👹</span><span class="link-title">镇守Boss攻略</span><span class="link-desc">各Boss机制与打法</span></div><div class="link-card"><span class="link-icon">🗺️</span><span class="link-title">探索度速刷</span><span class="link-desc">高效完成地区探索</span></div></div></div>
+</div></section>
+
+<section id="story" class="section">
+<div class="container"><div class="page-header"><h1 class="section-title">剧情背景</h1><p class="section-desc">五代十国的武侠史诗</p></div>
+<div class="story-intro"><h2>故事背景</h2><p>燕云十六声的故事发生在<strong>五代十国与宋代交替之时</strong>，这是一个战乱频繁、群雄并起的时代。玩家将扮演一名侠客，在燕云十六州展开自己的江湖冒险。</p><div class="story-tags"><span class="story-tag">五代十国</span><span class="story-tag">宋朝</span><span class="story-tag">武侠</span><span class="story-tag">开放世界</span><span class="story-tag">Messiah引擎</span></div></div>
+<div class="areas-grid"><div class="area-card"><div class="area-icon">🏞️</div><h3>清河</h3><p>新手区域<br/>竹林旧居所在地</p></div><div class="area-card"><div class="area-icon">🏯</div><h3>开封</h3><p>北宋都城<br/>繁华都市</p></div><div class="area-card"><div class="area-icon">🏜️</div><h3>河西</h3><p>丝绸之路<br/>玉门关/凉州/秦川</p></div><div class="area-card"><div class="area-icon">⛰️</div><h3>不见山</h3><p>神秘山区<br/>墨城/天径/滹沱</p></div></div>
+<div class="qishu-rank"><h3>🏯 八大流派</h3><div class="faction-grid"><div class="faction-card"><h4>九流门</h4><p>市井三教九流<br/>道德观念灵活</p></div><div class="faction-card"><h4>醉花阴</h4><p>开封樊楼歌舞乐伎<br/>以伞为兵器</p></div><div class="faction-card"><h4>天泉</h4><p>以公义为重<br/>使用陌刀</p></div><div class="faction-card"><h4>三更天</h4><p>门规和武学<br/>技能独特</p></div><div class="faction-card"><h4>青溪</h4><p>注重医术和辅助<br/>以扇子为武器</p></div><div class="faction-card"><h4>狂澜</h4><p>擅长水元素攻击<br/>长枪为武器</p></div><div class="faction-card"><h4>梨园</h4><p>将表演与<br/>武学结合</p></div><div class="faction-card"><h4>无门无派</h4><p>不受门规限制<br/>自由探索</p></div></div></div>
+<div class="mechanic-section"><h3>⚠️ 重要特点</h3><p><strong>武学不与门派绑定！</strong>全部武学可以偷师学习，玩家可以自由选择和切换门派，学习不同武学。</p></div>
+</div></section>
+
+<section id="news" class="section">
+<div class="container"><div class="page-header"><h1 class="section-title">版本时间线</h1><p class="section-desc">更新历史一览</p></div>
+<div class="news-list-full">
+<article class="news-item-full"><div class="news-date-badge"><span class="news-day">03</span><span class="news-month">2026-03</span></div><div class="news-body"><span class="news-tag">时装</span><h3>锦鳞送瑞上架</h3><p>元宵纪念套装，商店2580长鸣珠，支持上下装拆分和染色</p></div></article>
+<article class="news-item-full"><div class="news-date-badge"><span class="news-day">27</span><span class="news-month">2026-02</span></div><div class="news-body"><span class="news-tag">更新</span><h3>和鸣套装更新</h3><p>莲渡幽罗、青鸾瑶音、万壑清响上线</p></div></article>
+<article class="news-item-full"><div class="news-date-badge"><span class="news-day">13</span><span class="news-month">2026-02</span></div><div class="news-body"><span class="news-tag">时装</span><h3>探梅逢春上架</h3><p>花间十二客系列，商店2580长鸣珠</p></div></article>
+<article class="news-item-full"><div class="news-date-badge"><span class="news-day">06</span><span class="news-month">2026-02</span></div><div class="news-body"><span class="news-tag">新春</span><h3>聆音响岁开启</h3><p>龙腾岁宴、鸣鹿寻春、丹渊寰宇、青锋映雪上线</p></div></article>
+<article class="news-item-full"><div class="news-date-badge"><span class="news-day">23</span><span class="news-month">2026-01</span></div><div class="news-body"><span class="news-tag">时装</span><h3>明河载雪上架</h3><p>商店2580长鸣珠，被称为"丐版瑞鹤仙"</p></div></article>
+<article class="news-item-full"><div class="news-date-badge"><span class="news-day">09</span><span class="news-month">2026-01</span></div><div class="news-body"><span class="news-tag">周年</span><h3>移动端一周年</h3><p>【燕乐·共鸣时】周年特别演出</p></div></article>
+<article class="news-item-full"><div class="news-date-badge"><span class="news-day">27</span><span class="news-month">2024-12</span></div><div class="news-body"><span class="news-tag">公测</span><h3>全平台公测开启</h3><p>PC/iOS/Android/PS5全平台上线</p></div></article>
+</div>
+</div></section>
+
+<section id="tools" class="section">
+<div class="container"><div class="page-header"><h1 class="section-title">实用工具</h1><p class="section-desc">计算器与模拟器</p></div>
+<div class="tools-showcase"><div class="tool-box" onclick="openTool('fashion-sim')"><span>👘</span><h3>时装模拟器</h3><p>模拟时装搭配</p></div><div class="tool-box" onclick="openTool('price-calc')"><span>💰</span><h3>抽卡计算器</h3><p>计算保底成本</p></div><div class="tool-box" onclick="openTool('qishu-combo')"><span>⚔️</span><h3>奇术搭配</h3><p>智能推荐组合</p></div></div>
+
+<div id="fashion-sim" class="tool-modal"><div class="tool-modal-content"><span class="close-btn" onclick="closeTool('fashion-sim')">&times;</span><h2>👘 时装模拟器</h2><div class="sim-preview-area"><div class="sim-character">👤</div><div class="sim-result" id="sim-result">点击选择时装</div></div><div class="sim-controls"><select id="fashion-select" onchange="updateSim()"><option value="">选择时装</option><option value="canglong">沧海龙吟</option><option value="xiji">西极坠日</option><option value="longteng">龙腾岁宴</option><option value="minglu">鸣鹿寻春</option><option value="liandu">莲渡幽罗</option></select><select id="color-select" onchange="updateSim()"><option value="">选择配色</option><option value="default">默认</option><option value="red">烈焰红</option><option value="blue">冰晶蓝</option></select></div><button class="sim-btn" onclick="randomSim()">🎲 随机搭配</button></div></div>
+
+<div id="price-calc" class="tool-modal"><div class="tool-modal-content"><span class="close-btn" onclick="closeTool('price-calc')">&times;</span><h2>💰 抽卡计算器</h2><div class="calc-form"><label>活动类型</label><select id="calc-type"><option value="lingyin">聆音（鸣瑞之音）</option><option value="heming">和鸣（八音窍）</option></select><label>抽取次数</label><input type="number" id="calc-count" value="1" min="1"><button onclick="calculatePrice()">计算成本</button></div><div class="calc-result-area" id="calc-result"><p>输入抽取次数查看预估成本</p></div></div></div>
+
+<div id="qishu-combo" class="tool-modal"><div class="tool-modal-content"><span class="close-btn" onclick="closeTool('qishu-combo')">&times;</span><h2>⚔️ 奇术搭配推荐</h2><div class="calc-result-area" style="text-align:left"><p><strong>🔥 爆发流：</strong>太白醉月 + 神龙吐火</p><p style="margin-top:12px"><strong>🛡️ 生存流：</strong>无相金身 + 杳无形</p><p style="margin-top:12px"><strong>⚡ 跑图流：</strong>凌云踏 + 冯虚御风 + 飒沓流星</p><p style="margin-top:12px"><strong>🎵 辅助流：</strong>箫吟千浪 + 百鬼打穴手</p></div></div></div>
+</div></section>
+
+<footer><div class="container"><div class="footer-content"><div class="footer-brand"><span>🏮</span><div><h3>燕云十六声权威资料站</h3><p>粉丝自发整理 · 基于官方资料</p></div></div><div class="footer-links"><p>国服官网: www.yysls.cn</p><p>本页面非官方，仅供学习交流使用</p><p class="copyright">© 2026 燕云十六声资料站</p></div></div></footer>
+
+<script>
+function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav-menu a').forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.nav-menu a[data-section="${id}"]`);if(a)a.classList.add('active');window.scrollTo(0,0)}
+function toggleMobileMenu(){document.querySelector('.nav-menu').classList.toggle('active')}
+function showTab(id){document.querySelectorAll('.martial-tab,.guide-tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.martial-tabs .tab-btn,.category-tabs .tab-btn').forEach(b=>b.classList.remove('active'));event.target.classList.add('active')}
+function openTool(id){document.getElementById(id).classList.add('active')}
+function closeTool(id){document.getElementById(id).classList.remove('active')}
+document.querySelectorAll('.tool-modal').forEach(m=>m.addEventListener('click',function(e){if(e.target===this)this.classList.remove('active')}))
+function updateSim(){const f=document.getElementById('fashion-select'),c=document.getElementById('color-select'),r=document.getElementById('sim-result'),n={canglong:'沧海龙吟',xiji:'西极坠日',longteng:'龙腾岁宴',minglu:'鸣鹿寻春',liandu:'莲渡幽罗'};if(f.value){r.textContent=f.value?`时装: ${n[f.value]}`:'点击选择时装';r.style.color=f.value?'#d4af37':'#8a8a9a'}else{r.textContent='点击选择时装';r.style.color='#8a8a9a'}}
+function randomSim(){const f=['canglong','xiji','longteng','minglu','liandu'];document.getElementById('fashion-select').value=f[Math.floor(Math.random()*f.length)];updateSim()}
+function calculatePrice(){const t=document.getElementById('calc-type').value,c=parseInt(document.getElementById('calc-count').value)||1,r=document.getElementById('calc-result'),p=t==='lingyin'?128:68,d=t==='lingyin'?'聆音抽取':'和鸣抽奖';r.innerHTML=`<p>${d}</p><p>${c}次</p><p class="price">¥${(p*c).toLocaleString()}</p><p style="font-size:12px;color:#666;margin-top:12px">*价格仅供参考</p>`}
+document.addEventListener('DOMContentLoaded',function(){showSection('home')})
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.tool-modal').forEach(m=>m.classList.remove('active'))})
+</script>
+</body>
+</html>

@@ -10,71 +10,86 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
 .container{max-width:1200px;margin:0 auto;padding:0 32px}
-.navbar{position:fixed;top:0;height:72px;background:rgba(13,13,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.3);z-index:1000}
+.navbar{position:fixed;top:0;height:72px;background:rgba(13,13,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.3);z-index:1000;width:100%}
 .nav-container{max-width:1200px;margin:0 auto;padding:0 32px;height:100%;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:14px}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none}
 .logo-icon{width:50px;height:50px;background-image:url('logo-icon.svg');background-size:contain}
 .logo-text{font-size:28px;font-family:"STXingkai","KaiTi";background:linear-gradient(180deg,#ffd700,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-menu{display:flex;gap:6px;list-style:none}
 .nav-menu a{padding:10px 18px;font-size:14px;color:var(--muted);border-radius:8px;text-decoration:none}
 .nav-menu a:hover,.nav-menu a.active{color:var(--gold);background:rgba(212,175,55,0.12)}
-.section{padding:120px 0 60px}
+.section{padding:100px 0 60px}
 .page-header{text-align:center;padding:40px 0}
-.page-header h1{font-size:48px;background:linear-gradient(135deg,#d4af37,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.page-header h1{font-size:48px;background:linear-gradient(135deg,#d4af37,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
 .page-header p{color:var(--muted)}
-.filter-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px;padding:20px;background:var(--card);border-radius:12px;border:1px solid var(--border)}
-.filter-btn{padding:12px 24px;background:transparent;border:1px solid var(--border);border-radius:8px;color:var(--muted);cursor:pointer;transition:all 0.3s}
+.filter-bar{display:flex;gap:12px;margin-bottom:30px;padding:20px;background:var(--card);border-radius:12px;border:1px solid var(--border)}
+.filter-btn{padding:10px 20px;background:transparent;border:1px solid var(--border);border-radius:6px;color:var(--muted);cursor:pointer;transition:all 0.3s}
 .filter-btn:hover,.filter-btn.active{background:var(--gold);border-color:var(--gold);color:#000}
 .effect-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-bottom:60px}
-.effect-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all 0.3s}
+.effect-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all 0.3s;cursor:pointer}
 .effect-card:hover{border-color:var(--gold);transform:translateY(-4px)}
-.effect-icon{font-size:48px;margin-bottom:16px}
+.effect-icon{font-size:56px;margin-bottom:12px}
 .effect-card h3{font-size:20px;color:var(--gold);margin-bottom:8px}
-.effect-card .desc{font-size:14px;color:var(--muted);margin-bottom:12px;line-height:1.6}
-.effect-meta{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--muted)}
-.effect-meta .price{color:var(--gold);font-weight:600;font-size:15px}
+.effect-card .desc{font-size:14px;color:var(--muted);margin-bottom:12px;line-height:1.5}
+.effect-meta{font-size:13px;color:var(--muted)}
+.effect-meta .price{color:var(--gold);font-weight:600;font-size:16px}
 .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
 .tag{padding:4px 10px;background:rgba(212,175,55,0.15);color:var(--gold);border-radius:12px;font-size:12px}
 footer{background:var(--bg);padding:40px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
 </style>
 </head>
 <body>
-<nav class="navbar"><div class="nav-container"><a href="index.html" class="logo"><div class="logo-icon"></div><span class="logo-text">燕云十六声</span></a><ul class="nav-menu"><li><a href="index.html">首页</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html" class="active">武学特效</a></li><li><a href="weapon.html">武器外观</a></li><li><a href="guide.html">攻略</a></li><li><a href="upload.html">上传</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html">武学特效</a></li><li><a href="weapon.html">武器外观</a></li><li><a href="guide.html">攻略</a></li><li><a href="upload.html">上传</a></li><li><a href="index.html">首页</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html" class="active">武学特效</a></li><li><a href="weapon.html">武器外观</a></li><li><a href="guide.html">攻略</a></li><li><a href="upload.html">上传</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html" class="active">武学特效</a></li><li><a href="weapon.html">武器外观</a></li><li><a href="upload.html">上传</a></li><li><a href="weapon.html">武器外观</a></li><li><a href="upload.html">上传</a></li></ul></div></nav>
+<nav class="navbar"><div class="nav-container"><a href="index.html" class="logo"><div class="logo-icon"></div><span class="logo-text">燕云十六声</span></a><ul class="nav-menu"><li><a href="index.html">首页</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html" class="active">武学特效</a></li><li><a href="weapon.html">武器外观</a></li><li><a href="guide.html">攻略</a></li><li><a href="upload.html">上传</a></li></ul></div></nav>
+
 <section class="section"><div class="container">
-<div class="page-header"><h1>武学特效</h1><p>武学技能特效展示</p></div>
+<div class="page-header"><h1>武学特效</h1><p>武学技能与奇术特效展示</p></div>
 <div class="filter-bar">
-<button class="filter-btn active" onclick="filterEffect('all')">全部</button>
-<button class="filter-btn" onclick="filterEffect('wuxue')">武学特效</button>
-<button class="filter-btn" onclick="filterEffect('qishu')">奇术特效</button>
+<button class="filter-btn active" onclick="filter('all')">全部</button>
+<button class="filter-btn" onclick="filter('wuxue')">武学特效</button>
+<button class="filter-btn" onclick="filter('qishu')">奇术特效</button>
 </div>
 <div class="effect-grid" id="effectGrid"></div>
 </div></section>
-<footer><p>© 2026 燕云十六声资料站 · 粉丝自发整理</p></footer>
+
+<footer><p>© 2026 燕云十六声资料站</p></footer>
+
 <script src="data-all.js"></script>
 <script>
-function renderEffects(type='all') {
-  const grid = document.getElementById('effectGrid');
-  let data = [];
-  if (DB.wuxue) data = data.concat(DB.wuxue);
-  if (DB.qishu) data = data.concat(DB.qishu);
-  if (type !== 'all') data = data.filter(d => type === 'wuxue' ? d.id < 300 : d.id >= 300);
-  grid.innerHTML = data.map(item => `
-    <div class="effect-card" style="cursor:pointer" onclick="window.location.href='detail.html?id='+${item.id}">
-      <div class="effect-icon">${item.icon || '✨'}</div>
-      <h3>${item.name}</h3>
-      <p class="desc">${item.desc || ''}</p>
-      <div class="effect-meta">
-        <span class="price">${item.price || ''}</span>
-        <span>${item.weapon || item.skill || ''}</span>
-      </div>
-      <div class="tags">${item.tags ? item.tags.map(t => '<span class="tag">'+t+'</span>').join('') : ''}</div>
-    </div>
-  `).join('');
+let currentType = 'all';
+
+function filter(type) {
+  currentType = type;
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   event.target.classList.add('active');
+  render();
 }
-function filterEffect(type) { renderEffects(type); }
-renderEffects();
+
+function render() {
+  const grid = document.getElementById('effectGrid');
+  let data = [];
+  
+  if (currentType === 'all' || currentType === 'wuxue') {
+    if (DB.wuxue) data = data.concat(DB.wuxue.map(i => ({...i, type: 'wuxue'})));
+  }
+  if (currentType === 'all' || currentType === 'qishu') {
+    if (DB.qishu) data = data.concat(DB.qishu.map(i => ({...i, type: 'qishu'})));
+  }
+  
+  grid.innerHTML = data.map(item => `
+    <div class="effect-card" onclick="location.href='detail.html?id=${item.id}&type=${item.type}'">
+      <div class="effect-icon">${item.icon||'✨'}</div>
+      <h3>${item.name}</h3>
+      <p class="desc">${item.desc||''}</p>
+      <div class="effect-meta">
+        <span class="price">💰 ${item.price||''}</span>
+        <span style="display:block;margin-top:6px">${item.weapon||item.skill||''}</span>
+      </div>
+      ${item.tags?'<div class="tags">'+item.tags.map(t=>'<span class="tag">'+t+'</span>').join('')+'</div>':''}
+    </div>
+  `).join('') || '<p style="text-align:center;color:var(--muted);grid-column:1/-1;padding:60px">暂无数据</p>';
+}
+
+render();
 </script>
 </body>
 </html>

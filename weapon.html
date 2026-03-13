@@ -10,26 +10,26 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
 .container{max-width:1200px;margin:0 auto;padding:0 32px}
-.navbar{position:fixed;top:0;height:72px;background:rgba(13,13,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.3);z-index:1000}
+.navbar{position:fixed;top:0;height:72px;background:rgba(13,13,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.3);z-index:1000;width:100%}
 .nav-container{max-width:1200px;margin:0 auto;padding:0 32px;height:100%;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:14px}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none}
 .logo-icon{width:50px;height:50px;background-image:url('logo-icon.svg');background-size:contain}
 .logo-text{font-size:28px;font-family:"STXingkai","KaiTi";background:linear-gradient(180deg,#ffd700,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-menu{display:flex;gap:6px;list-style:none}
 .nav-menu a{padding:10px 18px;font-size:14px;color:var(--muted);border-radius:8px;text-decoration:none}
 .nav-menu a:hover,.nav-menu a.active{color:var(--gold);background:rgba(212,175,55,0.12)}
-.section{padding:120px 0 60px}
+.section{padding:100px 0 60px}
 .page-header{text-align:center;padding:40px 0}
-.page-header h1{font-size:48px;background:linear-gradient(135deg,#d4af37,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.page-header h1{font-size:48px;background:linear-gradient(135deg,#d4af37,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
 .page-header p{color:var(--muted)}
 .weapon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-bottom:60px}
-.weapon-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:all 0.3s}
+.weapon-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;transition:all 0.3s;cursor:pointer}
 .weapon-card:hover{border-color:var(--gold);transform:translateY(-4px)}
-.weapon-icon{font-size:56px;margin-bottom:16px}
-.weapon-card h3{font-size:22px;color:var(--gold);margin-bottom:8px}
-.weapon-card .weapon-type{font-size:14px;color:var(--gold);margin-bottom:12px;padding:4px 12px;background:rgba(212,175,55,0.15);border-radius:20px;display:inline-block}
-.weapon-card .desc{font-size:14px;color:var(--muted);margin-bottom:12px;line-height:1.6}
-.weapon-meta{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--muted)}
+.weapon-icon{font-size:56px;margin-bottom:12px}
+.weapon-card h3{font-size:20px;color:var(--gold);margin-bottom:8px}
+.weapon-type{display:inline-block;padding:4px 12px;background:rgba(212,175,55,0.15);color:var(--gold);border-radius:12px;font-size:13px;margin-bottom:12px}
+.weapon-card .desc{font-size:14px;color:var(--muted);margin-bottom:12px;line-height:1.5}
+.weapon-meta{font-size:13px;color:var(--muted)}
 .weapon-meta .price{color:var(--gold);font-weight:600;font-size:16px}
 .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
 .tag{padding:4px 10px;background:rgba(212,175,55,0.15);color:var(--gold);border-radius:12px;font-size:12px}
@@ -37,31 +37,36 @@ footer{background:var(--bg);padding:40px 0;border-top:1px solid var(--border);te
 </style>
 </head>
 <body>
-<nav class="navbar"><div class="nav-container"><a href="index.html" class="logo"><div class="logo-icon"></div><span class="logo-text">燕云十六声</span></a><ul class="nav-menu"><li><a href="index.html">首页</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html">武学特效</a></li><li><a href="weapon.html" class="active">武器外观</a></li><li><a href="guide.html">攻略</a></li><li><a href="upload.html">上传</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html">武学特效</a></li><li><a href="weapon.html">武器外观</a></li><li><a href="guide.html">攻略</a></li><li><a href="upload.html">上传</a></li><li><a href="index.html">首页</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html">武学特效</a></li><li><a href="weapon.html" class="active">武器外观</a></li><li><a href="guide.html">攻略</a></li><li><a href="upload.html">上传</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html">武学特效</a></li><li><a href="weapon.html" class="active">武器外观</a></li><li><a href="upload.html">上传</a></li></ul></div></nav>
+<nav class="navbar"><div class="nav-container"><a href="index.html" class="logo"><div class="logo-icon"></div><span class="logo-text">燕云十六声</span></a><ul class="nav-menu"><li><a href="index.html">首页</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html">武学特效</a></li><li><a href="weapon.html" class="active">武器外观</a></li><li><a href="guide.html">攻略</a></li><li><a href="upload.html">上传</a></li></ul></div></nav>
+
 <section class="section"><div class="container">
 <div class="page-header"><h1>武器外观</h1><p>武器外观及皮肤展示</p></div>
 <div class="weapon-grid" id="weaponGrid"></div>
 </div></section>
-<footer><p>© 2026 燕云十六声资料站 · 粉丝自发整理</p></footer>
+
+<footer><p>© 2026 燕云十六声资料站</p></footer>
+
 <script src="data-all.js"></script>
 <script>
-function renderWeapons() {
+function render() {
   const grid = document.getElementById('weaponGrid');
   const data = DB.weapons || [];
+  
   grid.innerHTML = data.map(item => `
-    <div class="weapon-card" style="cursor:pointer" onclick="window.location.href='detail.html?id='+${item.id}">
-      <div class="weapon-icon">${item.icon || '⚔️'}</div>
+    <div class="weapon-card" onclick="location.href='detail.html?id=${item.id}&type=weapon'">
+      <div class="weapon-icon">${item.icon||'⚔️'}</div>
       <h3>${item.name}</h3>
-      <span class="weapon-type">${item.weapon || '武器'}</span>
-      <p class="desc">${item.desc || ''}</p>
+      <span class="weapon-type">${item.weapon||'武器'}</span>
+      <p class="desc">${item.desc||''}</p>
       <div class="weapon-meta">
-        <span class="price">${item.price || ''}</span>
+        <span class="price">💰 ${item.price||''}</span>
       </div>
-      <div class="tags">${item.tags ? item.tags.map(t => '<span class="tag">'+t+'</span>').join('') : ''}</div>
+      ${item.tags?'<div class="tags">'+item.tags.map(t=>'<span class="tag">'+t+'</span>').join('')+'</div>':''}
     </div>
-  `).join('') || '<p style="text-align:center;color:var(--muted);grid-column:1/-1">暂无数据</p>';
+  `).join('') || '<p style="text-align:center;color:var(--muted);grid-column:1/-1;padding:60px">暂无数据</p>';
 }
-renderWeapons();
+
+render();
 </script>
 </body>
 </html>

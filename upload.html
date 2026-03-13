@@ -28,17 +28,30 @@ h1{font-size:48px;text-align:center;background:linear-gradient(135deg,#d4af37,#f
 .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:15px}
 .upload-area{border:2px dashed var(--border);border-radius:16px;padding:50px;text-align:center;background:var(--bg);cursor:pointer;transition:all 0.3s}
 .upload-area:hover{border-color:var(--gold);background:rgba(212,175,55,0.05)}
-.upload-icon{font-size:64px;margin-bottom:16px}
 .btn{padding:12px 24px;background:var(--gold);border:none;border-radius:8px;color:#000;font-size:15px;font-weight:600;cursor:pointer;width:100%;margin-top:20px}
-.uploads-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-top:40px}
+.uploads-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;margin-top:40px}
 .upload-item{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
-.upload-item:hover{border-color:var(--gold);transform:translateY(-4px)}
-.upload-preview{width:100%;height:200px;object-fit:cover;background:var(--bg)}
+.upload-img{width:100%;height:220px;object-fit:cover;background:var(--bg)}
 .upload-meta{padding:20px}
 .upload-title{font-size:18px;color:var(--gold);margin-bottom:8px}
 .upload-desc{font-size:14px;color:var(--muted);margin-bottom:12px}
 .dye-preview{display:flex;gap:4px;margin-top:12px}
-.dye-dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--border)}
+.dye-dot{width:24px;height:24px;border-radius:50%;border:2px solid var(--border)}
+.upload-actions{display:flex;gap:8px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.action-btn{flex:1;padding:10px;border:1px solid var(--border);border-radius:8px;background:transparent;color:var(--muted);cursor:pointer;transition:all 0.3s;display:flex;align-items:center;justify-content:center;gap:6px;font-size:14px}
+.action-btn:hover{border-color:var(--gold);color:var(--gold)}
+.action-btn.liked{background:rgba(255,0,0,0.1);border-color:#ff4444;color:#ff4444}
+.comments-section{margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.comment{font-size:13px;color:var(--muted);padding:8px 0;border-bottom:1px solid var(--border)}
+.comment-input{display:flex;gap:8px;margin-top:12px}
+.comment-input input{flex:1;padding:10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text)}
+.comment-input button{padding:10px 16px;background:var(--gold);border:none;border-radius:8px;color:#000;font-weight:600}
+.share-btns{display:flex;gap:8px;margin-top:12px}
+.share-btn{padding:8px 16px;border-radius:8px;color:#fff;font-size:13px;cursor:pointer;border:none}
+.share-wechat{background:#07c160}
+.share-douyin{background:#fe2c25}
+.share-qq{background:#12b7f5}
+.share-weibo{background:#e6162d}
 </style>
 </head>
 <body>
@@ -49,17 +62,93 @@ h1{font-size:48px;text-align:center;background:linear-gradient(135deg,#d4af37,#f
 <div class="upload-card"><h2>📤 上传文件</h2>
 <form id="uploadForm">
 <div class="form-group"><label>时装名称</label><input type="text" id="fashionName" placeholder="例如：沧海龙吟" required></div>
-<div class="form-group"><label>分类</label><select id="category"><option value="image">染色截图</option><option value="video">视频展示</option></select></div>
+<div class="form-group"><label>分类</label><select id="category"><option value="image">染色截图</option><option value="video">视频展示</option><option value="guide">染色教程</option></select></div>
 <div class="form-group"><label>描述</label><textarea id="description" placeholder="分享你的染色灵感..."></textarea></div>
-<div class="upload-area" id="dropZone"><div class="upload-icon">📁</div><div class="upload-text">拖拽文件到此处或点击上传</div><div class="upload-hint">支持 JPG/PNG/GIF 图片，MP4/WebM 视频，最大 10MB</div><input type="file" id="fileInput" accept="image/*,video/*" style="display:none"></div>
-<button type="submit" class="btn">上传</button>
+<div class="upload-area" id="dropZone"><div style="font-size:64px;margin-bottom:16px">📁</div><div style="color:var(--muted);margin-bottom:12px">拖拽文件到此处或点击上传</div><div style="font-size:13px;color:var(--muted)">支持 JPG/PNG/GIF 图片，MP4/WebM 视频（无大小限制）</div><input type="file" id="fileInput" accept="image/*,video/*" style="display:none"></div>
+<button type="submit" class="btn">上传分享</button>
 </form></div>
 <h2 style="text-align:center;margin-bottom:20px">🎨 玩家分享</h2>
 <div class="uploads-grid" id="uploadsGrid"></div>
 </div></section>
 <script src="data-all.js"></script>
 <script>
-const UploadSys={uploads:[],init(){this.load();this.setup();this.render()},load(){try{this.uploads=JSON.parse(localStorage.getItem('yanyun_uploads')||'[]')}catch(e){this.uploads=[]}},save(){localStorage.setItem('yanyun_uploads',JSON.stringify(this.uploads))},setup(){document.getElementById('dropZone')?.addEventListener('click',()=>document.getElementById('fileInput')?.click());document.getElementById('uploadForm')?.addEventListener('submit',e=>{e.preventDefault();this.upload()});document.getElementById('fileInput')?.addEventListener('change',e=>this.handleFiles(e.target.files))},handleFiles(files){[...files].forEach(f=>{if(f.size>10*1024*1024){alert('文件超过 10MB');return}const r=new FileReader();r.onload=e=>this.add({file:e.target.result,name:f.name,type:f.type});r.readAsDataURL(f)})},add(data){const upload={id:Date.now(),...data,fashionName:document.getElementById('fashionName').value,category:document.getElementById('category').value,description:document.getElementById('description').value,date:new Date().toISOString(),likes:0};this.uploads.unshift(upload);this.save();this.render();this.reset();alert('上传成功！')},reset(){document.getElementById('uploadForm').reset();document.getElementById('fileInput').value=''},render(){const grid=document.getElementById('uploadsGrid');if(!grid)return;grid.innerHTML=this.uploads.map(u=>`<div class="upload-item"><div class="upload-meta"><h3 class="upload-title">${u.fashionName||'未命名'}</h3><p class="upload-desc">${u.description||''}</p>${u.dyes?`<div class="dye-preview">${u.dyes.map(d=>'<div class="dye-dot" style="background:'+d+'"></div>').join('')}</div>`:''}<div style="margin-top:12px;font-size:12px;color:var(--muted)">${new Date(u.date).toLocaleDateString()}</div></div></div>`).join('')||'<p style="text-align:center;color:var(--muted);padding:40px">暂无上传，快来分享吧！</p>'}};UploadSys.init();
+const App = {
+  uploads: [],
+  init() {
+    try { this.uploads = JSON.parse(localStorage.getItem('yanyun_uploads') || '[]'); } catch(e) { this.uploads = []; }
+    this.render();
+    document.getElementById('dropZone')?.addEventListener('click', () => document.getElementById('fileInput')?.click());
+    document.getElementById('uploadForm')?.addEventListener('submit', e => { e.preventDefault(); });
+    document.getElementById('fileInput')?.addEventListener('change', e => this.handleFiles(e.target.files));
+  },
+  save() { localStorage.setItem('yanyun_uploads', JSON.stringify(this.uploads)); },
+  handleFiles(files) {
+    [...files].forEach(f => {
+      const r = new FileReader();
+      r.onload = e => this.add({ file: e.target.result, name: f.name, type: f.type });
+      r.readAsDataURL(f);
+    });
+  },
+  add(data) {
+    const name = document.getElementById('fashionName').value || '未命名';
+    const desc = document.getElementById('description').value || '';
+    const cat = document.getElementById('category').value || 'image';
+    const upload = { id: Date.now(), file: data.file, name: data.name, type: data.type, fashionName: name, description: desc, category: cat, date: new Date().toISOString(), likes: 0, comments: [] };
+    this.uploads.unshift(upload);
+    this.save();
+    this.render();
+    document.getElementById('uploadForm').reset();
+    alert('上传成功！');
+  },
+  like(id) {
+    const u = this.uploads.find(x => x.id === id);
+    if(u) { u.likes = (u.likes || 0) + 1; this.save(); this.render(); }
+  },
+  comment(id) {
+    const input = document.getElementById('comment-' + id);
+    if(!input.value.trim()) return;
+    const u = this.uploads.find(x => x.id === id);
+    if(u) { u.comments = u.comments || []; u.comments.push({text: input.value, date: new Date().toISOString()}); this.save(); this.render(); }
+  },
+  share(platform, id) {
+    const u = this.uploads.find(x => x.id === id);
+    if(!u) return;
+    const text = `我在燕云十六声资料站发现了超美的「${u.fashionName}」染色方案！`;
+    const url = window.location.href;
+    let shareUrl = '';
+    if(platform === 'wechat') shareUrl = `https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=${encodeURIComponent(url)}`;
+    else if(platform === 'douyin') alert('请长按图片保存后打开抖音分享');
+    else if(platform === 'qq') shareUrl = `http://connect.qq.com/widget/share/redirect/index?url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`;
+    else if(platform === 'weibo') shareUrl = `http://service.weibo.com/share/share.php?url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`;
+    if(shareUrl && platform !== 'douyin') window.open(shareUrl, '_blank');
+  },
+  render() {
+    const grid = document.getElementById('uploadsGrid');
+    if(!grid) return;
+    grid.innerHTML = this.uploads.map(u => `
+      <div class="upload-item">
+        <img src="${u.file}" class="upload-img" alt="${u.fashionName}">
+        <div class="upload-meta">
+          <h3 class="upload-title">${u.fashionName}</h3>
+          <p class="upload-desc">${u.description || ''}</p>
+          <div class="upload-actions">
+            <button class="action-btn ${u.likes > 0 ? 'liked' : ''}" onclick="App.like(${u.id})">❤️ ${u.likes || 0}</button>
+            <button class="action-btn" onclick="App.comment(${u.id})">💬 ${u.comments?.length || 0}</button>
+          </div>
+          <div class="share-btns">
+            <button class="share-btn share-wechat" onclick="App.share('wechat',${u.id})">微信</button>
+            <button class="share-btn share-douyin" onclick="App.share('douyin',${u.id})">抖音</button>
+            <button class="share-btn share-qq" onclick="App.share('qq',${u.id})">QQ</button>
+            <button class="share-btn share-weibo" onclick="App.share('weibo',${u.id})">微博</button>
+          </div>
+          ${u.comments?.length ? '<div class="comments-section">' + u.comments.map(c => '<div class="comment">'+c.text+'</div>').join('') + '</div>' : ''}
+          <div class="comment-input"><input type="text" id="comment-${u.id}" placeholder="发表评论..."><button onclick="App.comment(${u.id})">发送</button></div>
+        </div>
+      </div>
+    `).join('') || '<p style="text-align:center;color:var(--muted);padding:60px">暂无上传，快来分享你的染色方案吧！</p>';
+  }
+};
+App.init();
 </script>
 </body>
 </html>

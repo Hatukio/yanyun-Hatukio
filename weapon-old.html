@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>燕云十六声 | 武器外观 - 权威资料站</title>
+<style>
+:root {
+  --primary: #0a0a12;
+  --secondary: #121220;
+  --accent: #c9a227;
+  --accent-gold: #d4af37;
+  --accent-gold-light: #fcd34d;
+  --text: #e5e5eb;
+  --text-muted: #8b8b9f;
+  --bg: #08080f;
+  --bg-deep: #050508;
+  --card-bg: #14141f;
+  --card-bg-hover: #1a1a2a;
+  --border: #2a2a3a;
+  --border-gold: rgba(212,175,55,0.3);
+  --gradient-gold: linear-gradient(135deg, #d4af37 0%, #fcd34d 50%, #ffd700 100%);
+  --gradient-dark: linear-gradient(180deg, #0d0d14 0%, #151525 50%, #0a0a10 100%);
+  --gradient-hero: radial-gradient(ellipse at 50% 30%, rgba(201, 162, 39, 0.15), transparent 60%),
+                      radial-gradient(ellipse at 80% 80%, rgba(212, 175, 55, 0.05), transparent 50%);
+  --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.2);
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 12px 36px rgba(212, 175, 55, 0.15);
+}
+
+* {margin: 0;padding: 0;box-sizing: border-box;}
+
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {text-decoration: none;color: inherit;transition: color 0.3s;}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* 导航栏优化 */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: rgba(13, 13, 20, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-gold);
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-icon {
+  font-size: 36px;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+}
+
+.logo-text {
+  font-size: 26px;
+  font-weight: 800;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+}
+
+.logo-sub {
+  font-size: 11px;
+  color: var(--accent-gold-light);
+  padding: 6px 12px;
+  background: rgba(212, 175, 55, 0.12);
+  border-radius: 20px;
+  border: 1px solid var(--border-gold);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+}
+
+.nav-menu a {
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-radius: 8px;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+  color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.12);
+}
+
+.nav-menu a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background: var(--accent-gold);
+  border-radius: 1px;
+}
+
+.nav-official {
+  color: var(--accent-gold) !important;
+  border: 1px solid var(--accent-gold) !important;
+  padding: 10px 20px !important;
+  border-radius: 8px !important;
+  margin-left: 12px !important;
+  background: rgba(212, 175, 55, 0.1) !important;
+}
+
+.nav-official:hover {
+  background: var(--accent-gold) !important;
+  color: var(--primary) !important;
+  box-shadow: var(--shadow-gold);
+}
+
+/* Hero 区域优化 */
+.hero {
+  position: relative;
+  padding: 140px 0 100px;
+  background: var(--gradient-dark);
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-hero);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 10px 24px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--border-gold);
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent-gold);
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 8px;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+}
+
+.hero .subtitle {
+  font-size: 20px;
+  letter-spacing: 10px;
+  color: var(--accent-gold);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 20px 32px;
+  border-radius: 12px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.stat-item:hover, .stat-item.active {
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--border-gold);
+}
+
+.stat-number {
+  display: block;
+  font-size: 40px;
+  font-weight: 800;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+/* 分类标签 */
+.category-tabs {
+  display: flex;
+  gap: 10px;
+  padding: 24px 0;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category-btn {
+  padding: 12px 28px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.category-btn:hover, .category-btn.active {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: var(--primary);
+  font-weight: 600;
+  box-shadow: var(--shadow-gold);
+}
+
+/* 筛选区 */
+.filter-section {
+  padding: 28px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  margin-bottom: 32px;
+  border: 1px solid var(--border);
+}
+
+.filter-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.filter-row:last-child {
+  margin-bottom: 0;
+}
+
+.filter-label {
+  font-size: 14px;
+  color: var(--text-muted);
+  min-width: 80px;
+  font-weight: 500;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.filter-select {
+  padding: 10px 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 14px;
+  min-width: 150px;
+  cursor: pointer;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+}
+
+/* 外观网格 */
+.appearance-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-bottom: 60px;
+}
+
+.appearance-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.appearance-card:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.appearance-visual {
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appearance-icon {
+  font-size: 72px;
+}
+
+.appearance-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 14px;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.appearance-tag.new {
+  background: var(--accent-gold);
+  color: var(--primary);
+}
+
+.appearance-info {
+  padding: 24px;
+}
+
+.appearance-info h3 {
+  font-size: 20px;
+  color: var(--accent-gold);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.appearance-info .desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.appearance-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.appearance-meta span {
+  color: var(--text-muted);
+}
+
+.appearance-meta .price {
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+/* 颜色 */
+.color-display {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  transition: all 0.2s;
+}
+
+.color-swatch:hover {
+  border-color: var(--accent-gold);
+  transform: scale(1.2);
+}
+
+/* 弹窗 */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 48px;
+  max-width: 960px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-size: 36px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.modal-close:hover {
+  color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.modal-img {
+  width: 320px;
+  height: 380px;
+  background: linear-gradient(135deg, #1a1a2e, #2a2a4e);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  border: 1px solid var(--border);
+}
+
+.modal-detail {
+  flex: 1;
+}
+
+.modal-detail h2 {
+  font-size: 32px;
+  color: var(--accent-gold);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.modal-detail .tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.modal-detail .tag {
+  padding: 6px 14px;
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--accent-gold);
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.modal-detail .info-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 14px;
+  font-size: 15px;
+}
+
+.modal-detail .info-row span {
+  color: var(--text-muted);
+}
+
+.modal-section {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.modal-section h3 {
+  font-size: 20px;
+  color: var(--accent-gold);
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.modal-colors {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.modal-color {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-color:hover {
+  border-color: var(--accent-gold);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-gold);
+}
+
+/* 页脚 */
+footer {
+  background: var(--bg-deep);
+  padding: 48px 0;
+  margin-top: 80px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-brand span {
+  font-size: 36px;
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
+}
+
+.footer-brand h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.footer-link {
+  color: var(--accent-gold);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.footer-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* 响应式 */
+@media (max-width: 1200px) {
+  .appearance-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .appearance-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .modal-header {
+    flex-direction: column;
+  }
+  .modal-img {
+    width: 100%;
+    height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    flex-direction: column;
+    padding: 24px;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .nav-menu.active {
+    display: flex;
+  }
+  
+  .nav-official {
+    margin: 8px 0 0 0 !important;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .hero h1 {
+    font-size: 40px;
+    letter-spacing: 4px;
+  }
+  
+  .hero-stats {
+    gap: 30px;
+  }
+  
+  .stat-number {
+    font-size: 32px;
+  }
+  
+  .appearance-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filter-select {
+    max-width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<nav class="navbar"><div class="nav-container"><a href="index.html" class="logo"><div class="logo-icon"></div><span class="logo-text">燕云十六声</span><span class="logo-sub">权威资料站</span></a><ul class="nav-menu"><li><a href="index.html">首页</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html">武学特效</a></li><li><a href="weapon.html" class="active">武器外观</a></li><li><a href="guide.html">攻略</a></li><li><a href="https://yy163.com" target="_blank" class="nav-official">官网</a></li></ul></div></nav>
+
+<div class="hero"><div class="hero-content"><div class="hero-badge">持续更新 · 最新: 2026.03</div><h1>武器外观</h1><p class="subtitle">WHERE WINDS MEET</p><div class="hero-stats"><div class="stat-item"><span class="stat-number" id="total-count">0</span><span class="stat-label">武器外观</span></div><div class="stat-item"><span class="stat-number" id="cangyin-count">0</span><span class="stat-label">藏音</span></div><div class="stat-item"><span class="stat-number" id="shop-count">0</span><span class="stat-label">商城</span></div><div class="stat-item"><span class="stat-number" id="funeng-count">0</span><span class="stat-label">赋能</span></div></div></div></div>
+
+<div class="container">
+<!-- 标签切换 -->
+<div class="tab-nav">
+<button class="tab-btn active" data-tab="all">全部</button>
+<button class="tab-btn" data-tab="cangyin">藏音</button>
+<button class="tab-btn" data-tab="shop">商城直售</button>
+<button class="tab-btn" data-tab="funeng">赋能系列</button>
+<button class="tab-btn" data-tab="other">其他</button>
+</div>
+
+<!-- 藏音专属筛选 -->
+<div class="cangyin-filter" id="cangyin-filter" style="display:none">
+<h3>藏音筛选</h3>
+<div class="filter-row">
+<span class="filter-label">孔数:</span>
+<button class="filter-btn active" data-hole="all">全部</button>
+<button class="filter-btn" data-hole="1">1孔</button>
+<button class="filter-btn" data-hole="2">2孔</button>
+<button class="filter-btn" data-hole="3">3孔</button>
+<button class="filter-btn" data-hole="4">4孔</button>
+<button class="filter-btn" data-hole="5">5孔</button>
+</div>
+<div class="filter-row">
+<span class="filter-label">颜色:</span>
+<button class="filter-btn active" data-color="all">全部</button>
+<button class="filter-btn" data-color="red">红</button>
+<button class="filter-btn" data-color="blue">蓝</button>
+<button class="filter-btn" data-color="green">绿</button>
+<button class="filter-btn" data-color="gold">金</button>
+<button class="filter-btn" data-color="purple">紫</button>
+<button class="filter-btn" data-color="white">白</button>
+</div>
+<div class="filter-row">
+<span class="filter-label">部位:</span>
+<button class="filter-btn active" data-part="all">全部</button>
+<button class="filter-btn" data-part="weapon">武器</button>
+<button class="filter-btn" data-part="head">头饰</button>
+<button class="filter-btn" data-part="back">背饰</button>
+<button class="filter-btn" data-part="face">面饰</button>
+</div>
+</div>
+
+<!-- 武器外观列表 -->
+<div class="weapon-grid" id="weapon-grid"></div>
+</div>
+
+<!-- 详情弹窗 -->
+<div class="modal" id="weapon-modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal()">&times;</span>
+<div class="modal-header">
+<div class="modal-img" id="modal-img">⚔️</div>
+<div class="modal-detail">
+<h2 id="modal-title">武器名称</h2>
+<div class="tags" id="modal-tags"></div>
+<div class="modal-info-row"><span>获取方式:</span><span id="modal-source">-</span></div>
+<div class="modal-info-row"><span>价格:</span><span id="modal-price">-</span></div>
+<div class="modal-info-row"><span>上架时间:</span><span id="modal-date">-</span></div>
+<div class="modal-info-row"><span>适用类型:</span><span id="modal-type">-</span></div>
+<div class="modal-info-row"><span>藏音孔数:</span><span id="modal-hole">-</span></div>
+<div id="color-section" style="margin-top:16px"><span style="color:var(--text-muted)">可选颜色:</span><div class="modal-colors" id="modal-colors"></div></div>
+</div>
+</div>
+</div>
+</div>
+
+<footer><div class="container"><div class="footer-content"><div class="footer-brand"><div class="logo-icon"></div><div><h3>燕云十六声资料站</h3><p>粉丝自发整理 · <a href="https://yy163.com" target="_blank" class="footer-link">官方资料</a></p></div></div><div class="footer-links"><p>© 2026 燕云十六声资料站</p></div></div></footer>
+
+<script>
+// 武器外观数据库
+const weaponData = [
+// ==================== 藏音系统 ====================
+{
+id:1,name:"藏音·赤焰",category:"cangyin",hole:1,part:"weapon",colors:["#FF0000","#8B0000","#FF4500"],icon:"🔥",
+date:"2025-01",source:"藏音系统",price:"藏音打造",
+desc:"红色火焰主题藏音 · 1孔位",
+features:"藏音/可洗练/可交易"
+},
+{
+id:2,name:"藏音·寒霜",category:"cangyin",hole:1,part:"weapon",colors:["#00CED1","#4169E1","#E0FFFF"],icon:"❄️",
+date:"2025-01",source:"藏音系统",price:"藏音打造",
+desc:"蓝色寒冰主题藏音 · 1孔位",
+features:"藏音/可洗练/可交易"
+},
+{
+id:3,name:"藏音·翠玉",category:"cangyin",hole:1,part:"weapon",colors:["#00FF7F","#228B22","#90EE90"],icon:"🌿",
+date:"2025-01",source:"藏音系统",price:"藏音打造",
+desc:"绿色自然主题藏音 · 1孔位",
+features:"藏音/可洗练/可交易"
+},
+{
+id:4,name:"藏音·金耀",category:"cangyin",hole:1,part:"weapon",colors:["#FFD700","#DAA520","#FFA500"],icon:"✨",
+date:"2025-01",source:"藏音系统",price:"藏音打造",
+desc:"金色光芒主题藏音 · 1孔位",
+features:"藏音/可洗练/可交易"
+},
+{
+id:5,name:"藏音·紫电",category:"cangyin",hole:2,part:"weapon",colors:["#9400D3","#8A2BE2","#FF00FF"],icon:"⚡",
+date:"2025-03",source:"藏音系统",price:"藏音打造",
+desc:"紫色雷电主题藏音 · 2孔位",
+features:"藏音/双孔/可洗练/可交易"
+},
+{
+id:6,name:"藏音·苍雷",category:"cangyin",hole:2,part:"weapon",colors:["#4169E1","#1E90FF","#00BFFF"],icon:"🌩️",
+date:"2025-03",source:"藏音系统",price:"藏音打造",
+desc:"蓝色苍雷主题藏音 · 2孔位",
+features:"藏音/双孔/可洗练/可交易"
+},
+{
+id:7,name:"藏音·烈风",category:"cangyin",hole:2,part:"weapon",colors:["#FF6347","#FF4500","#DC143C"],icon:"🌪️",
+date:"2025-04",source:"藏音系统",price:"藏音打造",
+desc:"红色烈风主题藏音 · 2孔位",
+features:"藏音/双孔/可洗练/可交易"
+},
+{
+id:8,name:"藏音·玄冰",category:"cangyin",hole:3,part:"weapon",colors:["#E0FFFF","#00CED1","#191970"],icon:"🧊",
+date:"2025-06",source:"藏音系统",price:"藏音打造",
+desc:"深层玄冰主题藏音 · 3孔位",
+features:"藏音/三孔/可洗练/可交易"
+},
+{
+id:9,name:"藏音·焚天",category:"cangyin",hole:3,part:"weapon",colors:["#FF0000","#FF4500","#8B0000","#FFD700"],icon:"🔥",
+date:"2025-07",source:"藏音系统",price:"藏音打造",
+desc:"焚天烈焰主题藏音 · 3孔位",
+features:"藏音/三孔/可洗练/可交易"
+},
+{
+id:10,name:"藏音·幽冥",category:"cangyin",hole:3,part:"weapon",colors:["#2F2F2F","#4B0082","#8B0000"],icon:"🌑",
+date:"2025-08",source:"藏音系统",price:"藏音打造",
+desc:"幽冥暗影主题藏音 · 3孔位",
+features:"藏音/三孔/可洗练/可交易"
+},
+{
+id:11,name:"藏音·霓光",category:"cangyin",hole:4,part:"weapon",colors:["#FF69B4","#00CED1","#FFD700","#9400D3"],icon:"🌈",
+date:"2025-10",source:"藏音系统",price:"藏音打造",
+desc:"彩虹霓光主题藏音 · 4孔位",
+features:"藏音/四孔/可洗练/可交易"
+},
+{
+id:12,name:"藏音·天罚",category:"cangyin",hole:4,part:"weapon",colors:["#FFD700","#FF4500","#9400D3","#FF0000"],icon:"⚡",
+date:"2025-11",source:"藏音系统",price:"藏音打造",
+desc:"天罚神雷主题藏音 · 4孔位",
+features:"藏音/四孔/可洗练/可交易"
+},
+{
+id:13,name:"藏音·星河",category:"cangyin",hole:5,part:"weapon",colors:["#E6E6FA","#4169E1","#FFD700","#FF69B4","#00CED1"],icon:"🌌",
+date:"2026-01",source:"藏音系统",price:"藏音打造",
+desc:"星河灿烂主题藏音 · 5孔位 · 顶级",
+features:"藏音/五孔/可洗练/可交易/顶级"
+},
+{
+id:14,name:"藏音·混沌",category:"cangyin",hole:5,part:"weapon",colors:["#000000","#FF0000","#FFD700","#00FF00","#0000FF"],icon:"🕳️",
+date:"2026-02",source:"藏音系统",price:"藏音打造",
+desc:"混沌开辟主题藏音 · 5孔位 · 最强",
+features:"藏音/五孔/可洗练/可交易/最强"
+},
+
+// ==================== 藏音头饰 ====================
+{
+id:20,name:"藏音·凤翅",category:"cangyin",hole:2,part:"head",colors:["#FF0000","#FFD700","#FF69B4"],icon:"🦅",
+date:"2025-05",source:"藏音系统",price:"藏音打造",
+desc:"凤凰之翅头饰 · 2孔位",
+features:"藏音头饰/可洗练"
+},
+{
+id:21,name:"藏音·龙角",category:"cangyin",hole:3,part:"head",colors:["#FFD700","#DAA520","#8B4513"],icon:"🐲",
+date:"2025-09",source:"藏音系统",price:"藏音打造",
+desc:"神龙之角头饰 · 3孔位",
+features:"藏音头饰/可洗练"
+},
+
+// ==================== 藏音背饰 ====================
+{
+id:25,name:"藏音·羽翼",category:"cangyin",hole:2,part:"back",colors:["#FFFFFF","#E6E6FA","#87CEEB"],icon:"🪶",
+date:"2025-06",source:"藏音系统",price:"藏音打造",
+desc:"天使羽翼背饰 · 2孔位",
+features:"藏音背饰/可洗练"
+},
+{
+id:26,name:"藏音·披风",category:"cangyin",hole:3,part:"back",colors:["#8B0000","#DC143C","#FFD700"],icon:"🧥",
+date:"2025-12",source:"藏音系统",price:"藏音打造",
+desc:"英雄披风背饰 · 3孔位",
+features:"藏音背饰/可洗练"
+},
+
+// ==================== 藏音面饰 ====================
+{
+id:30,name:"藏音·面具",category:"cangyin",hole:1,part:"face",colors:["#2F2F2F","#8B0000","#4B0082"],icon:"🎭",
+date:"2025-04",source:"藏音系统",price:"藏音打造",
+desc:"神秘面具面饰 · 1孔位",
+features:"藏音面饰/可洗练"
+},
+
+// ==================== 商城直售 ====================
+{
+id:40,name:"碎星",category:"shop",hole:0,part:"weapon",colors:["#E6E6FA","#4169E1"],icon:"⭐",
+date:"2025-01",source:"商城直售",price:"1280长鸣珠",
+desc:"碎星点点 · 武器外观",
+features:"武器外观/商城"
+},
+{
+id:41,name:"鸣玉",category:"shop",hole:0,part:"weapon",colors:["#FFD700","#DAA520"],icon:"🔔",
+date:"2025-02",source:"商城直售",price:"980长鸣珠",
+desc:"玉佩鸣响 · 武器外观",
+features:"武器外观/商城"
+},
+{
+id:42,name:"寒酥",category:"shop",hole:0,part:"weapon",colors:["#E0FFFF","#B0E0E6"],icon:"❄️",
+date:"2025-03",source:"商城直售",price:"680长鸣珠",
+desc:"寒酥凝结 · 武器外观",
+features:"武器外观/商城"
+},
+
+// ==================== 赋能系列 ====================
+{
+id:50,name:"赋能·火",category:"funeng",hole:0,part:"weapon",colors:["#FF4500","#FF6347"],icon:"🔥",
+date:"2025-02",source:"赋能活动",price:"活动获取",
+desc:"火焰赋能外观",
+features:"赋能/活动限定"
+},
+{
+id:51,name:"赋能·冰",category:"funeng",hole:0,part:"weapon",colors:["#00CED1","#87CEEB"],icon:"❄️",
+date:"2025-02",source:"赋能活动",price:"活动获取",
+desc:"寒冰赋能外观",
+features:"赋能/活动限定"
+},
+{
+id:52,name:"赋能·雷",category:"funeng",hole:0,part:"weapon",colors:["#FFD700","#FFA500"],icon:"⚡",
+date:"2025-05",source:"赋能活动",price:"活动获取",
+desc:"雷电赋能外观",
+features:"赋能/活动限定"
+},
+{
+id:53,name:"赋能·风",category:"funeng",hole:0,part:"weapon",colors:["#90EE90","#98FB98"],icon:"🌪️",
+date:"2025-08",source:"赋能活动",price:"活动获取",
+desc:"疾风赋能外观",
+features:"赋能/活动限定"
+},
+{
+id:54,name:"赋能·暗",category:"funeng",hole:0,part:"weapon",colors:["#2F2F2F","#4B0082"],icon:"🌑",
+date:"2025-11",source:"赋能活动",price:"活动获取",
+desc:"暗影赋能外观",
+features:"赋能/活动限定"
+}
+];
+
+// 当前筛选状态
+let currentFilter = {tab:'all', hole:'all', color:'all', part:'all'};
+
+// 渲染武器卡片
+function renderWeapon() {
+const grid = document.getElementById('weapon-grid');
+grid.innerHTML = '';
+
+let filtered = weaponData.filter(item => {
+if (currentFilter.tab !== 'all') {
+if (currentFilter.tab === 'cangyin' && item.category !== 'cangyin') return false;
+if (currentFilter.tab === 'shop' && item.category !== 'shop') return false;
+if (currentFilter.tab === 'funeng' && item.category !== 'funeng') return false;
+if (currentFilter.tab === 'other' && item.category !== 'other') return false;
+}
+if (currentFilter.hole !== 'all' && item.hole !== parseInt(currentFilter.hole)) return false;
+if (currentFilter.part !== 'all' && item.part !== currentFilter.part) return false;
+if (currentFilter.color !== 'all') {
+const colorMap = {red:'#FF',blue:'#00',green:'#00',gold:'#FFD',purple:'#9',white:'#EE'};
+const hasColor = item.colors.some(c=>c.toUpperCase().startsWith(colorMap[currentFilter.color]));
+if (!hasColor) return false;
+}
+return true;
+});
+
+filtered.forEach(item => {
+const card = document.createElement('div');
+card.className = 'weapon-card';
+card.onclick = () => openModal(item);
+let tagLabel = item.category==='cangyin'?`藏音${item.hole}孔`:item.category==='shop'?'商城':item.category==='funeng'?'赋能':'其他';
+card.innerHTML = `
+<div class="weapon-visual">
+<span class="weapon-tag">${tagLabel}</span>
+<span class="weapon-icon">${item.icon}</span>
+</div>
+<div class="weapon-info">
+<h3>${item.name}</h3>
+<p class="desc">${item.desc}</p>
+<div class="weapon-meta">
+<span>${item.hole>0?item.hole+'孔':'-'}</span>
+<span>${item.price}</span>
+</div>
+<div class="color-display">
+${item.colors.map(c=>`<div class="color-swatch" style="background:${c}" title="${c}"></div>`).join('')}
+</div>
+</div>
+`;
+grid.appendChild(card);
+});
+
+// 更新统计
+document.getElementById('total-count').textContent = filtered.length;
+document.getElementById('cangyin-count').textContent = weaponData.filter(i=>i.category==='cangyin').length;
+document.getElementById('shop-count').textContent = weaponData.filter(i=>i.category==='shop').length;
+document.getElementById('funeng-count').textContent = weaponData.filter(i=>i.category==='funeng').length;
+}
+
+// 打开弹窗
+function openModal(item) {
+document.getElementById('modal-title').textContent = item.name;
+document.getElementById('modal-img').textContent = item.icon;
+document.getElementById('modal-source').textContent = item.source;
+document.getElementById('modal-price').textContent = item.price;
+document.getElementById('modal-date').textContent = item.date;
+document.getElementById('modal-type').textContent = item.part==='weapon'?'武器':item.part==='head'?'头饰':item.part==='back'?'背饰':item.part==='face'?'面饰':'-';
+document.getElementById('modal-hole').textContent = item.hole>0?item.hole+'孔':'无';
+
+const tags = document.getElementById('modal-tags');
+tags.innerHTML = `<span class="tag">${item.category==='cangyin'?'藏音':item.category==='shop'?'商城':item.category==='funeng'?'赋能':'其他'}</span><span class="tag">${item.hole>0?item.hole+'孔':'-'}</span>`;
+
+const colorSection = document.getElementById('color-section');
+colorSection.style.display = item.colors ? 'block' : 'none';
+const colorGrid = document.getElementById('modal-colors');
+colorGrid.innerHTML = item.colors ? item.colors.map(c=>`<div class="modal-color" style="background:${c}" title="${c}"></div>`).join('') : '';
+
+document.getElementById('weapon-modal').classList.add('active');
+}
+
+function closeModal() {
+document.getElementById('weapon-modal').classList.remove('active');
+}
+
+// 标签切换
+document.querySelectorAll('.tab-btn').forEach(btn => {
+btn.addEventListener('click', () => {
+document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+currentFilter.tab = btn.dataset.tab;
+document.getElementById('cangyin-filter').style.display = btn.dataset.tab === 'cangyin' ? 'block' : 'none';
+renderWeapon();
+});
+});
+
+// 藏音筛选
+document.querySelectorAll('#cangyin-filter .filter-btn').forEach(btn => {
+btn.addEventListener('click', () => {
+const row = btn.parentElement;
+row.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+if (btn.dataset.hole) currentFilter.hole = btn.dataset.hole;
+if (btn.dataset.color) currentFilter.color = btn.dataset.color;
+if (btn.dataset.part) currentFilter.part = btn.dataset.part;
+renderWeapon();
+});
+});
+
+// 初始渲染
+renderWeapon();
+</script>
+</body>
+</html>

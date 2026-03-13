@@ -363,27 +363,20 @@ function renderFashion(filterCategory='all', filterGrade='all', filterYear='all'
 const grid = document.getElementById('fashion-grid');
 grid.innerHTML = '';
 
-let filtered = fashionData.filter(item => {
+// 使用新数据库格式
+let allData = [];
+if (DB.heming2) allData = allData.concat(DB.heming2);
+if (DB.shop) allData = allData.concat(DB.shop);
+if (DB.hairstyles) allData = allData.concat(DB.hairstyles);
+
+let filtered = allData.filter(item => {
 let categoryMatch = false;
-if (filterCategory === 'all') {
-categoryMatch = true;
-} else if (filterCategory === 'lingyin') {
-categoryMatch = item.category === 'lingyin' || item.category === 'lingyin_small';
-} else if (filterCategory === 'heming') {
-categoryMatch = item.category === 'heming';
-} else if (filterCategory === 'shop') {
-categoryMatch = item.category.startsWith('shop');
-} else if (filterCategory === 'zhanling') {
-categoryMatch = item.category === 'zhanling';
-} else if (filterCategory === 'fuyao') {
-categoryMatch = item.category === 'fuyao';
-} else {
-categoryMatch = item.category === filterCategory;
-}
+if (filterCategory === 'all') categoryMatch = true;
+else if (filterCategory === 'heming') categoryMatch = item.price && item.price.includes('八音窍');
+else if (filterCategory === 'shop') categoryMatch = item.price && item.price.includes('长鸣珠');
+else if (filterCategory === 'hair') categoryMatch = item.id >= 100;
 
 if (!categoryMatch) return false;
-if (filterGrade !== 'all' && item.grade !== filterGrade) return false;
-if (filterYear !== 'all' && !item.date.startsWith(filterYear)) return false;
 if (searchText && !item.name.toLowerCase().includes(searchText.toLowerCase())) return false;
 return true;
 });
@@ -391,33 +384,25 @@ return true;
 filtered.forEach(item => {
 const card = document.createElement('div');
 card.className = 'fashion-card';
-card.onclick = () => openModal(item);
-let categoryLabel = item.category==='lingyin'?'聆音大套':item.category==='lingyin_small'?'聆音小套':item.category==='heming'?'和鸣':item.category.startsWith('shop')?'商城':item.category==='zhanling'?'战令':'扶摇';
-card.innerHTML = \`
-<div class="fashion-visual" style="background:linear-gradient(135deg,\${item.dyes[0]}33,\${item.dyes[0]}11)">
-<span class="fashion-tag">\${categoryLabel}</span>
-<span class="fashion-icon">\${item.icon}</span>
+let tags = item.tags ? item.tags.slice(0,2).join('/') : (item.price || '');
+card.innerHTML = `
+<div class="fashion-visual" style="background:linear-gradient(135deg,${item.dyes ? item.dyes[0]+'33' : '#1a1a2e'},${item.dyes ? item.dyes[0]+'11' : '#2a2a4e'})">
+<span class="fashion-tag">${item.price || ''}</span>
+<span class="fashion-icon">${item.icon || '👘'}</span>
 </div>
 <div class="fashion-info">
-<h3>\${item.name}</h3>
-<p class="desc">\${item.desc}</p>
+<h3>${item.name}</h3>
+<p class="desc">${item.desc || ''}</p>
 <div class="fashion-meta">
-<span>📅 \${item.date}</span>
-<span class="price">💰 \${item.price}</span>
+<span class="price">💰 ${item.price || ''}</span>
 </div>
-<div class="fashion-actions">
-<span class="action-btn" onclick="event.stopPropagation();openModal(\${item.id})">查看详情</span>
+${item.dyes ? '<div class="dye-grid" style="display:flex;gap:4px;margin-top:8px">' + item.dyes.slice(0,5).map(d => '<div style="width:20px;height:20px;border-radius:50%;background:'+d+';border:1px solid #333"></div>').join('') + '</div>' : ''}
 </div>
-</div>
-\`;
+`;
 grid.appendChild(card);
 });
 
-// 更新统计
 document.getElementById('total-count').textContent = filtered.length;
-document.getElementById('lingyin-count').textContent = fashionData.filter(i=>i.category==='lingyin' || i.category==='lingyin_small').length;
-document.getElementById('heming-count').textContent = fashionData.filter(i=>i.category==='heming').length;
-document.getElementById('shop-count').textContent = fashionData.filter(i=>i.category.startsWith('shop')).length;
 }
 
 // 初始渲染

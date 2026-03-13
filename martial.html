@@ -59,7 +59,7 @@ function renderEffects(type='all') {
   if (DB.qishu) data = data.concat(DB.qishu);
   if (type !== 'all') data = data.filter(d => type === 'wuxue' ? d.id < 300 : d.id >= 300);
   grid.innerHTML = data.map(item => `
-    <div class="effect-card">
+    <div class="effect-card" style="cursor:pointer" onclick="window.location.href='detail.html?id='+${item.id}">
       <div class="effect-icon">${item.icon || '✨'}</div>
       <h3>${item.name}</h3>
       <p class="desc">${item.desc || ''}</p>

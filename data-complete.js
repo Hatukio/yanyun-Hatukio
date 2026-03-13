@@ -22,4 +22,17 @@ const shopDirect = [
 {id:21,name:"马上有乾",icon:"🐴",price:"2580 长鸣珠",desc:"除夕贺岁·最低 1280(拾音券·迎春限至 2026/3/9)",tags:["除夕","贺岁","活动"]},
 {id:22,name:"探梅逢春",icon:"🌸",price:"2580 长鸣珠",desc:"新春·梅花主题",tags:["新春","梅花"]},
 {id:23,name:"飞白成诗",icon:"🖌️",price:"1280 长鸣珠",desc:"水墨风格",tags:["水墨","文艺"]},
-{id:24,name:"焰卷残夜",icon:"🔥",price:"1280 长鸣珠",desc:"硬朗风格
+{id:24,name:"焰卷残夜",icon:"🔥",price:"1280 长鸣珠",desc:"硬朗风格,
+{id:24,name:"焰卷残夜",icon:"🔥",price:"1280 长鸣珠",desc:"硬朗风格",tags:["硬朗","战斗"]},
+{id:25,name:"蜀戏春",icon:"🎭",price:"2580 长鸣珠",desc:"直售·川剧主题",tags:["直售","川剧"]},
+{id:26,name:"铁马金戈",icon:"⚔️",price:"2580 长鸣珠",desc:"限时 2025/3/28-4/25·玉门主题",tags:["限时","玉门"]},
+{id:27,name:"游子衣",icon:"🧵",price:"60 长鸣珠",desc:"周年福利",tags:["周年","福利"]},
+{id:28,name:"清音晓",icon:"🎵",price:"680 长鸣珠",desc:"直售",tags:["直售"]},
+{id:29,name:"财星高照",icon:"💰",price:"60 长鸣珠",desc:"正月初五财神",tags:["节日"]},
+{id:30,name:"幽夜尘影",icon:"🌑",price:"60 长鸣珠",desc:"2026/3/6 上架",tags:["新品"]},
+{id:31,name:"岁寒香",icon:"🌺",price:"680→300 长鸣珠",desc:"折扣至 2026/1/15",tags:["折扣"]},
+{id:32,name:"万壑清响",icon:"🏔️",price:"680→300 长鸣珠",desc:"折扣至 2026/3/13",tags:["折扣","书院"]}
+];
+
+// 导出
+window.fashionDB = {heming2, shopDirect, hairstyles: [], wuxue: [], qishu: [], weapons: []};

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>燕云十六声 | 权威资料站</title>
 <style>
-:root{--primary:#0a0a12;--secondary:#12121f;--accent:#c9a227;--accent-gold:#d4af37;--text:#e8e8e8;--text-muted:#8a8a9a;--bg:#08080d;--card-bg:#14141f;--border:#2a2a3a;--gradient-gold:linear-gradient(135deg,#d4af37 0%,#ffd700 100%)}
+:root{--primary:#0d0d14;--secondary:#14141f;--accent:#b8860b;--accent-gold:#daa520;--text:#f0f0f0;--text-muted:#9ca3af;--bg:#0a0a10;--card-bg:#1a1a24;--border:#2a2a35;--gradient-gold:linear-gradient(135deg,#daa520 0%,#fcd34d 100%);--gradient-dark:linear-gradient(180deg,#0d0d14,#1a1a24)}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;min-height:100vh}
 a{text-decoration:none;color:inherit}
@@ -23,18 +23,21 @@ a{text-decoration:none;color:inherit}
 .section{display:none;min-height:100vh;padding-top:70px}
 .section.active{display:block;animation:fadeIn 0.4s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.hero{position:relative;padding:100px 0 80px;background:linear-gradient(180deg,#0a0a12,#14141f);text-align:center}
+.hero{position:relative;padding:100px 0 80px;background:var(--gradient-dark);text-align:center}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 20%,rgba(212,175,55,0.08),transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(139,0,0,0.08),transparent 50%)}
 .hero-content{position:relative;z-index:1}
 .hero-badge{display:inline-block;padding:8px 20px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.3);border-radius:30px;font-size:13px;color:var(--accent-gold);margin-bottom:24px}
 .hero h1{font-size:72px;font-weight:900;letter-spacing:8px;background:var(--gradient-gold);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
 .hero .subtitle{font-size:22px;letter-spacing:12px;color:var(--accent-gold);margin-bottom:16px}
 .hero .description{font-size:18px;color:var(--text-muted);margin-bottom:24px}
-.hero-info{display:flex;justify-content:center;gap:32px;margin-bottom:48px;flex-wrap:wrap;font-size:14px;color:var(--text-muted)}
+.hero-info{display:flex;justify-content:center;gap:32px;margin-bottom:32px;flex-wrap:wrap;font-size:14px;color:var(--text-muted)}
 .hero-stats{display:flex;justify-content:center;gap:60px;flex-wrap:wrap}
 .stat-item{text-align:center}
 .stat-number{display:block;font-size:56px;font-weight:800;color:var(--accent-gold);line-height:1;margin-bottom:8px}
 .stat-label{font-size:14px;color:var(--text-muted);text-transform:uppercase;letter-spacing:2px}
+.hero-cta{text-align:center;margin-top:40px}
+.official-site-btn{display:inline-block;padding:16px 48px;background:linear-gradient(135deg,#d4af37 0%,#ffd700 100%);color:#0a0a12;font-size:18px;font-weight:700;text-decoration:none;border-radius:8px;transition:all 0.3s;letter-spacing:2px;box-shadow:0 4px 20px rgba(212,175,55,0.3)}
+.official-site-btn:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(212,175,55,0.5);filter:brightness(1.1)}
 .quick-links,.section-block{padding:60px 0}
 .links-header,.section-header{text-align:center;margin-bottom:40px}
 .links-header h2,.section-header h2{font-size:32px;margin-bottom:12px}
@@ -180,7 +183,8 @@ footer{background:var(--secondary);padding:50px 0;margin-top:80px;border-top:1px
 <nav class="navbar"><div class="nav-container"><a href="#" class="logo" onclick="showSection('home')"><span class="logo-icon">🏮</span><span class="logo-text">燕云十六声</span><span class="logo-sub">权威资料站</span></a><ul class="nav-menu"><li><a onclick="showSection('home')" class="active" data-section="home">首页</a></li><li><a onclick="showSection('fashion')" data-section="fashion">时装</a></li><li><a onclick="showSection('martial')" data-section="martial">武学</a></li><li><a onclick="showSection('gameplay')" data-section="gameplay">玩法</a></li><li><a onclick="showSection('guide')" data-section="guide">攻略</a></li><li><a onclick="showSection('story')" data-section="story">剧情</a></li><li><a onclick="showSection('news')" data-section="news">资讯</a></li><li><a onclick="showSection('tools')" data-section="tools">工具</a></li></ul><button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button></div></nav>
 
 <section id="home" class="section active">
-<div class="hero"><div class="hero-content"><div class="hero-badge">粉丝自发整理 · 持续更新</div><h1>燕云十六声</h1><p class="subtitle">WHERE WINDS MEET</p><p class="description">开放世界武侠动作角色扮演游戏</p><div class="hero-info"><span>🎮 网易游戏 EVERTONE</span><span>📅 公测 2024.12.27</span><span>🌐 PC/iOS/Android/PS5/Steam</span><span>⚙️ 引擎: Messiah</span></div><div class="hero-stats"><div class="stat-item"><span class="stat-number">4</span><span class="stat-label">大区域</span></div><div class="stat-item"><span class="stat-number">43</span><span class="stat-label">奇术</span></div><div class="stat-item"><span class="stat-number">30+</span><span class="stat-label">时装</span></div><div class="stat-item"><span class="stat-number">8</span><span class="stat-label">门派</span></div></div></div></div>
+<div class="hero"><div class="hero-content"><div class="hero-badge">粉丝自发整理 · 持续更新</div><h1>燕云十六声</h1><p class="subtitle">WHERE WINDS MEET</p><p class="description">开放世界武侠动作角色扮演游戏</p><div class="hero-info"><span>🎮 网易游戏 EVERTONE</span><span>📅 公测 2024.12.27</span><span>🌐 PC/iOS/Android/PS5/Steam</span><span>⚙️ 引擎: Messiah</span></div><div class="hero-stats"><div class="stat-item"><span class="stat-number">4</span><span class="stat-label">大区域</span></div><div class="stat-item"><span class="stat-number">43</span><span class="stat-label">奇术</span></div><div class="stat-item"><span class="stat-number">30+</span><span class="stat-label">时装</span></div><div class="stat-item"><span class="stat-number">8</span><span class="stat-label">门派</span></div></div>
+<div class="hero-cta"><a href="https://yy163.com" target="_blank" class="official-site-btn">访问官网</a></div></div></div>
 <div class="container">
 <div class="quick-links"><div class="links-header"><h2>快速导航</h2><p>全方位了解燕云十六声</p></div><div class="links-grid"><div class="link-card" onclick="showSection('fashion')"><span class="link-icon">👘</span><span class="link-title">时装系统</span><span class="link-desc">聆音/和鸣/商城/战令</span></div><div class="link-card" onclick="showSection('martial')"><span class="link-icon">⚔️</span><span class="link-title">武学系统</span><span class="link-desc">43种奇术/武器/战斗</span></div><div class="link-card" onclick="showSection('gameplay')"><span class="link-icon">🎮</span><span class="link-title">玩法系统</span><span class="link-desc">战斗/探索/操作</span></div><div class="link-card" onclick="showSection('guide')"><span class="link-icon">📖</span><span class="link-title">攻略大全</span><span class="link-desc">新手/进阶/高玩</span></div><div class="link-card" onclick="showSection('story')"><span class="link-icon">📜</span><span class="link-title">剧情背景</span><span class="link-desc">五代十国/门派</span></div><div class="link-card" onclick="showSection('news')"><span class="link-icon">📰</span><span class="link-title">版本timeline</span><span class="link-desc">更新历史</span></div><div class="link-card" onclick="showSection('tools')"><span class="link-icon">🔧</span><span class="link-title">实用工具</span><span class="link-desc">计算器/模拟器</span></div></div></div>
 <div class="section-block"><div class="section-header"><h2>🔥 热门时装</h2></div><div class="fashion-grid" style="grid-template-columns:repeat(3,1fr)"><div class="fashion-card"><div class="fashion-img" style="background:linear-gradient(135deg,#8B0000,#FF4500)"><span class="fashion-tag hot">聆音顶奢</span></div><div class="fashion-info"><h3>沧海龙吟</h3><p>白龙主题 · 可交易绝世外观 · 2025新春</p></div></div><div class="fashion-card"><div class="fashion-img" style="background:linear-gradient(135deg,#4B0082,#FF00FF)"><span class="fashion-tag">聆音</span></div><div class="fashion-info"><h3>龙腾岁宴</h3><p>支持裁造/龙战于野款式 · 2026新春</p></div></div><div class="fashion-card"><div class="fashion-img" style="background:linear-gradient(135deg,#191970,#4169E1)"><span class="fashion-tag">和鸣</span></div><div class="fashion-info"><h3>莲渡幽罗</h3><p>附结算演出/动态头像 · 2026.2.27</p></div></div></div></div>
@@ -292,7 +296,7 @@ footer{background:var(--secondary);padding:50px 0;margin-top:80px;border-top:1px
 <div id="qishu-combo" class="tool-modal"><div class="tool-modal-content"><span class="close-btn" onclick="closeTool('qishu-combo')">&times;</span><h2>⚔️ 奇术搭配推荐</h2><div class="calc-result-area" style="text-align:left"><p><strong>🔥 爆发流：</strong>太白醉月 + 神龙吐火</p><p style="margin-top:12px"><strong>🛡️ 生存流：</strong>无相金身 + 杳无形</p><p style="margin-top:12px"><strong>⚡ 跑图流：</strong>凌云踏 + 冯虚御风 + 飒沓流星</p><p style="margin-top:12px"><strong>🎵 辅助流：</strong>箫吟千浪 + 百鬼打穴手</p></div></div></div>
 </div></section>
 
-<footer><div class="container"><div class="footer-content"><div class="footer-brand"><span>🏮</span><div><h3>燕云十六声权威资料站</h3><p>粉丝自发整理 · 基于官方资料</p></div></div><div class="footer-links"><p>国服官网: www.yysls.cn</p><p>本页面非官方，仅供学习交流使用</p><p class="copyright">© 2026 燕云十六声资料站</p></div></div></footer>
+<footer><div class="container"><div class="footer-content"><div class="footer-brand"><span>🏮</span><div><h3>燕云十六声权威资料站</h3><p>粉丝自发整理 · 基于官方资料</p></div></div><div class="footer-links"><p>官网: <a href="https://yy163.com" target="_blank" style="color:var(--accent-gold)">yy163.com</a></p><p>本页面非官方，仅供学习交流使用</p><p class="copyright">© 2026 燕云十六声资料站</p></div></div></footer>
 
 <script>
 function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav-menu a').forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.nav-menu a[data-section="${id}"]`);if(a)a.classList.add('active');window.scrollTo(0,0)}

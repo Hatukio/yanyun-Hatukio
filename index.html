@@ -78,18 +78,19 @@ a {text-decoration: none;color: inherit;transition: color 0.3s;}
 }
 
 .logo-icon {
-  font-size: 36px;
+  width: 42px;
+  height: 42px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
 }
 
 .logo-text {
-  font-size: 26px;
-  font-weight: 800;
-  background: var(--gradient-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 2px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 1px;
 }
 
 .logo-sub {
@@ -152,7 +153,7 @@ a {text-decoration: none;color: inherit;transition: color 0.3s;}
 /* Hero 区域优化 */
 .hero {
   position: relative;
-  padding: 140px 0 100px;
+  padding: 150px 0 110px;
   background: var(--gradient-dark);
   text-align: center;
   overflow: hidden;
@@ -604,6 +605,1046 @@ footer {
   border-top: 1px solid var(--border);
 }
 
+/* 通用区块样式 */
+.section {
+  padding: 100px 0 60px;
+  min-height: 100vh;
+}
+
+.page-header {
+  text-align: center;
+  padding: 60px 0 50px;
+}
+
+.section-title {
+  font-size: 48px;
+  font-weight: 800;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+/* 时装相关样式 */
+.fashion-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-bottom: 60px;
+}
+
+.fashion-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.fashion-item:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+}
+
+.fashion-visual {
+  height: 180px;
+  position: relative;
+}
+
+.fashion-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 16px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  font-size: 13px;
+  color: white;
+  font-weight: 600;
+}
+
+.fashion-detail {
+  padding: 24px;
+}
+
+.fashion-detail h3 {
+  font-size: 20px;
+  color: var(--accent-gold);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.fashion-detail p {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+
+.fashion-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.fashion-group {
+  margin-bottom: 80px;
+}
+
+.fashion-group.active {
+  display: block;
+}
+
+.fashion-group h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.fashion-group .group-desc {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.fashion-group + .fashion-group {
+  padding-top: 60px;
+  border-top: 1px solid var(--border);
+}
+
+/* 武学相关样式 */
+.weapon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.weapon-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px 28px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.weapon-card:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+}
+
+.weapon-icon {
+  font-size: 52px;
+  margin-bottom: 20px;
+}
+
+.weapon-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.weapon-card > p {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.martial-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--accent-gold);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* 奇术相关样式 */
+.qishu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.qishu-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.qishu-card h4 {
+  font-size: 20px;
+  color: var(--accent-gold);
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.qishu-card ul {
+  list-style: none;
+}
+
+.qishu-card li {
+  font-size: 15px;
+  color: var(--text-muted);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.8;
+}
+
+.qishu-card li:last-child {
+  border-bottom: none;
+}
+
+.qishu-card li strong {
+  color: var(--text);
+}
+
+.qishu-rank {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 50px;
+}
+
+.qishu-rank h3 {
+  font-size: 22px;
+  color: var(--accent-gold);
+  margin-bottom: 24px;
+}
+
+.rank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rank-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 20px;
+  background: rgba(212, 175, 55, 0.05);
+  border-radius: 12px;
+}
+
+.rank-item.top1 {
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid var(--accent-gold);
+}
+
+.rank-num {
+  font-size: 18px;
+  width: 32px;
+}
+
+.rank-name {
+  flex: 1;
+  font-size: 16px;
+}
+
+.rank-dmg {
+  font-size: 15px;
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+.combo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.combo-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.combo-card h4 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.combo-card > p {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+/* 按键相关样式 */
+.keyboard-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 40px;
+}
+
+.keyboard-section h3 {
+  font-size: 22px;
+  color: var(--accent-gold);
+  margin-bottom: 20px;
+}
+
+.key-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.key-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+.key {
+  display: inline-block;
+  padding: 5px 12px;
+  background: var(--border);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-gold);
+}
+
+.key-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.mechanic-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.mechanic-section h3 {
+  font-size: 22px;
+  color: var(--accent-gold);
+  margin-bottom: 20px;
+}
+
+.mechanic-section p {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 2;
+  margin-bottom: 16px;
+}
+
+.mechanic-section strong {
+  color: var(--accent-gold);
+}
+
+/* 区域卡片样式 */
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.area-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.area-card:hover {
+  border-color: var(--accent-gold);
+}
+
+.area-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.area-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.area-card p {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+/* 流派卡片样式 */
+.faction-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.faction-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+
+.faction-card h4 {
+  font-size: 20px;
+  color: var(--accent-gold);
+  margin-bottom: 12px;
+}
+
+.faction-card p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* 故事背景样式 */
+.story-intro {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 50px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.story-intro h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.story-intro > p {
+  font-size: 20px;
+  line-height: 2;
+  color: var(--text-muted);
+  max-width: 850px;
+  margin: 0 auto 28px;
+}
+
+.story-tags {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.story-tag {
+  padding: 10px 24px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  font-size: 15px;
+  color: var(--accent-gold);
+}
+
+/* 新闻列表样式 */
+.news-list-full {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.news-item-full {
+  display: flex;
+  gap: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.3s;
+}
+
+.news-item-full:hover {
+  border-color: var(--accent-gold);
+}
+
+.news-date-badge {
+  min-width: 80px;
+  text-align: center;
+  padding: 16px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 12px;
+}
+
+.news-day {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  line-height: 1;
+}
+
+.news-month {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.news-body {
+  flex: 1;
+}
+
+.news-body .news-tag {
+  display: inline-block;
+  padding: 5px 14px;
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--accent-gold);
+  border-radius: 12px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.news-body h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.news-body p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* 快速导航和通用卡片 */
+.quick-links,
+.section-block {
+  padding: 80px 0 60px;
+}
+
+.links-header,
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.links-header h2,
+.section-header h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.links-header p,
+.section-header p {
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.link-card,
+.gameplay-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.link-card:hover,
+.gameplay-card:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+}
+
+.link-icon,
+.gameplay-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.link-title,
+.gameplay-card h3 {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.link-desc,
+.gameplay-card p {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+/* 时装卡片 */
+.fashion-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.fashion-card:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+}
+
+.fashion-img {
+  height: 160px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 12px;
+}
+
+.fashion-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 12px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  font-size: 12px;
+  color: white;
+  font-weight: 600;
+}
+
+.fashion-tag.hot {
+  background: #8b0000;
+}
+
+.fashion-info {
+  padding: 20px;
+}
+
+.fashion-info h3 {
+  font-size: 18px;
+  color: var(--accent-gold);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.fashion-info p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* 武学卡片 */
+.martial-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.martial-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.martial-card:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+}
+
+.martial-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.martial-card h3 {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.martial-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+/* 按钮样式 */
+.hero-cta {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.official-site-btn {
+  display: inline-block;
+  padding: 18px 56px;
+  background: var(--gradient-gold);
+  color: var(--primary);
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+.official-site-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+  filter: brightness(1.1);
+}
+
+/* 工具展示区 */
+.tools-showcase {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-bottom: 60px;
+}
+
+.tool-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px 28px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tool-box:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+}
+
+.tool-box span {
+  font-size: 52px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.tool-box h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.tool-box p {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+/* 弹窗样式 */
+.tool-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.tool-modal.active {
+  display: flex;
+}
+
+.tool-modal-content {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 32px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-btn:hover {
+  color: #8b0000;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tool-modal-content h2 {
+  font-size: 24px;
+  color: var(--accent-gold);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.sim-preview-area {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.sim-character {
+  font-size: 80px;
+  margin-bottom: 16px;
+}
+
+.sim-result {
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.sim-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.sim-controls select,
+.calc-form input,
+.calc-form select {
+  padding: 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 15px;
+  width: 100%;
+}
+
+.sim-btn,
+.calc-form button {
+  width: 100%;
+  padding: 16px;
+  background: var(--accent-gold);
+  border: none;
+  border-radius: 10px;
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.sim-btn:hover,
+.calc-form button:hover {
+  filter: brightness(1.1);
+}
+
+.calc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.calc-form label {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.calc-result-area {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+.calc-result-area p {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.calc-result-area .price {
+  font-size: 36px;
+  color: var(--accent-gold);
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+/* 英雄信息区域 */
+.hero-info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.hero-description {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+/* 分隔线样式 */
+.filter-bar,
+.martial-tabs,
+.category-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.filter-btn,
+.tab-btn {
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active,
+.tab-btn:hover,
+.tab-btn.active {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* 战令标签 */
+.view-all-btn {
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-size: 15px;
+  transition: opacity 0.3s;
+}
+
+.view-all-btn:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* 移动端优化 */
+@media (max-width: 1024px) {
+  .fashion-grid,
+  .martial-grid,
+  .qishu-grid,
+  .combo-grid,
+  .links-grid,
+  .tools-showcase {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .weapon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 90px 0 40px;
+  }
+  
+  .page-header {
+    padding: 50px 0 40px;
+  }
+  
+  .section-title {
+    font-size: 36px;
+  }
+  
+  .hero h1 {
+    font-size: 40px;
+    letter-spacing: 4px;
+  }
+  
+  .hero .subtitle {
+    font-size: 16px;
+    letter-spacing: 6px;
+  }
+  
+  .hero-stats {
+    gap: 30px;
+  }
+  
+  .stat-number {
+    font-size: 32px;
+  }
+  
+  .fashion-grid,
+  .martial-grid,
+  .qishu-grid,
+  .combo-grid,
+  .links-grid,
+  .weapon-grid,
+  .tools-showcase,
+  .faction-grid,
+  .areas-grid,
+  .key-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-info {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-links {
+    text-align: center;
+  }
+}
+
 .footer-content {
   display: flex;
   justify-content: space-between;
@@ -720,7 +1761,7 @@ footer {
 </style>
 </head>
 <body>
-<nav class="navbar"><div class="nav-container"><a href="#" class="logo" onclick="showSection('home')"><span class="logo-icon">🏮</span><span class="logo-text">燕云十六声</span><span class="logo-sub">权威资料站</span></a><ul class="nav-menu"><li><a onclick="showSection('home')" class="active" data-section="home">首页</a></li><li><a href="appearance.html">外观系统</a></li><li><a href="martial.html">武学</a></li><li></li><li><a href="guide.html">攻略</a></li><li></li><li></li><li></li><li><a href="https://yy163.com" target="_blank" class="nav-official">官网</a></li></ul><button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button></div></nav>
+<nav class="navbar"><div class="nav-container"><a href="#" class="logo" onclick="showSection('home')"><div class="logo-icon" style="background-image:url('https://yy163.com/favicon.ico')"></div><span class="logo-text">燕云十六声</span><span class="logo-sub">权威资料站</span></a><ul class="nav-menu"><li><a onclick="showSection('home')" class="active" data-section="home">首页</a></li><li><a href="appearance.html">外观系统</a></li><li><a href="martial.html">武学</a></li><li></li><li><a href="guide.html">攻略</a></li><li></li><li></li><li></li><li><a href="https://yy163.com" target="_blank" class="nav-official">官网</a></li></ul><button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button></div></nav>
 
 <section id="home" class="section active">
 <div class="hero"><div class="hero-content"><div class="hero-badge">粉丝自发整理 · 持续更新</div><h1>燕云十六声</h1><p class="subtitle">WHERE WINDS MEET</p><p class="description">开放世界武侠动作角色扮演游戏</p><div class="hero-info"><span>🎮 网易游戏 EVERTONE</span><span>📅 公测 2024.12.27</span><span>🌐 PC/iOS/Android/PS5/Steam</span><span>⚙️ 引擎: Messiah</span></div><div class="hero-stats"><div class="stat-item"><span class="stat-number">4</span><span class="stat-label">大区域</span></div><div class="stat-item"><span class="stat-number">43</span><span class="stat-label">奇术</span></div><div class="stat-item"><span class="stat-number">30+</span><span class="stat-label">时装</span></div><div class="stat-item"><span class="stat-number">8</span><span class="stat-label">门派</span></div></div>

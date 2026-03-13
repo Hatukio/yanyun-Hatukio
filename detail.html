@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>时装详情 | 燕云十六声</title>
+<link rel="icon" href="logo-icon.svg">
+<style>
+:root{--bg:#08080f;--card:#14141f;--border:#2a2a3a;--gold:#d4af37;--text:#e5e5eb;--muted:#8b8b9f}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.navbar{position:fixed;top:0;height:72px;background:rgba(13,13,20,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,0.3);z-index:1000;width:100%}
+.nav-container{max-width:1200px;margin:0 auto;padding:0 32px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo-icon{width:50px;height:50px;background-image:url('logo-icon.svg');background-size:contain}
+.logo-text{font-size:28px;font-family:"STXingkai","KaiTi";background:linear-gradient(180deg,#ffd700,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-menu{display:flex;gap:6px;list-style:none}
+.nav-menu a{padding:10px 18px;font-size:14px;color:var(--muted);border-radius:8px;text-decoration:none}
+.nav-menu a:hover,.nav-menu a.active{color:var(--gold);background:rgba(212,175,55,0.12)}
+.section{padding:100px 0 60px}
+.detail-header{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:40px}
+.detail-visual{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;display:flex;align-items:center;justify-content:center;min-height:400px;position:relative;overflow:hidden}
+.placeholder-img{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a2e,#2a2a4e)}
+.placeholder-img .icon{font-size:120px;margin-bottom:20px}
+.placeholder-img .text{color:var(--muted);font-size:16px}
+.dye-preview{position:absolute;bottom:20px;left:20px;right:20px;display:flex;gap:8px;justify-content:center}
+.dye-dot{width:36px;height:36px;border-radius:50%;border:3px solid rgba(255,255,255,0.3);cursor:pointer;transition:transform 0.3s}
+.dye-dot:hover{transform:scale(1.2)}
+.detail-info h1{font-size:42px;background:linear-gradient(135deg,#d4af37,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.detail-meta{display:flex;flex-direction:column;gap:16px;margin-bottom:30px}
+.meta-row{display:flex;gap:12px;align-items:center}
+.meta-label{color:var(--muted);min-width:80px}
+.meta-value{color:var(--text)}
+.meta-value.price{color:var(--gold);font-size:22px;font-weight:600}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:6px 16px;background:rgba(212,175,55,0.15);color:var(--gold);border-radius:20px;font-size:14px}
+.section-title{font-size:24px;color:var(--gold);margin:40px 0 20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.tabs{display:flex;gap:8px;margin-bottom:24px;border-bottom:1px solid var(--border);padding-bottom:16px}
+.tab{padding:12px 24px;background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:16px;border-radius:8px 8px 0 0;transition:all 0.3s}
+.tab:hover,.tab.active{background:rgba(212,175,55,0.15);color:var(--gold)}
+.upload-area{border:2px dashed var(--border);border-radius:16px;padding:60px;text-align:center;background:var(--card);cursor:pointer;transition:all 0.3s;margin-bottom:24px}
+.upload-area:hover{border-color:var(--gold);background:rgba(212,175,55,0.05)}
+.upload-area input{display:none}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.media-item{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;position:relative;cursor:pointer;transition:all 0.3s}
+.media-item:hover{border-color:var(--gold);transform:translateY(-4px)}
+.media-item img,.media-item video{width:100%;height:180px;object-fit:cover}
+.media-overlay{position:absolute;top:8px;right:8px;display:flex;gap:4px}
+.media-btn{width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.media-actions{padding:12px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+.like-btn{display:flex;align-items:center;gap:6px;color:var(--muted);cursor:pointer;padding:6px 12px;border-radius:8px;border:none;background:transparent}
+.like-btn:hover{background:rgba(255,0,0,0.1);color:#ff4444}
+.like-btn.liked{color:#ff4444}
+.comments-section{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px}
+.comment{padding:16px 0;border-bottom:1px solid var(--border)}
+.comment:last-child{border-bottom:none}
+.comment-header{display:flex;justify-content:space-between;margin-bottom:8px}
+.comment-user{color:var(--gold);font-weight:500}
+.comment-time{color:var(--muted);font-size:13px}
+.comment-text{color:var(--text);line-height:1.6}
+.comment-input{display:flex;gap:12px;margin-top:20px}
+.comment-input input{flex:1;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text)}
+.comment-input button{padding:12px 24px;background:var(--gold);border:none;border-radius:8px;color:#000;font-weight:600;cursor:pointer}
+footer{background:var(--bg);padding:40px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted);margin-top:60px}
+@media(max-width:768px){.detail-header{grid-template-columns:1fr}.nav-menu{display:none}}
+</style>
+</head>
+<body>
+<nav class="navbar"><div class="nav-container"><a href="index.html" class="logo"><div class="logo-icon"></div><span class="logo-text">燕云十六声</span></a><ul class="nav-menu"><li><a href="index.html">首页</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html">武学特效</a></li><li><a href="weapon.html">武器外观</a></li><li><a href="guide.html">攻略</a></li><li><a href="upload.html">上传</a></li></ul></div></nav>
+
+<section class="section"><div class="container">
+<div class="detail-header">
+  <div class="detail-visual">
+    <div class="placeholder-img" id="mainVisual">
+      <div class="icon" id="itemIcon">🐉</div>
+      <div class="text">点击上传时装展示图</div>
+    </div>
+    <div class="dye-preview" id="dyePreview"></div>
+  </div>
+  <div class="detail-info">
+    <h1 id="itemName">加载中...</h1>
+    <div class="detail-meta">
+      <div class="meta-row"><span class="meta-label">价格</span><span class="meta-value price" id="itemPrice">-</span></div>
+      <div class="meta-row"><span class="meta-label">来源</span><span class="meta-value" id="itemSource">-</span></div>
+      <div class="meta-row"><span class="meta-label">描述</span><span class="meta-value" id="itemDesc">-</span></div>
+    </div>
+    <div class="tags" id="itemTags"></div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('showcase')">玩家展示</button>
+  <button class="tab" onclick="switchTab('dye')">染色方案</button>
+  <button class="tab" onclick="switchTab('video')">视频</button>
+  <button class="tab" onclick="switchTab('info')">获取方式</button>
+</div>
+
+<div id="tabContent"></div>
+
+<div class="section-title">💬 玩家评论</div>
+<div class="comments-section">
+  <div id="commentsList"></div>
+  <div class="comment-input">
+    <input type="text" id="commentInput" placeholder="发表你的看法...">
+    <button onclick="addComment()">发送</button>
+  </div>
+</div>
+</div></section>
+
+<footer><p>© 2026 燕云十六声资料站 · 粉丝自发整理</p></footer>
+
+<script src="data-all.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+const itemId = parseInt(params.get('id')) || 1;
+
+// 查找数据
+let item = null;
+['heming2','shop','hairstyles','wuxue','qishu','weapons'].forEach(cat => {
+  if(DB[cat]) {
+    const found = DB[cat].find(i => i.id === itemId);
+    if(found) item = found;
+  }
+});
+
+// 存储键
+const STORAGE_KEY = 'yanyun_detail_' + itemId;
+
+// 加载详情
+function loadDetail() {
+  if(!item) {
+    document.getElementById('itemName').textContent = '未找到';
+    return;
+  }
+  document.getElementById('itemName').textContent = item.name;
+  document.getElementById('itemIcon').textContent = item.icon || '👘';
+  document.getElementById('itemPrice').textContent = item.price || '-';
+  document.getElementById('itemSource').textContent = item.source || '-';
+  document.getElementById('itemDesc').textContent = item.desc || '-';
+  
+  if(item.tags) {
+    document.getElementById('itemTags').innerHTML = item.tags.map(t => '<span class="tag">'+t+'</span>').join('');
+  }
+  
+  if(item.dyes) {
+    document.getElementById('dyePreview').innerHTML = item.dyes.map(d => 
+      '<div class="dye-dot" style="background:'+d+'"></div>'
+    ).join('');
+  }
+  
+  document.title = item.name + ' | 燕云十六声';
+}
+
+// 切换标签
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  const storage = getStorage();
+  const content = document.getElementById('tabContent');
+  
+  if(tab === 'showcase') {
+    content.innerHTML = `
+      <div class="upload-area" onclick="document.getElementById('showcaseInput').click()">
+        <div style="font-size:48px;margin-bottom:12px">📤</div>
+        <div style="color:var(--muted)">点击或拖拽上传你的角色展示图</div>
+        <input type="file" id="showcaseInput" accept="image/*" onchange="uploadMedia('showcase',this.files[0])">
+      </div>
+      <div class="media-grid">${renderMedia('showcase')}</div>
+    `;
+  } else if(tab === 'dye') {
+    content.innerHTML = `
+      <div class="upload-area" onclick="document.getElementById('dyeInput').click()">
+        <div style="font-size:48px;margin-bottom:12px">🎨</div>
+        <div style="color:var(--muted)">上传你喜欢的染色方案</div>
+        <input type="file" id="dyeInput" accept="image/*" onchange="uploadMedia('dye',this.files[0])">
+      </div>
+      <div class="media-grid">${renderMedia('dye')}</div>
+    `;
+  } else if(tab === 'video') {
+    content.innerHTML = `
+      <div class="upload-area" onclick="document.getElementById('videoInput').click()">
+        <div style="font-size:48px;margin-bottom:12px">🎬</div>
+        <div style="color:var(--muted)">上传视频展示（结算动画、试穿等）</div>
+        <input type="file" id="videoInput" accept="video/*" onchange="uploadMedia('video',this.files[0])">
+      </div>
+      <div class="media-grid">${renderMedia('video')}</div>
+    `;
+  } else if(tab === 'info') {
+    content.innerHTML = `
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px">
+        <h3 style="color:var(--gold);margin-bottom:16px">📍 获取方式</h3>
+        <p style="color:var(--text);line-height:1.8;margin-bottom:20px">${item.source || '商城购买'}</p>
+        <h3 style="color:var(--gold);margin-bottom:16px">💰 价格信息</h3>
+        <p style="color:var(--text);line-height:1.8;margin-bottom:20px">${item.price || '详见游戏内'}</p>
+        <h3 style="color:var(--gold);margin-bottom:16px">📝 备注</h3>
+        <p style="color:var(--text);line-height:1.8">${item.desc || ''}</p>
+      </div>
+    `;
+  }
+}
+
+// 获取存储
+function getStorage() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {showcase:[],dye:[],video:[],comments:[]};
+  } catch(e) {
+    return {showcase:[],dye:[],video:[],comments:[]};
+  }
+}
+
+// 保存存储
+function saveStorage(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+// 上传媒体
+function uploadMedia(type, file) {
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const storage = getStorage();
+    storage[type].unshift({
+      id: Date.now(),
+      url: e.target.result,
+      likes: 0,
+      date: new Date().toISOString()
+    });
+    saveStorage(storage);
+    switchTab(type);
+  };
+  reader.readAsDataURL(file);
+}
+
+// 渲染媒体
+function renderMedia(type) {
+  const storage = getStorage();
+  const items = storage[type] || [];
+  if(items.length === 0) return '<p style="text-align:center;color:var(--muted);padding:40px;grid-column:1/-1">暂无上传，快来分享吧！</p>';
+  
+  return items.map(m => `
+    <div class="media-item">
+      ${type === 'video' ? '<video src="'+m.url+'" controls></video>' : '<img src="'+m.url+'">'}
+      <div class="media-actions">
+        <button class="like-btn ${m.likes>0?'liked':''}" onclick="likeMedia('${type}',${m.id})">❤️ ${m.likes}</button>
+        <button class="media-btn" onclick="deleteMedia('${type}',${m.id})">🗑️</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// 点赞
+function likeMedia(type, id) {
+  const storage = getStorage();
+  const item = storage[type].find(m => m.id === id);
+  if(item) {
+    item.likes = (item.likes || 0) + 1;
+    saveStorage(storage);
+    switchTab(type);
+  }
+}
+
+// 删除
+function deleteMedia(type, id) {
+  if(!confirm('确定删除？')) return;
+  const storage = getStorage();
+  storage[type] = storage[type].filter(m => m.id !== id);
+  saveStorage(storage);
+  switchTab(type);
+}
+
+// 评论
+function addComment() {
+  const input = document.getElementById('commentInput');
+  if(!input.value.trim()) return;
+  const storage = getStorage();
+  storage.comments = storage.comments || [];
+  storage.comments.push({
+    text: input.value,
+    date: new Date().toISOString()
+  });
+  saveStorage(storage);
+  input.value = '';
+  loadComments();
+}
+
+// 加载评论
+function loadComments() {
+  const storage = getStorage();
+  const comments = storage.comments || [];
+  document.getElementById('commentsList').innerHTML = comments.length ? 
+    comments.map(c => `
+      <div class="comment">
+        <div class="comment-header">
+          <span class="comment-user">玩家</span>
+          <span class="comment-time">${new Date(c.date).toLocaleDateString()}</span>
+        </div>
+        <div class="comment-text">${c.text}</div>
+      </div>
+    `).join('') : '<p style="color:var(--muted);text-align:center">暂无评论</p>';
+}
+
+// 初始化
+loadDetail();
+switchTab('showcase');
+loadComments();
+</script>
+</body>
+</html>

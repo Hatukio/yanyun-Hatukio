@@ -384,6 +384,8 @@ return true;
 filtered.forEach(item => {
 const card = document.createElement('div');
 card.className = 'fashion-card';
+card.style.cursor = 'pointer';
+card.onclick = () => window.location.href = 'detail.html?id='+item.id;
 let tags = item.tags ? item.tags.slice(0,2).join('/') : (item.price || '');
 card.innerHTML = `
 <div class="fashion-visual" style="background:linear-gradient(135deg,${item.dyes ? item.dyes[0]+'33' : '#1a1a2e'},${item.dyes ? item.dyes[0]+'11' : '#2a2a4e'})">

@@ -19,292 +19,315 @@ body{font-family:"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--t
 .nav-menu a{padding:10px 18px;font-size:14px;color:var(--muted);border-radius:8px;text-decoration:none}
 .nav-menu a:hover,.nav-menu a.active{color:var(--gold);background:rgba(212,175,55,0.12)}
 .section{padding:100px 0 60px}
-.detail-header{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:40px}
-.detail-visual{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;display:flex;align-items:center;justify-content:center;min-height:400px;position:relative;overflow:hidden}
-.placeholder-img{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a2e,#2a2a4e)}
-.placeholder-img .icon{font-size:120px;margin-bottom:20px}
-.placeholder-img .text{color:var(--muted);font-size:16px}
-.dye-preview{position:absolute;bottom:20px;left:20px;right:20px;display:flex;gap:8px;justify-content:center}
-.dye-dot{width:36px;height:36px;border-radius:50%;border:3px solid rgba(255,255,255,0.3);cursor:pointer;transition:transform 0.3s}
-.dye-dot:hover{transform:scale(1.2)}
-.detail-info h1{font-size:42px;background:linear-gradient(135deg,#d4af37,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
-.detail-meta{display:flex;flex-direction:column;gap:16px;margin-bottom:30px}
-.meta-row{display:flex;gap:12px;align-items:center}
-.meta-label{color:var(--muted);min-width:80px}
-.meta-value{color:var(--text)}
-.meta-value.price{color:var(--gold);font-size:22px;font-weight:600}
-.tags{display:flex;gap:8px;flex-wrap:wrap}
-.tag{padding:6px 16px;background:rgba(212,175,55,0.15);color:var(--gold);border-radius:20px;font-size:14px}
-.section-title{font-size:24px;color:var(--gold);margin:40px 0 20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
-.tabs{display:flex;gap:8px;margin-bottom:24px;border-bottom:1px solid var(--border);padding-bottom:16px}
-.tab{padding:12px 24px;background:transparent;border:none;color:var(--muted);cursor:pointer;font-size:16px;border-radius:8px 8px 0 0;transition:all 0.3s}
-.tab:hover,.tab.active{background:rgba(212,175,55,0.15);color:var(--gold)}
-.upload-area{border:2px dashed var(--border);border-radius:16px;padding:60px;text-align:center;background:var(--card);cursor:pointer;transition:all 0.3s;margin-bottom:24px}
-.upload-area:hover{border-color:var(--gold);background:rgba(212,175,55,0.05)}
-.upload-area input{display:none}
-.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
-.media-item{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;position:relative;cursor:pointer;transition:all 0.3s}
-.media-item:hover{border-color:var(--gold);transform:translateY(-4px)}
-.media-item img,.media-item video{width:100%;height:180px;object-fit:cover}
-.media-overlay{position:absolute;top:8px;right:8px;display:flex;gap:4px}
-.media-btn{width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,0.6);border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.media-actions{padding:12px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
-.like-btn{display:flex;align-items:center;gap:6px;color:var(--muted);cursor:pointer;padding:6px 12px;border-radius:8px;border:none;background:transparent}
-.like-btn:hover{background:rgba(255,0,0,0.1);color:#ff4444}
-.like-btn.liked{color:#ff4444}
-.comments-section{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px}
-.comment{padding:16px 0;border-bottom:1px solid var(--border)}
-.comment:last-child{border-bottom:none}
+.back-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--muted);text-decoration:none;margin-bottom:30px;transition:all 0.3s}
+.back-btn:hover{border-color:var(--gold);color:var(--gold)}
+.detail-header{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:50px}
+.detail-visual{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;text-align:center;min-height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.detail-icon{font-size:120px;margin-bottom:20px}
+.detail-name{font-size:48px;background:linear-gradient(135deg,#d4af37,#ffd700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.detail-info{display:flex;flex-direction:column;gap:20px}
+.info-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px}
+.info-card h3{font-size:18px;color:var(--gold);margin-bottom:12px}
+.info-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)}
+.info-row:last-child{border-bottom:none}
+.info-label{color:var(--muted)}
+.info-value{color:var(--text);font-weight:500}
+.price-value{color:var(--gold);font-weight:600;font-size:18px}
+.dye-section{margin-top:40px}
+.dye-section h2{font-size:28px;color:var(--gold);margin-bottom:20px}
+.dye-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.dye-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;text-align:center}
+.dye-preview{display:flex;justify-content:center;gap:8px;margin-bottom:12px}
+.dye-dot{width:32px;height:32px;border-radius:50%;border:2px solid var(--border)}
+.upload-section{margin-top:50px}
+.upload-section h2{font-size:28px;color:var(--gold);margin-bottom:20px}
+.upload-tabs{display:flex;gap:12px;margin-bottom:24px}
+.tab-btn{padding:12px 24px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--muted);cursor:pointer;transition:all 0.3s}
+.tab-btn:hover,.tab-btn.active{background:var(--gold);border-color:var(--gold);color:#000}
+.upload-area{border:2px dashed var(--border);border-radius:16px;padding:60px;text-align:center;background:var(--card);cursor:pointer;transition:all 0.3s;margin-bottom:30px}
+.upload-area:hover{border-color:var(--gold)}
+.uploads-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.upload-item{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.upload-img{width:100%;height:250px;object-fit:cover;background:var(--bg)}
+.upload-meta{padding:20px}
+.upload-title{font-size:16px;color:var(--gold);margin-bottom:8px}
+.upload-desc{font-size:13px;color:var(--muted);margin-bottom:12px}
+.upload-actions{display:flex;gap:8px}
+.action-btn{flex:1;padding:8px;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--muted);cursor:pointer;font-size:13px}
+.action-btn:hover{border-color:var(--gold);color:var(--gold)}
+.action-btn.liked{background:rgba(255,0,0,0.1);border-color:#ff4444;color:#ff4444}
+.comments-section{margin-top:50px}
+.comments-section h2{font-size:28px;color:var(--gold);margin-bottom:20px}
+.comment-input{display:flex;gap:12px;margin-bottom:24px}
+.comment-input input{flex:1;padding:14px;background:var(--card);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:15px}
+.comment-input button{padding:14px 28px;background:var(--gold);border:none;border-radius:8px;color:#000;font-weight:600;cursor:pointer}
+.comment-list{display:flex;flex-direction:column;gap:16px}
+.comment-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
 .comment-header{display:flex;justify-content:space-between;margin-bottom:8px}
-.comment-user{color:var(--gold);font-weight:500}
-.comment-time{color:var(--muted);font-size:13px}
+.comment-author{color:var(--gold);font-weight:500}
+.comment-date{color:var(--muted);font-size:13px}
 .comment-text{color:var(--text);line-height:1.6}
-.comment-input{display:flex;gap:12px;margin-top:20px}
-.comment-input input{flex:1;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text)}
-.comment-input button{padding:12px 24px;background:var(--gold);border:none;border-radius:8px;color:#000;font-weight:600;cursor:pointer}
-footer{background:var(--bg);padding:40px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted);margin-top:60px}
-@media(max-width:768px){.detail-header{grid-template-columns:1fr}.nav-menu{display:none}}
+@media(max-width:900px){.detail-header{grid-template-columns:1fr}.detail-name{font-size:36px}}
 </style>
 </head>
 <body>
-<nav class="navbar"><div class="nav-container"><a href="index.html" class="logo"><div class="logo-icon"></div><span class="logo-text">燕云十六声</span></a><ul class="nav-menu"><li><a href="index.html">首页</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html">武学特效</a></li><li><a href="weapon.html">武器外观</a></li><li><a href="guide.html">攻略</a></li><li><a href="upload.html">上传</a></li></ul></div></nav>
+<nav class="navbar"><div class="nav-container"><a href="index.html" class="logo"><div class="logo-icon"></div><span class="logo-text">燕云十六声</span></a><ul class="nav-menu"><li><a href="index.html">首页</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html">武学特效</a></li><li><a href="weapon.html">武器外观</a></li><li><a href="upload.html">上传</a></li></ul></div></nav>
 
 <section class="section"><div class="container">
-<div class="detail-header">
-  <div class="detail-visual">
-    <div class="placeholder-img" id="mainVisual">
-      <div class="icon" id="itemIcon">🐉</div>
-      <div class="text">点击上传时装展示图</div>
-    </div>
-    <div class="dye-preview" id="dyePreview"></div>
-  </div>
-  <div class="detail-info">
-    <h1 id="itemName">加载中...</h1>
-    <div class="detail-meta">
-      <div class="meta-row"><span class="meta-label">价格</span><span class="meta-value price" id="itemPrice">-</span></div>
-      <div class="meta-row"><span class="meta-label">来源</span><span class="meta-value" id="itemSource">-</span></div>
-      <div class="meta-row"><span class="meta-label">描述</span><span class="meta-value" id="itemDesc">-</span></div>
-    </div>
-    <div class="tags" id="itemTags"></div>
-  </div>
-</div>
-
-<div class="tabs">
-  <button class="tab active" onclick="switchTab('showcase')">玩家展示</button>
-  <button class="tab" onclick="switchTab('dye')">染色方案</button>
-  <button class="tab" onclick="switchTab('video')">视频</button>
-  <button class="tab" onclick="switchTab('info')">获取方式</button>
-</div>
-
-<div id="tabContent"></div>
-
-<div class="section-title">💬 玩家评论</div>
-<div class="comments-section">
-  <div id="commentsList"></div>
-  <div class="comment-input">
-    <input type="text" id="commentInput" placeholder="发表你的看法...">
-    <button onclick="addComment()">发送</button>
-  </div>
-</div>
+<a href="fashion.html" class="back-btn">← 返回时装列表</a>
+<div id="detailContent"></div>
 </div></section>
-
-<footer><p>© 2026 燕云十六声资料站 · 粉丝自发整理</p></footer>
 
 <script src="data-all.js"></script>
 <script>
-const params = new URLSearchParams(window.location.search);
-const itemId = parseInt(params.get('id')) || 1;
+const DetailPage = {
+  item: null,
+  uploads: [],
+  comments: [],
 
-// 查找数据
-let item = null;
-['heming2','shop','hairstyles','wuxue','qishu','weapons'].forEach(cat => {
-  if(DB[cat]) {
-    const found = DB[cat].find(i => i.id === itemId);
-    if(found) item = found;
-  }
-});
+  init() {
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get('id'));
+    const type = params.get('type') || 'fashion';
 
-// 存储键
-const STORAGE_KEY = 'yanyun_detail_' + itemId;
+    // 查找数据
+    if (type === 'fashion' || type === 'hair') {
+      const allFashion = [...(DB.heming2||[]), ...(DB.shop||[]), ...(DB.hairstyles||[])];
+      this.item = allFashion.find(i => i.id === id);
+    } else if (type === 'wuxue') {
+      this.item = (DB.wuxue||[]).find(i => i.id === id);
+    } else if (type === 'qishu') {
+      this.item = (DB.qishu||[]).find(i => i.id === id);
+    } else if (type === 'weapon') {
+      this.item = (DB.weapons||[]).find(i => i.id === id);
+    }
 
-// 加载详情
-function loadDetail() {
-  if(!item) {
-    document.getElementById('itemName').textContent = '未找到';
-    return;
-  }
-  document.getElementById('itemName').textContent = item.name;
-  document.getElementById('itemIcon').textContent = item.icon || '👘';
-  document.getElementById('itemPrice').textContent = item.price || '-';
-  document.getElementById('itemSource').textContent = item.source || '-';
-  document.getElementById('itemDesc').textContent = item.desc || '-';
-  
-  if(item.tags) {
-    document.getElementById('itemTags').innerHTML = item.tags.map(t => '<span class="tag">'+t+'</span>').join('');
-  }
-  
-  if(item.dyes) {
-    document.getElementById('dyePreview').innerHTML = item.dyes.map(d => 
-      '<div class="dye-dot" style="background:'+d+'"></div>'
-    ).join('');
-  }
-  
-  document.title = item.name + ' | 燕云十六声';
-}
+    if (!this.item) {
+      document.getElementById('detailContent').innerHTML = '<p style="text-align:center;color:var(--muted)">未找到该外观</p>';
+      return;
+    }
 
-// 切换标签
-function switchTab(tab) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-  
-  const storage = getStorage();
-  const content = document.getElementById('tabContent');
-  
-  if(tab === 'showcase') {
-    content.innerHTML = `
-      <div class="upload-area" onclick="document.getElementById('showcaseInput').click()">
-        <div style="font-size:48px;margin-bottom:12px">📤</div>
-        <div style="color:var(--muted)">点击或拖拽上传你的角色展示图</div>
-        <input type="file" id="showcaseInput" accept="image/*" onchange="uploadMedia('showcase',this.files[0])">
-      </div>
-      <div class="media-grid">${renderMedia('showcase')}</div>
-    `;
-  } else if(tab === 'dye') {
-    content.innerHTML = `
-      <div class="upload-area" onclick="document.getElementById('dyeInput').click()">
-        <div style="font-size:48px;margin-bottom:12px">🎨</div>
-        <div style="color:var(--muted)">上传你喜欢的染色方案</div>
-        <input type="file" id="dyeInput" accept="image/*" onchange="uploadMedia('dye',this.files[0])">
-      </div>
-      <div class="media-grid">${renderMedia('dye')}</div>
-    `;
-  } else if(tab === 'video') {
-    content.innerHTML = `
-      <div class="upload-area" onclick="document.getElementById('videoInput').click()">
-        <div style="font-size:48px;margin-bottom:12px">🎬</div>
-        <div style="color:var(--muted)">上传视频展示（结算动画、试穿等）</div>
-        <input type="file" id="videoInput" accept="video/*" onchange="uploadMedia('video',this.files[0])">
-      </div>
-      <div class="media-grid">${renderMedia('video')}</div>
-    `;
-  } else if(tab === 'info') {
-    content.innerHTML = `
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px">
-        <h3 style="color:var(--gold);margin-bottom:16px">📍 获取方式</h3>
-        <p style="color:var(--text);line-height:1.8;margin-bottom:20px">${item.source || '商城购买'}</p>
-        <h3 style="color:var(--gold);margin-bottom:16px">💰 价格信息</h3>
-        <p style="color:var(--text);line-height:1.8;margin-bottom:20px">${item.price || '详见游戏内'}</p>
-        <h3 style="color:var(--gold);margin-bottom:16px">📝 备注</h3>
-        <p style="color:var(--text);line-height:1.8">${item.desc || ''}</p>
-      </div>
-    `;
-  }
-}
+    // 加载上传和评论
+    this.loadStorage();
+    this.render();
+  },
 
-// 获取存储
-function getStorage() {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {showcase:[],dye:[],video:[],comments:[]};
-  } catch(e) {
-    return {showcase:[],dye:[],video:[],comments:[]};
-  }
-}
+  loadStorage() {
+    try {
+      const data = JSON.parse(localStorage.getItem('detail_' + this.item.id) || '{}');
+      this.uploads = data.uploads || [];
+      this.comments = data.comments || [];
+    } catch(e) {
+      this.uploads = [];
+      this.comments = [];
+    }
+  },
 
-// 保存存储
-function saveStorage(data) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-}
+  saveStorage() {
+    localStorage.setItem('detail_' + this.item.id, JSON.stringify({
+      uploads: this.uploads,
+      comments: this.comments
+    }));
+  },
 
-// 上传媒体
-function uploadMedia(type, file) {
-  if(!file) return;
-  const reader = new FileReader();
-  reader.onload = e => {
-    const storage = getStorage();
-    storage[type].unshift({
-      id: Date.now(),
-      url: e.target.result,
-      likes: 0,
-      date: new Date().toISOString()
+  handleUpload(files, category) {
+    [...files].forEach(f => {
+      const reader = new FileReader();
+      reader.onload = e => {
+        this.uploads.unshift({
+          id: Date.now(),
+          file: e.target.result,
+          type: f.type.startsWith('video') ? 'video' : 'image',
+          category: category,
+          date: new Date().toISOString(),
+          likes: 0,
+          desc: ''
+        });
+        this.saveStorage();
+        this.render();
+      };
+      reader.readAsDataURL(f);
     });
-    saveStorage(storage);
-    switchTab(type);
-  };
-  reader.readAsDataURL(file);
-}
+  },
 
-// 渲染媒体
-function renderMedia(type) {
-  const storage = getStorage();
-  const items = storage[type] || [];
-  if(items.length === 0) return '<p style="text-align:center;color:var(--muted);padding:40px;grid-column:1/-1">暂无上传，快来分享吧！</p>';
-  
-  return items.map(m => `
-    <div class="media-item">
-      ${type === 'video' ? '<video src="'+m.url+'" controls></video>' : '<img src="'+m.url+'">'}
-      <div class="media-actions">
-        <button class="like-btn ${m.likes>0?'liked':''}" onclick="likeMedia('${type}',${m.id})">❤️ ${m.likes}</button>
-        <button class="media-btn" onclick="deleteMedia('${type}',${m.id})">🗑️</button>
-      </div>
-    </div>
-  `).join('');
-}
+  likeUpload(uploadId) {
+    const u = this.uploads.find(x => x.id === uploadId);
+    if (u) {
+      u.likes = (u.likes || 0) + 1;
+      this.saveStorage();
+      this.render();
+    }
+  },
 
-// 点赞
-function likeMedia(type, id) {
-  const storage = getStorage();
-  const item = storage[type].find(m => m.id === id);
-  if(item) {
-    item.likes = (item.likes || 0) + 1;
-    saveStorage(storage);
-    switchTab(type);
-  }
-}
+  deleteUpload(uploadId) {
+    this.uploads = this.uploads.filter(x => x.id !== uploadId);
+    this.saveStorage();
+    this.render();
+  },
 
-// 删除
-function deleteMedia(type, id) {
-  if(!confirm('确定删除？')) return;
-  const storage = getStorage();
-  storage[type] = storage[type].filter(m => m.id !== id);
-  saveStorage(storage);
-  switchTab(type);
-}
+  addComment(text) {
+    if (!text.trim()) return;
+    this.comments.unshift({
+      id: Date.now(),
+      text: text,
+      date: new Date().toISOString(),
+      author: '玩家' + Math.floor(Math.random() * 10000)
+    });
+    this.saveStorage();
+    this.render();
+  },
 
-// 评论
-function addComment() {
-  const input = document.getElementById('commentInput');
-  if(!input.value.trim()) return;
-  const storage = getStorage();
-  storage.comments = storage.comments || [];
-  storage.comments.push({
-    text: input.value,
-    date: new Date().toISOString()
-  });
-  saveStorage(storage);
-  input.value = '';
-  loadComments();
-}
+  render() {
+    const container = document.getElementById('detailContent');
+    const item = this.item;
 
-// 加载评论
-function loadComments() {
-  const storage = getStorage();
-  const comments = storage.comments || [];
-  document.getElementById('commentsList').innerHTML = comments.length ? 
-    comments.map(c => `
-      <div class="comment">
-        <div class="comment-header">
-          <span class="comment-user">玩家</span>
-          <span class="comment-time">${new Date(c.date).toLocaleDateString()}</span>
+    container.innerHTML = `
+      <div class="detail-header">
+        <div class="detail-visual">
+          <div class="detail-icon">${item.icon || '👘'}</div>
+          <h1 class="detail-name">${item.name}</h1>
+          <p style="color:var(--muted)">${item.desc || ''}</p>
         </div>
-        <div class="comment-text">${c.text}</div>
+        <div class="detail-info">
+          <div class="info-card">
+            <h3>💰 获取方式</h3>
+            <div class="info-row">
+              <span class="info-label">价格</span>
+              <span class="info-value price-value">${item.price || '未知'}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">来源</span>
+              <span class="info-value">${item.source || '商城'}</span>
+            </div>
+            ${item.tags ? `<div class="info-row"><span class="info-label">标签</span><span class="info-value">${item.tags.join(' / ')}</span></div>` : ''}
+          </div>
+
+          <div class="info-card">
+            <h3>📋 时装信息</h3>
+            <div class="info-row">
+              <span class="info-label">类型</span>
+              <span class="info-value">${item.id >= 100 && item.id < 200 ? '发型' : '时装'}</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">支持染色</span>
+              <span class="info-value">${item.dyes ? '是 (' + item.dyes.length + '种配色)' : '未知'}</span>
+            </div>
+          </div>
+
+          ${item.dyes ? `
+          <div class="info-card">
+            <h3>🎨 官方染色方案</h3>
+            <div class="dye-preview">${item.dyes.map(d => `<div class="dye-dot" style="background:${d}"></div>`).join('')}</div>
+          </div>
+          ` : ''}
+        </div>
       </div>
-    `).join('') : '<p style="color:var(--muted);text-align:center">暂无评论</p>';
+
+      ${item.dyes ? `
+      <div class="dye-section">
+        <h2>🎨 染色方案预览</h2>
+        <div class="dye-grid">
+          ${item.dyes.map((d, i) => `
+            <div class="dye-card">
+              <div class="dye-preview">
+                <div class="dye-dot" style="background:${d};width:40px;height:40px"></div>
+              </div>
+              <p>配色 ${i + 1}</p>
+              <p style="color:var(--muted);font-size:12px">${d}</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      ` : ''}
+
+      <div class="upload-section">
+        <h2>📸 玩家上传 - 展示你的少东家</h2>
+        <div class="upload-tabs">
+          <button class="tab-btn active" onclick="showTab('image')">图片展示</button>
+          <button class="tab-btn" onclick="showTab('dye')">染色方案</button>
+          <button class="tab-btn" onclick="showTab('video')">视频分享</button>
+        </div>
+
+        <div class="upload-area" id="uploadArea">
+          <div style="font-size:48px;margin-bottom:12px">📤</div>
+          <div style="color:var(--text);margin-bottom:8px">拖拽或点击上传你的作品</div>
+          <div style="color:var(--muted);font-size:13px">支持图片和视频，无大小限制</div>
+          <input type="file" id="fileInput" accept="image/*,video/*" multiple style="display:none">
+        </div>
+
+        <div class="uploads-grid" id="uploadsGrid"></div>
+      </div>
+
+      <div class="comments-section">
+        <h2>💬 玩家评论 (${this.comments.length})</h2>
+        <div class="comment-input">
+          <input type="text" id="commentInput" placeholder="分享你对这套时装的看法...">
+          <button onclick="DetailPage.addComment(document.getElementById('commentInput').value)">发表</button>
+        </div>
+        <div class="comment-list" id="commentList"></div>
+      </div>
+    `;
+
+    // 渲染上传内容
+    this.renderUploads('image');
+    this.renderComments();
+
+    // 绑定上传事件
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+
+    uploadArea.onclick = () => fileInput.click();
+    uploadArea.ondragover = e => { e.preventDefault(); uploadArea.style.borderColor = 'var(--gold)'; };
+    uploadArea.ondragleave = () => uploadArea.style.borderColor = 'var(--border)';
+    uploadArea.ondrop = e => {
+      e.preventDefault();
+      uploadArea.style.borderColor = 'var(--border)';
+      this.handleUpload(e.dataTransfer.files, 'image');
+    };
+    fileInput.onchange = e => this.handleUpload(e.target.files, 'image');
+  },
+
+  renderUploads(category) {
+    const grid = document.getElementById('uploadsGrid');
+    const filtered = this.uploads.filter(u => category === 'all' || u.category === category);
+
+    grid.innerHTML = filtered.length ? filtered.map(u => `
+      <div class="upload-item">
+        ${u.type === 'video'
+          ? `<video src="${u.file}" class="upload-img" controls></video>`
+          : `<img src="${u.file}" class="upload-img" alt="玩家上传">`}
+        <div class="upload-meta">
+          <p class="upload-desc">${u.desc || '玩家分享'}</p>
+          <div class="upload-actions">
+            <button class="action-btn ${u.likes > 0 ? 'liked' : ''}" onclick="DetailPage.likeUpload(${u.id})">❤️ ${u.likes || 0}</button>
+            <button class="action-btn" onclick="DetailPage.deleteUpload(${u.id})">🗑️ 删除</button>
+          </div>
+        </div>
+      </div>
+    `).join('') : '<p style="text-align:center;color:var(--muted);grid-column:1/-1;padding:40px">还没有上传，快来分享你的作品吧！</p>';
+  },
+
+  renderComments() {
+    const list = document.getElementById('commentList');
+    list.innerHTML = this.comments.length ? this.comments.map(c => `
+      <div class="comment-item">
+        <div class="comment-header">
+          <span class="comment-author">${c.author}</span>
+          <span class="comment-date">${new Date(c.date).toLocaleDateString()}</span>
+        </div>
+        <p class="comment-text">${c.text}</p>
+      </div>
+    `).join('') : '<p style="text-align:center;color:var(--muted);padding:20px">暂无评论</p>';
+  }
+};
+
+function showTab(cat) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  DetailPage.renderUploads(cat);
 }
 
-// 初始化
-loadDetail();
-switchTab('showcase');
-loadComments();
+DetailPage.init();
 </script>
 </body>
 </html>

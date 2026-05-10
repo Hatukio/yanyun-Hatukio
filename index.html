@@ -1,1933 +1,498 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>燕云十六声 | 权威资料站</title>
-<style>
-:root {
-  --primary: #0a0a12;
-  --secondary: #121220;
-  --accent: #c9a227;
-  --accent-gold: #d4af37;
-  --accent-gold-light: #fcd34d;
-  --text: #e5e5eb;
-  --text-muted: #8b8b9f;
-  --bg: #08080f;
-  --bg-deep: #050508;
-  --card-bg: #14141f;
-  --card-bg-hover: #1a1a2a;
-  --border: #2a2a3a;
-  --border-gold: rgba(212,175,55,0.3);
-  --gradient-gold: linear-gradient(135deg, #d4af37 0%, #fcd34d 50%, #ffd700 100%);
-  --gradient-dark: linear-gradient(180deg, #0d0d14 0%, #151525 50%, #0a0a10 100%);
-  --gradient-hero: radial-gradient(ellipse at 50% 30%, rgba(201, 162, 39, 0.15), transparent 60%),
-                      radial-gradient(ellipse at 80% 80%, rgba(212, 175, 55, 0.05), transparent 50%);
-  --shadow-gold: 0 4px 20px rgba(212, 175, 55, 0.2);
-  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.3);
-  --shadow-hover: 0 12px 36px rgba(212, 175, 55, 0.15);
-}
-
-* {margin: 0;padding: 0;box-sizing: border-box;}
-
-body {
-  font-family: "Microsoft YaHei", "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* Section 样式 - 修复首页加载问题 */
-.section {
-  display: none;
-  min-height: 100vh;
-  padding: 100px 0 60px;
-}
-
-.section.active {
-  display: block;
-  animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-a {text-decoration: none;color: inherit;transition: color 0.3s;}
-
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
-/* 导航栏优化 */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 72px;
-  background: rgba(13, 13, 20, 0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-gold);
-  z-index: 1000;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-}
-
-.nav-container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 32px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.logo-icon {
-  width: 50px;
-  height: 50px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url('logo-icon.svg');
-}
-
-.logo-text {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: 2px;
-  font-family: "STXingkai", "KaiTi", "楷体", "LiSu", "隶书", serif;
-  background: linear-gradient(180deg, #ffd700 0%, #d4af37 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.logo-sub {
-  font-size: 11px;
-  color: var(--accent-gold-light);
-  padding: 6px 12px;
-  background: rgba(212, 175, 55, 0.12);
-  border-radius: 20px;
-  border: 1px solid var(--border-gold);
-}
-
-.nav-menu {
-  display: flex;
-  gap: 6px;
-  list-style: none;
-}
-
-.nav-menu a {
-  padding: 10px 18px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-muted);
-  border-radius: 8px;
-  transition: all 0.3s;
-  position: relative;
-}
-
-.nav-menu a:hover, .nav-menu a.active {
-  color: var(--accent-gold);
-  background: rgba(212, 175, 55, 0.12);
-}
-
-.nav-menu a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px;
-  height: 2px;
-  background: var(--accent-gold);
-  border-radius: 1px;
-}
-
-.nav-official {
-  color: var(--accent-gold) !important;
-  border: 1px solid var(--accent-gold) !important;
-  padding: 10px 20px !important;
-  border-radius: 8px !important;
-  margin-left: 12px !important;
-  background: rgba(212, 175, 55, 0.1) !important;
-}
-
-.nav-official:hover {
-  background: var(--accent-gold) !important;
-  color: var(--primary) !important;
-  box-shadow: var(--shadow-gold);
-}
-
-/* Hero 区域优化 */
-.hero {
-  position: relative;
-  padding: 150px 0 110px;
-  background: var(--gradient-dark);
-  text-align: center;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--gradient-hero);
-  pointer-events: none;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-badge {
-  display: inline-block;
-  padding: 10px 24px;
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px solid var(--border-gold);
-  border-radius: 30px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--accent-gold);
-  margin-bottom: 24px;
-  letter-spacing: 1px;
-}
-
-.hero h1 {
-  font-size: 64px;
-  font-weight: 900;
-  letter-spacing: 8px;
-  background: var(--gradient-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 16px;
-  text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
-}
-
-.hero .subtitle {
-  font-size: 20px;
-  letter-spacing: 10px;
-  color: var(--accent-gold);
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 20px 32px;
-  border-radius: 12px;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-
-.stat-item:hover, .stat-item.active {
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px solid var(--border-gold);
-}
-
-.stat-number {
-  display: block;
-  font-size: 40px;
-  font-weight: 800;
-  background: var(--gradient-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.stat-label {
-  font-size: 14px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 500;
-}
-
-/* 分类标签 */
-.category-tabs {
-  display: flex;
-  gap: 10px;
-  padding: 24px 0;
-  background: var(--card-bg);
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 32px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.category-btn {
-  padding: 12px 28px;
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: var(--text-muted);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.category-btn:hover, .category-btn.active {
-  background: var(--accent-gold);
-  border-color: var(--accent-gold);
-  color: var(--primary);
-  font-weight: 600;
-  box-shadow: var(--shadow-gold);
-}
-
-/* 筛选区 */
-.filter-section {
-  padding: 28px;
-  background: var(--card-bg);
-  border-radius: 16px;
-  margin-bottom: 32px;
-  border: 1px solid var(--border);
-}
-
-.filter-row {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.filter-row:last-child {
-  margin-bottom: 0;
-}
-
-.filter-label {
-  font-size: 14px;
-  color: var(--text-muted);
-  min-width: 80px;
-  font-weight: 500;
-}
-
-.filter-btn {
-  padding: 10px 20px;
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  color: var(--text-muted);
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.filter-btn:hover, .filter-btn.active {
-  background: var(--accent-gold);
-  border-color: var(--accent-gold);
-  color: var(--primary);
-  font-weight: 600;
-}
-
-.filter-select {
-  padding: 10px 16px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: var(--text);
-  font-size: 14px;
-  min-width: 150px;
-  cursor: pointer;
-}
-
-.filter-select:focus {
-  outline: none;
-  border-color: var(--accent-gold);
-}
-
-/* 外观网格 */
-.appearance-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-  margin-bottom: 60px;
-}
-
-.appearance-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-}
-
-.appearance-card:hover {
-  border-color: var(--accent-gold);
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-hover);
-}
-
-.appearance-visual {
-  height: 200px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.appearance-icon {
-  font-size: 72px;
-}
-
-.appearance-tag {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  padding: 6px 14px;
-  background: rgba(0, 0, 0, 0.75);
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.appearance-tag.new {
-  background: var(--accent-gold);
-  color: var(--primary);
-}
-
-.appearance-info {
-  padding: 24px;
-}
-
-.appearance-info h3 {
-  font-size: 20px;
-  color: var(--accent-gold);
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.appearance-info .desc {
-  font-size: 14px;
-  color: var(--text-muted);
-  margin-bottom: 14px;
-  line-height: 1.6;
-}
-
-.appearance-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 13px;
-}
-
-.appearance-meta span {
-  color: var(--text-muted);
-}
-
-.appearance-meta .price {
-  color: var(--accent-gold);
-  font-weight: 600;
-}
-
-/* 颜色 */
-.color-display {
-  display: flex;
-  gap: 8px;
-  margin-top: 16px;
-  flex-wrap: wrap;
-}
-
-.color-swatch {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 2px solid var(--border);
-  transition: all 0.2s;
-}
-
-.color-swatch:hover {
-  border-color: var(--accent-gold);
-  transform: scale(1.2);
-}
-
-/* 弹窗 */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.92);
-  z-index: 2000;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  overflow-y: auto;
-  backdrop-filter: blur(10px);
-}
-
-.modal.active {
-  display: flex;
-}
-
-.modal-content {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 48px;
-  max-width: 960px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-}
-
-.modal-close {
-  position: absolute;
-  top: 24px;
-  right: 28px;
-  font-size: 36px;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.3s;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.modal-close:hover {
-  color: var(--accent-gold);
-  background: rgba(212, 175, 55, 0.1);
-}
-
-.modal-header {
-  display: flex;
-  gap: 32px;
-  margin-bottom: 32px;
-}
-
-.modal-img {
-  width: 320px;
-  height: 380px;
-  background: linear-gradient(135deg, #1a1a2e, #2a2a4e);
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 100px;
-  border: 1px solid var(--border);
-}
-
-.modal-detail {
-  flex: 1;
-}
-
-.modal-detail h2 {
-  font-size: 32px;
-  color: var(--accent-gold);
-  margin-bottom: 16px;
-  font-weight: 700;
-}
-
-.modal-detail .tags {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
-}
-
-.modal-detail .tag {
-  padding: 6px 14px;
-  background: rgba(212, 175, 55, 0.15);
-  color: var(--accent-gold);
-  border-radius: 16px;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.modal-detail .info-row {
-  display: flex;
-  gap: 24px;
-  margin-bottom: 14px;
-  font-size: 15px;
-}
-
-.modal-detail .info-row span {
-  color: var(--text-muted);
-}
-
-.modal-section {
-  margin-top: 32px;
-  padding-top: 32px;
-  border-top: 1px solid var(--border);
-}
-
-.modal-section h3 {
-  font-size: 20px;
-  color: var(--accent-gold);
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.modal-colors {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.modal-color {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  border: 2px solid var(--border);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.modal-color:hover {
-  border-color: var(--accent-gold);
-  transform: scale(1.1);
-  box-shadow: var(--shadow-gold);
-}
-
-/* 页脚 */
-footer {
-  background: var(--bg-deep);
-  padding: 48px 0;
-  margin-top: 80px;
-  border-top: 1px solid var(--border);
-}
-
-/* 通用区块样式 */
-.section {
-  padding: 100px 0 60px;
-  min-height: 100vh;
-}
-
-.page-header {
-  text-align: center;
-  padding: 60px 0 50px;
-}
-
-.section-title {
-  font-size: 48px;
-  font-weight: 800;
-  background: var(--gradient-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 16px;
-}
-
-.section-desc {
-  color: var(--text-muted);
-  font-size: 16px;
-}
-
-/* 时装相关样式 */
-.fashion-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-  margin-bottom: 60px;
-}
-
-.fashion-item {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.3s;
-}
-
-.fashion-item:hover {
-  border-color: var(--accent-gold);
-  transform: translateY(-4px);
-}
-
-.fashion-visual {
-  height: 180px;
-  position: relative;
-}
-
-.fashion-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 6px 16px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 20px;
-  font-size: 13px;
-  color: white;
-  font-weight: 600;
-}
-
-.fashion-detail {
-  padding: 24px;
-}
-
-.fashion-detail h3 {
-  font-size: 20px;
-  color: var(--accent-gold);
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.fashion-detail p {
-  font-size: 15px;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-  line-height: 1.8;
-}
-
-.fashion-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 14px;
-  color: var(--text-muted);
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-}
-
-.fashion-group {
-  margin-bottom: 80px;
-}
-
-.fashion-group.active {
-  display: block;
-}
-
-.fashion-group h2 {
-  font-size: 28px;
-  margin-bottom: 12px;
-  color: var(--text);
-}
-
-.fashion-group .group-desc {
-  font-size: 16px;
-  color: var(--text-muted);
-  margin-bottom: 32px;
-}
-
-.fashion-group + .fashion-group {
-  padding-top: 60px;
-  border-top: 1px solid var(--border);
-}
-
-/* 武学相关样式 */
-.weapon-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.weapon-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 40px 28px;
-  text-align: center;
-  transition: all 0.3s;
-}
-
-.weapon-card:hover {
-  border-color: var(--accent-gold);
-  transform: translateY(-4px);
-}
-
-.weapon-icon {
-  font-size: 52px;
-  margin-bottom: 20px;
-}
-
-.weapon-card h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
-.weapon-card > p {
-  font-size: 15px;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-}
-
-.martial-tag {
-  display: inline-block;
-  padding: 6px 14px;
-  background: rgba(212, 175, 55, 0.15);
-  color: var(--accent-gold);
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-/* 奇术相关样式 */
-.qishu-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-  margin-bottom: 40px;
-}
-
-.qishu-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-}
-
-.qishu-card h4 {
-  font-size: 20px;
-  color: var(--accent-gold);
-  margin-bottom: 18px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--border);
-}
-
-.qishu-card ul {
-  list-style: none;
-}
-
-.qishu-card li {
-  font-size: 15px;
-  color: var(--text-muted);
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
-  line-height: 1.8;
-}
-
-.qishu-card li:last-child {
-  border-bottom: none;
-}
-
-.qishu-card li strong {
-  color: var(--text);
-}
-
-.qishu-rank {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px;
-  margin-bottom: 50px;
-}
-
-.qishu-rank h3 {
-  font-size: 22px;
-  color: var(--accent-gold);
-  margin-bottom: 24px;
-}
-
-.rank-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.rank-item {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 16px 20px;
-  background: rgba(212, 175, 55, 0.05);
-  border-radius: 12px;
-}
-
-.rank-item.top1 {
-  background: rgba(212, 175, 55, 0.15);
-  border: 1px solid var(--accent-gold);
-}
-
-.rank-num {
-  font-size: 18px;
-  width: 32px;
-}
-
-.rank-name {
-  flex: 1;
-  font-size: 16px;
-}
-
-.rank-dmg {
-  font-size: 15px;
-  color: var(--accent-gold);
-  font-weight: 600;
-}
-
-.combo-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-}
-
-.combo-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-}
-
-.combo-card h4 {
-  font-size: 20px;
-  margin-bottom: 12px;
-}
-
-.combo-card > p {
-  font-size: 15px;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-}
-
-/* 按键相关样式 */
-.keyboard-section {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px;
-  margin-bottom: 40px;
-}
-
-.keyboard-section h3 {
-  font-size: 22px;
-  color: var(--accent-gold);
-  margin-bottom: 20px;
-}
-
-.key-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.key-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px;
-  background: var(--bg);
-  border-radius: 8px;
-}
-
-.key {
-  display: inline-block;
-  padding: 5px 12px;
-  background: var(--border);
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent-gold);
-}
-
-.key-desc {
-  font-size: 14px;
-  color: var(--text-muted);
-}
-
-.mechanic-section {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px;
-  margin-bottom: 24px;
-}
-
-.mechanic-section h3 {
-  font-size: 22px;
-  color: var(--accent-gold);
-  margin-bottom: 20px;
-}
-
-.mechanic-section p {
-  font-size: 16px;
-  color: var(--text-muted);
-  line-height: 2;
-  margin-bottom: 16px;
-}
-
-.mechanic-section strong {
-  color: var(--accent-gold);
-}
-
-/* 区域卡片样式 */
-.areas-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-  margin-top: 40px;
-}
-
-.area-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px;
-  text-align: center;
-  transition: all 0.3s;
-}
-
-.area-card:hover {
-  border-color: var(--accent-gold);
-}
-
-.area-icon {
-  font-size: 48px;
-  margin-bottom: 16px;
-}
-
-.area-card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.area-card p {
-  font-size: 15px;
-  color: var(--text-muted);
-}
-
-/* 流派卡片样式 */
-.faction-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 40px;
-}
-
-.faction-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-  text-align: center;
-}
-
-.faction-card h4 {
-  font-size: 20px;
-  color: var(--accent-gold);
-  margin-bottom: 12px;
-}
-
-.faction-card p {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.8;
-}
-
-/* 故事背景样式 */
-.story-intro {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 50px;
-  margin-bottom: 60px;
-  text-align: center;
-}
-
-.story-intro h2 {
-  font-size: 32px;
-  margin-bottom: 24px;
-}
-
-.story-intro > p {
-  font-size: 20px;
-  line-height: 2;
-  color: var(--text-muted);
-  max-width: 850px;
-  margin: 0 auto 28px;
-}
-
-.story-tags {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.story-tag {
-  padding: 10px 24px;
-  background: rgba(212, 175, 55, 0.1);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  border-radius: 20px;
-  font-size: 15px;
-  color: var(--accent-gold);
-}
-
-/* 新闻列表样式 */
-.news-list-full {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.news-item-full {
-  display: flex;
-  gap: 24px;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-  transition: all 0.3s;
-}
-
-.news-item-full:hover {
-  border-color: var(--accent-gold);
-}
-
-.news-date-badge {
-  min-width: 80px;
-  text-align: center;
-  padding: 16px;
-  background: rgba(212, 175, 55, 0.1);
-  border-radius: 12px;
-}
-
-.news-day {
-  display: block;
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--accent-gold);
-  line-height: 1;
-}
-
-.news-month {
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-.news-body {
-  flex: 1;
-}
-
-.news-body .news-tag {
-  display: inline-block;
-  padding: 5px 14px;
-  background: rgba(212, 175, 55, 0.15);
-  color: var(--accent-gold);
-  border-radius: 12px;
-  font-size: 13px;
-  margin-bottom: 12px;
-}
-
-.news-body h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.news-body p {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.8;
-}
-
-/* 快速导航和通用卡片 */
-.quick-links,
-.section-block {
-  padding: 80px 0 60px;
-}
-
-.links-header,
-.section-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.links-header h2,
-.section-header h2 {
-  font-size: 32px;
-  margin-bottom: 12px;
-}
-
-.links-header p,
-.section-header p {
-  color: var(--text-muted);
-  font-size: 16px;
-}
-
-.links-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-}
-
-.link-card,
-.gameplay-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.link-card:hover,
-.gameplay-card:hover {
-  border-color: var(--accent-gold);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
-}
-
-.link-icon,
-.gameplay-icon {
-  font-size: 48px;
-  display: block;
-  margin-bottom: 16px;
-}
-
-.link-title,
-.gameplay-card h3 {
-  display: block;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-
-.link-desc,
-.gameplay-card p {
-  font-size: 15px;
-  color: var(--text-muted);
-}
-
-/* 时装卡片 */
-.fashion-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.3s;
-}
-
-.fashion-card:hover {
-  border-color: var(--accent-gold);
-  transform: translateY(-4px);
-}
-
-.fashion-img {
-  height: 160px;
-  position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 12px;
-}
-
-.fashion-tag {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 4px 12px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 20px;
-  font-size: 12px;
-  color: white;
-  font-weight: 600;
-}
-
-.fashion-tag.hot {
-  background: #8b0000;
-}
-
-.fashion-info {
-  padding: 20px;
-}
-
-.fashion-info h3 {
-  font-size: 18px;
-  color: var(--accent-gold);
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.fashion-info p {
-  font-size: 14px;
-  color: var(--text-muted);
-}
-
-/* 武学卡片 */
-.martial-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-}
-
-.martial-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px;
-  text-align: center;
-  transition: all 0.3s;
-}
-
-.martial-card:hover {
-  border-color: var(--accent-gold);
-  transform: translateY(-4px);
-}
-
-.martial-icon {
-  font-size: 48px;
-  display: block;
-  margin-bottom: 16px;
-}
-
-.martial-card h3 {
-  display: block;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-
-.martial-card p {
-  font-size: 14px;
-  color: var(--text-muted);
-  margin-bottom: 12px;
-}
-
-/* 按钮样式 */
-.hero-cta {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.official-site-btn {
-  display: inline-block;
-  padding: 18px 56px;
-  background: var(--gradient-gold);
-  color: var(--primary);
-  font-size: 18px;
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s;
-  letter-spacing: 2px;
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
-}
-
-.official-site-btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
-  filter: brightness(1.1);
-}
-
-/* 工具展示区 */
-.tools-showcase {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-  margin-bottom: 60px;
-}
-
-.tool-box {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 40px 28px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.tool-box:hover {
-  border-color: var(--accent-gold);
-  transform: translateY(-4px);
-}
-
-.tool-box span {
-  font-size: 52px;
-  display: block;
-  margin-bottom: 16px;
-}
-
-.tool-box h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.tool-box p {
-  font-size: 15px;
-  color: var(--text-muted);
-}
-
-/* 弹窗样式 */
-.tool-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.85);
-  z-index: 2000;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.tool-modal.active {
-  display: flex;
-}
-
-.tool-modal-content {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 40px;
-  max-width: 500px;
-  width: 100%;
-  position: relative;
-  max-height: 85vh;
-  overflow-y: auto;
-}
-
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  font-size: 32px;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.3s;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.close-btn:hover {
-  color: #8b0000;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.tool-modal-content h2 {
-  font-size: 24px;
-  color: var(--accent-gold);
-  margin-bottom: 24px;
-  text-align: center;
-}
-
-.sim-preview-area {
-  background: var(--bg);
-  border-radius: 16px;
-  padding: 40px;
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-.sim-character {
-  font-size: 80px;
-  margin-bottom: 16px;
-}
-
-.sim-result {
-  font-size: 16px;
-  color: var(--text-muted);
-}
-
-.sim-controls {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.sim-controls select,
-.calc-form input,
-.calc-form select {
-  padding: 14px;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: var(--text);
-  font-size: 15px;
-  width: 100%;
-}
-
-.sim-btn,
-.calc-form button {
-  width: 100%;
-  padding: 16px;
-  background: var(--accent-gold);
-  border: none;
-  border-radius: 10px;
-  color: var(--primary);
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.sim-btn:hover,
-.calc-form button:hover {
-  filter: brightness(1.1);
-}
-
-.calc-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.calc-form label {
-  font-size: 14px;
-  color: var(--text-muted);
-}
-
-.calc-result-area {
-  background: var(--bg);
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-}
-
-.calc-result-area p {
-  color: var(--text-muted);
-  font-size: 15px;
-}
-
-.calc-result-area .price {
-  font-size: 36px;
-  color: var(--accent-gold);
-  font-weight: 700;
-  margin-top: 12px;
-}
-
-/* 英雄信息区域 */
-.hero-info {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-  font-size: 15px;
-  color: var(--text-muted);
-}
-
-.hero-description {
-  font-size: 18px;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-}
-
-/* 分隔线样式 */
-.filter-bar,
-.martial-tabs,
-.category-tabs {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-  padding: 20px;
-  background: var(--card-bg);
-  border-radius: 12px;
-  border: 1px solid var(--border);
-}
-
-.filter-btn,
-.tab-btn {
-  padding: 12px 24px;
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: var(--text-muted);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.filter-btn:hover,
-.filter-btn.active,
-.tab-btn:hover,
-.tab-btn.active {
-  background: var(--accent-gold);
-  border-color: var(--accent-gold);
-  color: var(--primary);
-  font-weight: 600;
-}
-
-/* 战令标签 */
-.view-all-btn {
-  color: var(--accent-gold);
-  text-decoration: none;
-  font-size: 15px;
-  transition: opacity 0.3s;
-}
-
-.view-all-btn:hover {
-  opacity: 0.8;
-  text-decoration: underline;
-}
-
-/* 移动端优化 */
-@media (max-width: 1024px) {
-  .fashion-grid,
-  .martial-grid,
-  .qishu-grid,
-  .combo-grid,
-  .links-grid,
-  .tools-showcase {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .weapon-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding: 90px 0 40px;
-  }
-  
-  .page-header {
-    padding: 50px 0 40px;
-  }
-  
-  .section-title {
-    font-size: 36px;
-  }
-  
-  .hero h1 {
-    font-size: 40px;
-    letter-spacing: 4px;
-  }
-  
-  .hero .subtitle {
-    font-size: 16px;
-    letter-spacing: 6px;
-  }
-  
-  .hero-stats {
-    gap: 30px;
-  }
-  
-  .stat-number {
-    font-size: 32px;
-  }
-  
-  .fashion-grid,
-  .martial-grid,
-  .qishu-grid,
-  .combo-grid,
-  .links-grid,
-  .weapon-grid,
-  .tools-showcase,
-  .faction-grid,
-  .areas-grid,
-  .key-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .hero-info {
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .footer-links {
-    text-align: center;
-  }
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.footer-brand span {
-  font-size: 36px;
-  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
-}
-
-.footer-logo {
-  width: 30px;
-  height: 30px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url('logo-icon.svg');
-  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
-  display: inline-block;
-}
-
-.footer-brand h3 {
-  font-size: 18px;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-.footer-brand p {
-  font-size: 14px;
-  color: var(--text-muted);
-}
-
-.footer-link {
-  color: var(--accent-gold);
-  text-decoration: none;
-  transition: opacity 0.3s;
-}
-
-.footer-link:hover {
-  opacity: 0.8;
-  text-decoration: underline;
-}
-
-/* 响应式 */
-@media (max-width: 1200px) {
-  .appearance-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .appearance-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .modal-header {
-    flex-direction: column;
-  }
-  .modal-img {
-    width: 100%;
-    height: 280px;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none;
-    position: absolute;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: var(--bg);
-    flex-direction: column;
-    padding: 24px;
-    gap: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-  
-  .nav-menu.active {
-    display: flex;
-  }
-  
-  .nav-official {
-    margin: 8px 0 0 0 !important;
-  }
-  
-  .mobile-menu-btn {
-    display: block;
-  }
-  
-  .hero h1 {
-    font-size: 40px;
-    letter-spacing: 4px;
-  }
-  
-  .hero-stats {
-    gap: 30px;
-  }
-  
-  .stat-number {
-    font-size: 32px;
-  }
-  
-  .appearance-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .filter-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .filter-select {
-    max-width: 100%;
-  }
-}
-</style>
-</head>
-<body>
-<nav class="navbar"><div class="nav-container"><a href="#" class="logo" onclick="showSection('home')">
-  <div class="logo-icon"></div>
-  <span class="logo-text">燕云十六声</span>
-  <span class="logo-sub">权威资料站</span>
-</a><ul class="nav-menu"><li><a onclick="showSection('home')" class="active" data-section="home">首页</a></li><li><a href="fashion.html">时装</a></li><li><a href="martial.html">武学特效</a></li><li><a href="weapon.html">武器外观</a></li><li><a href="guide.html">攻略</a></li><li><a href="upload.html">上传</a></li><li><a href="https://yy163.com" target="_blank" class="nav-official">官网</a></li></ul><button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button></div></nav>
-
-<section id="home" class="section active">
-<div class="hero"><div class="hero-content"><div class="hero-badge">粉丝自发整理 · 持续更新</div><h1>燕云十六声</h1><p class="subtitle">WHERE WINDS MEET</p><p class="description">开放世界武侠动作角色扮演游戏</p><div class="hero-info"><span>🎮 网易游戏 EVERTONE</span><span>📅 公测 2024.12.27</span><span>🌐 PC/iOS/Android/PS5/Steam</span><span>⚙️ 引擎: Messiah</span></div><div class="hero-stats"><div class="stat-item"><span class="stat-number">4</span><span class="stat-label">大区域</span></div><div class="stat-item"><span class="stat-number">43</span><span class="stat-label">奇术</span></div><div class="stat-item"><span class="stat-number">30+</span><span class="stat-label">时装</span></div><div class="stat-item"><span class="stat-number">8</span><span class="stat-label">门派</span></div></div>
-<div class="hero-cta"><a href="https://yy163.com" target="_blank" class="official-site-btn">访问官网</a></div></div></div>
-<div class="container">
-<div class="quick-links"><div class="links-header"><h2>快速导航</h2><p>全方位了解燕云十六声</p></div><div class="links-grid"><div class="link-card" href="fashion.html"><span class="link-icon">👘</span><span class="link-title">时装系统</span><span class="link-desc">聆音/和鸣/商城/战令</span></div><div class="link-card" href="martial.html"><span class="link-icon">⚔️</span><span class="link-title">武学系统</span><span class="link-desc">43种奇术/武器/战斗</span></div><div class="link-card" onclick="showSection('gameplay')"><span class="link-icon">🎮</span><span class="link-title">玩法系统</span><span class="link-desc">战斗/探索/操作</span></div><div class="link-card" href="guide.html"><span class="link-icon">📖</span><span class="link-title">攻略大全</span><span class="link-desc">新手/进阶/高玩</span></div><div class="link-card" onclick="showSection('story')"><span class="link-icon">📜</span><span class="link-title">剧情背景</span><span class="link-desc">五代十国/门派</span></div><div class="link-card" onclick="showSection('news')"><span class="link-icon">📰</span><span class="link-title">版本timeline</span><span class="link-desc">更新历史</span></div><div class="link-card" onclick="showSection('tools')"><span class="link-icon">🔧</span><span class="link-title">实用工具</span><span class="link-desc">计算器/模拟器</span></div></div></div>
-<div class="section-block"><div class="section-header"><h2>🔥 热门时装</h2><div style="text-align:center;margin-bottom:20px"><a href="fashion.html" class="view-all-btn">查看全部时装 ></a></div></div><div class="fashion-grid" style="grid-template-columns:repeat(3,1fr)"><div class="fashion-card" onclick="location.href='fashion.html'"><div class="fashion-img" style="background:linear-gradient(135deg,#8B0000,#FF4500)"><span class="fashion-tag hot">聆音顶奢</span></div><div class="fashion-info"><h3>沧海龙吟</h3><p>白龙主题 · 可交易绝世外观 · 2025新春</p></div></div><div class="fashion-card" onclick="location.href='fashion.html'"><div class="fashion-img" style="background:linear-gradient(135deg,#4B0082,#FF00FF)"><span class="fashion-tag">聆音</span></div><div class="fashion-info"><h3>龙腾岁宴</h3><p>支持裁造/龙战于野款式 · 2026新春</p></div></div><div class="fashion-card" onclick="location.href='fashion.html'"><div class="fashion-img" style="background:linear-gradient(135deg,#191970,#4169E1)"><span class="fashion-tag">和鸣</span></div><div class="fashion-info"><h3>莲渡幽罗</h3><p>附结算演出/动态头像 · 2026.2.27</p></div></div></div></div>
-<div class="section-block"><div class="section-header"><h2>⚔️ 强力奇术 TOP5</h2></div><div class="martial-grid"><div class="martial-card"><div class="martial-icon">🔥</div><h3>神龙吐火+太白醉月</h3><p>3989%倍率 · PVE爆发最高</p><span class="martial-tag">T0</span></div><div class="martial-card"><div class="martial-icon">🐉</div><h3>骑龙回马</h3><p>668%伤害+15%气血爆发</p><span class="martial-tag">T0</span></div><div class="martial-card"><div class="martial-icon">🐕</div><h3>狗嘴夺食</h3><p>单体爆发+强控</p><span class="martial-tag">T1</span></div><div class="martial-card"><div class="martial-icon">🎵</div><h3>箫吟千浪</h3><p>群体攻击+12秒20%增伤</p><span class="martial-tag">T1</span></div></div></div>
-</div></section>
-
-<section id="fashion" class="section">
-<div class="container"><div class="page-header"><h1 class="section-title">时装系统</h1><p class="section-desc">最全面的时装获取指南</p></div>
-<div class="filter-bar"><button class="filter-btn active" data-filter="all">全部</button><button class="filter-btn" data-filter="lingyin">聆音套装</button><button class="filter-btn" data-filter="heming">和鸣套装</button><button class="filter-btn" data-filter="shop">商城直售</button><button class="filter-btn" data-filter="zhanling">战令</button><button class="filter-btn" data-filter="fuyao">扶摇录</button></div>
-
-<div class="fashion-group active" data-category="lingyin"><h2>🎵 聆音套装（顶级限定）</h2><p class="group-desc">通过鸣瑞之音抽取，最顶级的时装系列</p><div class="fashion-grid">
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#1a1a2e,#16213e)"><span class="fashion-badge">2025新春</span></div><div class="fashion-detail"><h3>沧海龙吟</h3><p>月化五白龙，翻飞凌九天。九叠云霄上，飞出白浪起。贵客身着此衣，或可如苍龙出云入海，飞潜升降。</p><div class="fashion-meta"><span>📍 聆音春闹活动抽取</span><span>✨ 可交易绝世外观</span><span>💰 保底约6000+元</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#8B4513,#DAA520)"><span class="fashion-badge">2025新春</span></div><div class="fashion-detail"><h3>西极坠日</h3><p>金乌欲上海如血，翠色一点蓬莱光。西天之极，金乌坠落。楼兰遗梦，生彼月窟。</p><div class="fashion-meta"><span>📍 聆音春闹活动抽取</span><span>✨ 敦煌风格</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#2F4F4F,#00CED1)"><span class="fashion-badge">2025暑期</span></div><div class="fashion-detail"><h3>天上白玉京</h3><p>天上白玉京，十二楼五城</p><div class="fashion-meta"><span>📍 聆音活动</span><span>✨ 高阶外观</span><span>💰 保底约7553元</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#4B0082,#FF00FF)"><span class="fashion-badge">2026新春</span></div><div class="fashion-detail"><h3>龙腾岁宴</h3><p>龙腾云起，岁宴春归。红色衣袍如烈焰，肩部装饰神龙，配备龙角面饰。支持裁造功能可切换为"龙战于野"款式，附带异瞳妆容。</p><div class="fashion-meta"><span>📍 聆音响岁活动</span><span>✨ 支持裁造</span><span>👤 附带异瞳妆容</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#228B22,#7FFFD4)"><span class="fashion-badge">2026新春</span></div><div class="fashion-detail"><h3>鸣鹿寻春</h3><p>丹霞底色配以石绿点染，袖摆间跃动的鹿影仿佛穿越千年而来。设计灵感源自敦煌壁画中的神鹿。</p><div class="fashion-meta"><span>📍 聆音响岁活动</span><span>✨ 敦煌神韵</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#8B0000,#FFD700)"><span class="fashion-badge">2025暑期</span></div><div class="fashion-detail"><h3>将星入命</h3><p>将星入命，气势如虹</p><div class="fashion-meta"><span>📍 聆音活动</span><span>✨ 武将主题</span></div></div></div>
-</div></div>
-
-<div class="fashion-group" data-category="heming"><h2>🎶 和鸣套装（八音窍）</h2><p class="group-desc">通过八音窍在和鸣商店获取，支持上下装拆分、染色</p><div class="fashion-grid">
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#191970,#4169E1)"><span class="fashion-badge">和鸣</span></div><div class="fashion-detail"><h3>莲渡幽罗</h3><p>清辉渡莲魂归去，蒿里幽罗命无寻。取意自忘川河畔的接引之莲</p><div class="fashion-meta"><span>📍 2个八音窍或抽奖</span><span>✨ 上下装拆分/染色/裁造</span><span>🎬 附结算演出+动态头像</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#006400,#00FF7F)"><span class="fashion-badge">和鸣</span></div><div class="fashion-detail"><h3>青鸾瑶音</h3><p>杳渺蓬山远，翩然衔书去。凭风渡云海，万里传佳音。取青鸟神形</p><div class="fashion-meta"><span>📍 2个八音窍</span><span>✨ 支持发型染色</span><span>👑 附头冠/特效发饰/耳饰</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#8B0000,#FF6347)"><span class="fashion-badge">性价比</span></div><div class="fashion-detail"><h3>丹雀</h3><p>6元封神时装，丹红色如朝霞映照下的鹤羽</p><div class="fashion-meta"><span>💰 6元</span><span>✨ 支持染色</span><span>🏆 性价比之王</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#4B0082,#9370DB)"><span class="fashion-badge">转盘</span></div><div class="fashion-detail"><h3>瑞鹤仙</h3><p>仙鹤主题时装</p><div class="fashion-meta"><span>📍 五一/国庆转盘</span><span>✨ 节日限定</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#2F4F4F,#90EE90)"><span class="fashion-badge">转盘</span></div><div class="fashion-detail"><h3>醉蓬莱</h3><p>醉酒仙人主题</p><div class="fashion-meta"><span>📍 五一/国庆转盘</span><span>✨ 节日限定</span></div></div></div>
-</div></div>
-
-<div class="fashion-group" data-category="shop"><h2>🏪 商城直售/活动</h2><p class="group-desc">商店直接购买的长鸣珠时装</p><div class="fashion-grid">
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#E6E6FA,#B0C4DE)"><span class="fashion-badge">直售</span></div><div class="fashion-detail"><h3>明河载雪</h3><p>月白晕染淡紫基底，袖口植入冰晶银雪特效</p><div class="fashion-meta"><span>💰 2580长鸣珠</span><span>✨ 上下装拆分/全件染色</span><span>📌 丐版瑞鹤仙</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#DC143C,#FFD700)"><span class="fashion-badge">直售</span></div><div class="fashion-detail"><h3>马上有乾</h3><p>寓意"马上有钱"，充满新春气息</p><div class="fashion-meta"><span>💰 1280长鸣珠(活动价)</span><span>✨ 上下装拆分/染色</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#9370DB,#E6E6FA)"><span class="fashion-badge">花间十二客</span></div><div class="fashion-detail"><h3>探梅逢春</h3><p>襟袖余芳缕，犹记此清欢。梅魂牵客梦，客意寄梅边。素白衣袍拟白雪纷纷，红梅在白缎上漫展</p><div class="fashion-meta"><span>💰 2580长鸣珠</span><span>✨ 梅花主题/上下装拆分/染色</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#FF69B4,#FFDAB9)"><span class="fashion-badge">花间十二客</span></div><div class="fashion-detail"><h3>宿露轻盈</h3><p>以"芳菲之首"牡丹为设计灵感。异香开玉合，轻粉泥银盘。晓贮露华湿，宵倾月魄寒</p><div class="fashion-meta"><span>💰 2580长鸣珠</span><span>✨ 牡丹主题/首发套装</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#FFD700,#FFA500)"><span class="fashion-badge">元宵</span></div><div class="fashion-detail"><h3>锦鳞送瑞</h3><p>锦鳞衔宝向人间，千灯如昼映月圆</p><div class="fashion-meta"><span>💰 2580长鸣珠</span><span>✨ 元宵纪念/上下装拆分/染色</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#708090,#B0C4DE)"><span class="fashion-badge">商城</span></div><div class="fashion-detail"><h3>万壑清响</h3><p>青衿列坐，群山初醒。衣间隐染青嶂叠翠、烟水微茫</p><div class="fashion-meta"><span>💰 300长鸣珠(限时折扣)</span><span>✨ 书院文人风格</span></div></div></div>
-</div></div>
-
-<div class="fashion-group" data-category="zhanling"><h2>⚔️ 战令套装</h2><p class="group-desc">购买战斗通行证解锁</p><div class="fashion-grid">
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#F0F8FF,#B0C4DE)"><span class="fashion-badge">战令</span></div><div class="fashion-detail"><h3>青锋映雪</h3><p>素白的衣袍上点缀着锈金流光，下摆的铜绿晕染仿佛诉说着江湖的风霜。肩头的素白毛领点睛之笔</p><div class="fashion-meta"><span>📍 精英战令</span><span>✨ 雪山剑客风格</span><span>🎁 典藏战令送置景/聊天气泡</span></div></div></div>
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#696969,#B8860B)"><span class="fashion-badge">战令</span></div><div class="fashion-detail"><h3>赤心一寸</h3><p>一袭征袍，犹带凉州霜雪、塞上风沙。以深灰为底，以赤金点缀，纹样兼具中原审美与西域特色</p><div class="fashion-meta"><span>💰 6元精英贺仪</span><span>✨ 河西英雄主题</span></div></div></div>
-</div></div>
-
-<div class="fashion-group" data-category="fuyao"><h2>📈 扶摇录套装</h2><p class="group-desc">提升扶摇录等级获取的成长型时装</p><div class="fashion-grid">
-<div class="fashion-item"><div class="fashion-visual" style="background:linear-gradient(135deg,#2F2F2F,#4A4A4A)"><span class="fashion-badge">扶摇录</span></div><div class="fashion-detail"><h3>丹渊寰宇</h3><p>以玄色为主调，胸前的玄豹纹饰凝神欲扑，肩侧垂泻的兽羽狂野不驯。身侧佩戴的苗刀暗藏幽光</p><div class="fashion-meta"><span>📍 扶摇录等级提升</span><span>✨ 上衣和腰饰支持裁造</span><span>🔄 可变身为"霄晖驭影"</span></div></div></div>
-</div></div>
-</div></section>
-
-<section id="martial" class="section">
-<div class="container"><div class="page-header"><h1 class="section-title">武学系统</h1><p class="section-desc">武器、奇术、武学流派完全指南</p></div>
-<div class="martial-tabs"><button class="tab-btn active" onclick="showTab('weapon')">武器</button><button class="tab-btn" onclick="showTab('qishu')">奇术</button><button class="tab-btn" onclick="showTab('keyboard')">操作按键</button></div>
-
-<div id="weapon" class="martial-tab active"><h2 style="margin-bottom:24px">🗡️ 武器类型</h2><div class="weapon-grid"><div class="weapon-card"><div class="weapon-icon">⚔️</div><h3>剑</h3><p>轻灵飘逸，剑走轻灵</p><span class="martial-tag">速度型</span></div><div class="weapon-card"><div class="weapon-icon">🗡️</div><h3>刀</h3><p>刚猛有力，刀法威猛</p><span class="martial-tag">力量型</span></div><div class="weapon-card"><div class="weapon-icon">🔱</div><h3>枪</h3><p>长兵之王，枪出如龙</p><span class="martial-tag">范围型</span></div><div class="weapon-card"><div class="weapon-icon">🪓</div><h3>斧</h3><p>大开大合，势大力沉</p><span class="martial-tag">力量型</span></div><div class="weapon-card"><div class="weapon-icon">🥊</div><h3>拳</h3><p>刚柔并济，拳法多变</p><span class="martial-tag">技巧型</span></div><div class="weapon-card"><div class="weapon-icon">🎋</div><h3>暗器</h3><p>出其不意，攻其不备</p><span class="martial-tag">远程型</span></div></div></div>
-
-<div id="qishu" class="martial-tab">
-<div class="qishu-rank"><h3>📊 奇术伤害排行榜 TOP4</h3><div class="rank-list"><div class="rank-item top1"><span class="rank-num">🥇</span><span class="rank-name">神龙吐火 + 太白醉月组合</span><span class="rank-dmg">3989.4% 倍率</span></div><div class="rank-item"><span class="rank-num">🥈</span><span class="rank-name">骑龙回马</span><span class="rank-dmg">668.69% 倍率</span></div><div class="rank-item"><span class="rank-num">🥉</span><span class="rank-name">狗嘴夺食</span><span class="rank-dmg">640.2% 倍率</span></div><div class="rank-item"><span class="rank-num">4</span><span class="rank-name">叶龙骧首</span><span class="rank-dmg">最强群体输出</span></div></div></div>
-<div class="qishu-grid">
-<div class="qishu-card"><h4>🗺️ 清河地区 (17种)</h4><ul><li><strong>太极</strong> - 搬运宝箱/清扫落叶</li><li><strong>金玉手</strong> - 点穴技能</li><li><strong>摄星拿月</strong> - 偷师模仿</li><li><strong>凌云踏</strong> - 轻功飞跃</li><li><strong>狮吼正声</strong> - 声波攻击</li><li><strong>金蟾腾跃</strong> - 跃起反击</li><li><strong>红尘障目</strong> - 迷雾失明</li><li><strong>鹰爪连凿</strong> - 破防</li><li><strong>荧光晖夜</strong> - 照明</li><li><strong>杳无形</strong> - 隐身</li><li><strong>凌虚一指</strong> - 1900%背刺</li><li><strong>韦陀正法</strong> - 范围击倒</li><li><strong>流星坠火</strong> - 高伤害</li><li><strong>药叉破魔</strong> - 强力技能</li><li><strong>自在无碍</strong> - 强力技能</li><li><strong>万钧坠</strong> - 下击</li><li><strong>缩骨功</strong> - 缩小穿狭窄通道</li></ul></div>
-<div class="qishu-card"><h4>🏯 开封地区 (6种)</h4><ul><li><strong>百鬼打穴手</strong> - 五目标穿梭定身</li><li><strong>狗嘴夺食</strong> - 单体强控</li><li><strong>骑龙回马</strong> - 突进爆发</li><li><strong>神龙吐火</strong> - 喷火攻击</li><li><strong>无相金身</strong> - 护盾减伤</li><li><strong>阴阳迷踪步</strong> - 隐身移动</li></ul></div>
-<div class="qishu-card"><h4>🏜️ 河西地区 (1种)</h4><ul><li><strong>箫吟千浪</strong> - 远程群体+20%增伤<br/>可自定义战斗BGM</li></ul></div>
-<div class="qishu-card"><h4>⭐ 特殊/活动 (8种)</h4><ul><li><strong>太白醉月</strong> - 假醉状态856%</li><li><strong>叶龙骧首</strong> - 全部精元最强群体</li><li><strong>停渊止水</strong> - 特殊技能</li><li><strong>一剑千里</strong> - 活动奖励</li><li><strong>冯虚御风</strong> - 轻功</li><li><strong>飞檐·步仞</strong> - 蹊跷轻功</li><li><strong>飞檐·逐影</strong> - 蹊跷轻功</li><li><strong>玉扇游山</strong> - 特殊轻功</li><li><strong>飒沓流星</strong> - 快速位移</li></ul></div></div>
-<div class="combo-grid"><div class="combo-card"><h4>🔥 爆发输出</h4><p>太白醉月 + 神龙吐火</p><span class="martial-tag">PVE最高爆发</span></div><div class="combo-card"><h4>🔄 循环清怪</h4><p>箫吟千浪 + 百鬼/衍九矢</span></div><div class="combo-card"><h4>⚡ 快速位移</h4><p>凌云踏 + 飒沓流星</p><span class="martial-tag">探索必备</span></div><div class="combo-card"><h4>🛡️ 生存保命</h4><p>无相金身 + 杳无形</p><span class="martial-tag">PVP生存</span></div></div>
-</div>
-
-<div id="keyboard" class="martial-tab">
-<div class="keyboard-section"><h3>⌨️ PC端默认按键</h3><div class="key-grid"><div class="key-item"><span class="key">WASD</span><span class="key-desc">移动</span></div><div class="key-item"><span class="key">空格</span><span class="key-desc">跳跃</span></div><div class="key-item"><span class="key">Shift</span><span class="key-desc">疾跑/闪避</span></div><div class="key-item"><span class="key">鼠标左键</span><span class="key-desc">轻击</span></div><div class="key-item"><span class="key">鼠标右键</span><span class="key-desc">防御</span></div><div class="key-item"><span class="key">E</span><span class="key-desc">卸势</span></div><div class="key-item"><span class="key">R</span><span class="key-desc">重击</span></div><div class="key-item"><span class="key">Q</span><span class="key-desc">武学技</span></div><div class="key-item"><span class="key">~</span><span class="key-desc">特殊技</span></div><div class="key-item"><span class="key">Tab</span><span class="key-desc">易武技</span></div><div class="key-item"><span class="key">1-4</span><span class="key-desc">奇术(第一页)</span></div><div class="key-item"><span class="key">Alt+1-4</span><span class="key-desc">奇术(第二页)</span></div></div></div>
-<div class="mechanic-section"><h3>⚔️ 战斗核心机制</h3><p><strong>卸势：</strong>在敌人攻击命中前使用可拆招化解。连续卸势可大幅削减敌人真气。红光攻击为投技，卸势成功消耗大量金光攻击无法卸势，只能闪避和走位。</p><p><strong>处决：</strong>当敌人真气被打空，屏幕出现黄色菱形"F"互动框时，按F处决。技巧：先继续输出，在处决倒计时即将结束瞬间再处决，实现DPS最大化。</p></div>
-</div></div></section>
-
-<section id="gameplay" class="section">
-<div class="container"><div class="page-header"><h1 class="section-title">玩法系统</h1><p class="section-desc">战斗、探索、休闲玩法全攻略</p></div>
-<div class="links-grid" style="grid-template-columns:repeat(4,1fr)"><div class="gameplay-card"><div class="gameplay-icon">⚔️</div><h3>战斗玩法</h3><p>据点挑战/世界BOSS/镇守/侠迹/PVP</p></div><div class="gameplay-card"><div class="gameplay-icon">🗺️</div><h3>探索玩法</h3><p>十六州探索/解谜/宝箱/成就/扶摇录</p></div><div class="gameplay-card"><div class="gameplay-icon">🎭</div><h3>休闲玩法</h3><p>投壶/叶子戏/红炉雅集/琴戏/弈棋</p></div><div class="gameplay-card"><div class="gameplay-icon">👥</div><h3>社交玩法</h3><p>多人副本/帮会/结义师徒/交易行</p></div></div>
-</div></section>
-
-<section id="guide" class="section">
-<div class="container"><div class="page-header"><h1 class="section-title">攻略大全</h1><p class="section-desc">新手入门到高玩进阶</p></div>
-<div class="category-tabs"><button class="tab-btn active" onclick="showTab('newbie')">新手入门</button><button class="tab-btn" onclick="showTab('advance')">进阶攻略</button></div>
-<div id="newbie" class="guide-tab active"><div class="links-grid"><div class="link-card"><span class="link-icon">📖</span><span class="link-title">新手入门指南</span><span class="link-desc">从创建角色到击败第一个Boss</span></div><div class="link-card"><span class="link-icon">⚔️</span><span class="link-title">武学获取攻略</span><span class="link-desc">全43种奇术获取方式</span></div><div class="link-card"><span class="link-icon">👘</span><span class="link-title">时装系统指南</span><span class="link-desc">各类型时装获取与性价比</span></div><div class="link-card"><span class="link-icon">💰</span><span class="link-title">货币资源详解</span><span class="link-desc">长鸣珠/八音窍获取</span></div></div></div>
-<div id="advance" class="guide-tab"><div class="links-grid"><div class="link-card"><span class="link-icon">🎯</span><span class="link-title">战斗系统解析</span><span class="link-desc">卸势/识破/TA机制</span></div><div class="link-card"><span class="link-icon">🏆</span><span class="link-title">最强奇术搭配</span><span class="link-desc">各流派组合与输出循环</span></div><div class="link-card"><span class="link-icon">👹</span><span class="link-title">镇守Boss攻略</span><span class="link-desc">各Boss机制与打法</span></div><div class="link-card"><span class="link-icon">🗺️</span><span class="link-title">探索度速刷</span><span class="link-desc">高效完成地区探索</span></div></div></div>
-</div></section>
-
-<section id="story" class="section">
-<div class="container"><div class="page-header"><h1 class="section-title">剧情背景</h1><p class="section-desc">五代十国的武侠史诗</p></div>
-<div class="story-intro"><h2>故事背景</h2><p>燕云十六声的故事发生在<strong>五代十国与宋代交替之时</strong>，这是一个战乱频繁、群雄并起的时代。玩家将扮演一名侠客，在燕云十六州展开自己的江湖冒险。</p><div class="story-tags"><span class="story-tag">五代十国</span><span class="story-tag">宋朝</span><span class="story-tag">武侠</span><span class="story-tag">开放世界</span><span class="story-tag">Messiah引擎</span></div></div>
-<div class="areas-grid"><div class="area-card"><div class="area-icon">🏞️</div><h3>清河</h3><p>新手区域<br/>竹林旧居所在地</p></div><div class="area-card"><div class="area-icon">🏯</div><h3>开封</h3><p>北宋都城<br/>繁华都市</p></div><div class="area-card"><div class="area-icon">🏜️</div><h3>河西</h3><p>丝绸之路<br/>玉门关/凉州/秦川</p></div><div class="area-card"><div class="area-icon">⛰️</div><h3>不见山</h3><p>神秘山区<br/>墨城/天径/滹沱</p></div></div>
-<div class="qishu-rank"><h3>🏯 八大流派</h3><div class="faction-grid"><div class="faction-card"><h4>九流门</h4><p>市井三教九流<br/>道德观念灵活</p></div><div class="faction-card"><h4>醉花阴</h4><p>开封樊楼歌舞乐伎<br/>以伞为兵器</p></div><div class="faction-card"><h4>天泉</h4><p>以公义为重<br/>使用陌刀</p></div><div class="faction-card"><h4>三更天</h4><p>门规和武学<br/>技能独特</p></div><div class="faction-card"><h4>青溪</h4><p>注重医术和辅助<br/>以扇子为武器</p></div><div class="faction-card"><h4>狂澜</h4><p>擅长水元素攻击<br/>长枪为武器</p></div><div class="faction-card"><h4>梨园</h4><p>将表演与<br/>武学结合</p></div><div class="faction-card"><h4>无门无派</h4><p>不受门规限制<br/>自由探索</p></div></div></div>
-<div class="mechanic-section"><h3>⚠️ 重要特点</h3><p><strong>武学不与门派绑定！</strong>全部武学可以偷师学习，玩家可以自由选择和切换门派，学习不同武学。</p></div>
-</div></section>
-
-<section id="news" class="section">
-<div class="container"><div class="page-header"><h1 class="section-title">版本时间线</h1><p class="section-desc">更新历史一览</p></div>
-<div class="news-list-full">
-<article class="news-item-full"><div class="news-date-badge"><span class="news-day">03</span><span class="news-month">2026-03</span></div><div class="news-body"><span class="news-tag">时装</span><h3>锦鳞送瑞上架</h3><p>元宵纪念套装，商店2580长鸣珠，支持上下装拆分和染色</p></div></article>
-<article class="news-item-full"><div class="news-date-badge"><span class="news-day">27</span><span class="news-month">2026-02</span></div><div class="news-body"><span class="news-tag">更新</span><h3>和鸣套装更新</h3><p>莲渡幽罗、青鸾瑶音、万壑清响上线</p></div></article>
-<article class="news-item-full"><div class="news-date-badge"><span class="news-day">13</span><span class="news-month">2026-02</span></div><div class="news-body"><span class="news-tag">时装</span><h3>探梅逢春上架</h3><p>花间十二客系列，商店2580长鸣珠</p></div></article>
-<article class="news-item-full"><div class="news-date-badge"><span class="news-day">06</span><span class="news-month">2026-02</span></div><div class="news-body"><span class="news-tag">新春</span><h3>聆音响岁开启</h3><p>龙腾岁宴、鸣鹿寻春、丹渊寰宇、青锋映雪上线</p></div></article>
-<article class="news-item-full"><div class="news-date-badge"><span class="news-day">23</span><span class="news-month">2026-01</span></div><div class="news-body"><span class="news-tag">时装</span><h3>明河载雪上架</h3><p>商店2580长鸣珠，被称为"丐版瑞鹤仙"</p></div></article>
-<article class="news-item-full"><div class="news-date-badge"><span class="news-day">09</span><span class="news-month">2026-01</span></div><div class="news-body"><span class="news-tag">周年</span><h3>移动端一周年</h3><p>【燕乐·共鸣时】周年特别演出</p></div></article>
-<article class="news-item-full"><div class="news-date-badge"><span class="news-day">27</span><span class="news-month">2024-12</span></div><div class="news-body"><span class="news-tag">公测</span><h3>全平台公测开启</h3><p>PC/iOS/Android/PS5全平台上线</p></div></article>
-</div>
-</div></section>
-
-<section id="tools" class="section">
-<div class="container"><div class="page-header"><h1 class="section-title">实用工具</h1><p class="section-desc">计算器与模拟器</p></div>
-<div class="tools-showcase"><div class="tool-box" onclick="openTool('fashion-sim')"><span>👘</span><h3>时装模拟器</h3><p>模拟时装搭配</p></div><div class="tool-box" onclick="openTool('price-calc')"><span>💰</span><h3>抽卡计算器</h3><p>计算保底成本</p></div><div class="tool-box" onclick="openTool('qishu-combo')"><span>⚔️</span><h3>奇术搭配</h3><p>智能推荐组合</p></div></div>
-
-<div id="fashion-sim" class="tool-modal"><div class="tool-modal-content"><span class="close-btn" onclick="closeTool('fashion-sim')">&times;</span><h2>👘 时装模拟器</h2><div class="sim-preview-area"><div class="sim-character">👤</div><div class="sim-result" id="sim-result">点击选择时装</div></div><div class="sim-controls"><select id="fashion-select" onchange="updateSim()"><option value="">选择时装</option><option value="canglong">沧海龙吟</option><option value="xiji">西极坠日</option><option value="longteng">龙腾岁宴</option><option value="minglu">鸣鹿寻春</option><option value="liandu">莲渡幽罗</option></select><select id="color-select" onchange="updateSim()"><option value="">选择配色</option><option value="default">默认</option><option value="red">烈焰红</option><option value="blue">冰晶蓝</option></select></div><button class="sim-btn" onclick="randomSim()">🎲 随机搭配</button></div></div>
-
-<div id="price-calc" class="tool-modal"><div class="tool-modal-content"><span class="close-btn" onclick="closeTool('price-calc')">&times;</span><h2>💰 抽卡计算器</h2><div class="calc-form"><label>活动类型</label><select id="calc-type"><option value="lingyin">聆音（鸣瑞之音）</option><option value="heming">和鸣（八音窍）</option></select><label>抽取次数</label><input type="number" id="calc-count" value="1" min="1"><button onclick="calculatePrice()">计算成本</button></div><div class="calc-result-area" id="calc-result"><p>输入抽取次数查看预估成本</p></div></div></div>
-
-<div id="qishu-combo" class="tool-modal"><div class="tool-modal-content"><span class="close-btn" onclick="closeTool('qishu-combo')">&times;</span><h2>⚔️ 奇术搭配推荐</h2><div class="calc-result-area" style="text-align:left"><p><strong>🔥 爆发流：</strong>太白醉月 + 神龙吐火</p><p style="margin-top:12px"><strong>🛡️ 生存流：</strong>无相金身 + 杳无形</p><p style="margin-top:12px"><strong>⚡ 跑图流：</strong>凌云踏 + 冯虚御风 + 飒沓流星</p><p style="margin-top:12px"><strong>🎵 辅助流：</strong>箫吟千浪 + 百鬼打穴手</p></div></div></div>
-</div></section>
-
-<footer><div class="container"><div class="footer-content"><div class="footer-brand"><span class="footer-logo"></span><div><h3>燕云十六声权威资料站</h3><p>粉丝自发整理 · 基于<a href="https://yy163.com" target="_blank" style="color:var(--accent-gold)">官方资料</a></p></div></div><div class="footer-links"><p><a href="https://yy163.com" target="_blank" class="footer-link">访问官网</a> · <a href="https://www.yysls.cn" target="_blank" class="footer-link">国服官网</a></p><p>本页面非官方，仅供学习交流使用</p><p class="copyright">© 2026 燕云十六声资料站</p></div></div></footer>
-
-<script>
-function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav-menu a').forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.nav-menu a[data-section="${id}"]`);if(a)a.classList.add('active');window.scrollTo(0,0)}
-function toggleMobileMenu(){document.querySelector('.nav-menu').classList.toggle('active')}
-function showTab(id){document.querySelectorAll('.martial-tab,.guide-tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.martial-tabs .tab-btn,.category-tabs .tab-btn').forEach(b=>b.classList.remove('active'));event.target.classList.add('active')}
-function openTool(id){document.getElementById(id).classList.add('active')}
-function closeTool(id){document.getElementById(id).classList.remove('active')}
-document.querySelectorAll('.tool-modal').forEach(m=>m.addEventListener('click',function(e){if(e.target===this)this.classList.remove('active')}))
-function updateSim(){const f=document.getElementById('fashion-select'),c=document.getElementById('color-select'),r=document.getElementById('sim-result'),n={canglong:'沧海龙吟',xiji:'西极坠日',longteng:'龙腾岁宴',minglu:'鸣鹿寻春',liandu:'莲渡幽罗'};if(f.value){r.textContent=f.value?`时装: ${n[f.value]}`:'点击选择时装';r.style.color=f.value?'#d4af37':'#8a8a9a'}else{r.textContent='点击选择时装';r.style.color='#8a8a9a'}}
-function randomSim(){const f=['canglong','xiji','longteng','minglu','liandu'];document.getElementById('fashion-select').value=f[Math.floor(Math.random()*f.length)];updateSim()}
-function calculatePrice(){const t=document.getElementById('calc-type').value,c=parseInt(document.getElementById('calc-count').value)||1,r=document.getElementById('calc-result'),p=t==='lingyin'?128:68,d=t==='lingyin'?'聆音抽取':'和鸣抽奖';r.innerHTML=`<p>${d}</p><p>${c}次</p><p class="price">¥${(p*c).toLocaleString()}</p><p style="font-size:12px;color:#666;margin-top:12px">*价格仅供参考</p>`}
-document.addEventListener('DOMContentLoaded',function(){showSection('home')})
-document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.tool-modal').forEach(m=>m.classList.remove('active'))})
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>燕云拾遗录</title>
+    <link rel="preconnect" href="https://nie.res.netease.com" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="主导航">
+        <a class="brand" href="#top" aria-label="返回首页">
+          <span class="brand-mark" aria-hidden="true">
+            <span>燕</span>
+            <span>云</span>
+          </span>
+          <span class="brand-text">燕云拾遗录</span>
+        </a>
+        <div class="nav-links">
+          <a href="#wiki-hub">江湖首页</a>
+          <a href="#content-atlas">资料蓝图</a>
+          <a href="#map">地图</a>
+          <a href="#practical">速查</a>
+          <a href="#martial">武学</a>
+          <a href="#gamekee-martial">摘录</a>
+          <a href="#builds">养成</a>
+          <a href="#sects">门派</a>
+          <a href="#steal">偷师</a>
+          <a href="#characters">人物</a>
+          <a href="#routes">开荒</a>
+          <a href="#quests">任务</a>
+          <a href="#raids">副本</a>
+          <a href="#versions">版本</a>
+          <a href="#world">世界</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-bg" role="img" aria-label="燕云十六声官方江湖场景图"></div>
+        <div class="hero-texture" aria-hidden="true"></div>
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="kicker">五代乱世 · 开放世界 · 可核验武侠资料库</p>
+          <h1 id="hero-title">燕云拾遗录</h1>
+          <p class="hero-copy">
+            为《燕云十六声》玩家整理武学、门派、奇遇、收集、地图和版本档案；每条内容都拆成可追溯字段，
+            没有证据的地方只留线索，不伪装成结论。
+          </p>
+          <div class="name-meaning" aria-label="燕云十六声名称含义">
+            <article>
+              <b>燕云</b>
+              <span>指向燕云十六州的历史意象，也把故事放进五代乱世、山河失序与边地风云之中。</span>
+            </article>
+            <article>
+              <b>十六</b>
+              <span>既呼应“十六州”的地理记忆，也让江湖、州郡、势力与人物都带着分裂时代的重量。</span>
+            </article>
+            <article>
+              <b>声</b>
+              <span>不是单纯的声响，更像乐音、传闻与江湖回声：玩家听见乱世，也在乱世里留下自己的名字。</span>
+            </article>
+          </div>
+          <div class="hero-actions" aria-label="主要入口">
+            <a class="primary-action" href="#archive">进入资料库</a>
+            <a class="secondary-action" href="#sources">资料来源</a>
+          </div>
+          <div class="hero-ribbon" aria-label="资料原则">
+            <span>官方优先</span>
+            <span>社区参考</span>
+            <span>版本标记</span>
+            <span>字段待核</span>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="资料站统计">
+          <div>
+            <strong>80+</strong>
+            <span>资料条目</span>
+          </div>
+          <div>
+            <strong>11+1</strong>
+            <span>门派身份</span>
+          </div>
+          <div>
+            <strong>2.6</strong>
+            <span>版本观察</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="wiki-hub" class="wiki-hub" aria-labelledby="wiki-hub-title">
+        <div class="wiki-shell">
+          <aside class="wiki-sidebar" aria-label="资料分类目录">
+            <div class="wiki-side-title">
+              <span>INDEX</span>
+              <h2 id="wiki-hub-title">资料目录</h2>
+            </div>
+            <div id="wikiCategoryList" class="wiki-category-list"></div>
+          </aside>
+
+          <div class="wiki-main">
+            <div class="wiki-main-head">
+              <div>
+                <p class="kicker">燕云拾遗录工作台</p>
+                <h2>先看重点条目，再查具体字段</h2>
+              </div>
+              <a class="wiki-submit" href="#sources">投稿线索</a>
+            </div>
+            <div id="wikiFeatured" class="wiki-featured"></div>
+          </div>
+
+          <aside class="wiki-feed" aria-label="最近更新">
+            <div class="feed-head">
+              <span>最近更新</span>
+              <b>可核验</b>
+            </div>
+            <div id="wikiUpdates" class="wiki-updates"></div>
+            <div class="wiki-source-card">
+              <span>来源策略</span>
+              <p>官方信息、社区资料、玩家实测分层保存；待补坐标不会伪装成已核验。</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="content-atlas" class="content-atlas">
+        <div class="section-head compact">
+          <p class="kicker">资料蓝图</p>
+          <h2>按玩家查资料的路径补齐栏目</h2>
+          <p>
+            这里把“有什么可补”先铺开：新手、探索、人物、势力、任务、收集、系统都分层维护，
+            每个条目只摘取标题和事实分类，正文由本站后续重写、核验和补坐标。
+          </p>
+        </div>
+        <div id="contentAtlas" class="atlas-board"></div>
+      </section>
+
+      <section class="overview band">
+        <div class="section-head">
+          <p class="kicker">站点导览</p>
+          <h2>先把江湖分清楚</h2>
+          <p>
+            《燕云十六声》的资料不是线性攻略，玩家会同时接触武学、探索、门派、奇遇、强敌和区域叙事。
+            本站按“玩家想查什么”组织内容。
+          </p>
+        </div>
+        <div class="overview-grid">
+          <article>
+            <span>01</span>
+            <h3>战斗与武学</h3>
+            <p>武器定位、套路差异、奇术用途、搭配思路，以及战斗外的解谜用法。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>人物与势力</h3>
+            <p>按清河、开封、河西和门派势力建立人物索引，保留剧情关系入口。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>任务与探索</h3>
+            <p>主线、残章、侠迹、奇遇、镇守与收集内容拆开，便于后续补流程。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>版本与来源</h3>
+            <p>把官方新闻、平台页面和攻略资料标注清楚，后续更新时能追溯依据。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="archive" class="archive">
+        <div class="archive-toolbar">
+          <div>
+            <p class="kicker">资料库</p>
+            <h2>快速检索</h2>
+          </div>
+          <label class="search">
+            <span>搜索</span>
+            <input id="searchInput" type="search" placeholder="输入武学、人物、任务、副本或区域" />
+            <div id="searchSuggest" class="search-suggest" role="listbox" aria-label="搜索联想"></div>
+          </label>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="资料分类">
+          <button class="tab active" data-tab="all" type="button">全部</button>
+          <button class="tab" data-tab="武学" type="button">武学</button>
+          <button class="tab" data-tab="奇术" type="button">奇术</button>
+          <button class="tab" data-tab="心法" type="button">心法</button>
+          <button class="tab" data-tab="装备" type="button">装备</button>
+          <button class="tab" data-tab="门派" type="button">门派</button>
+          <button class="tab" data-tab="人物" type="button">人物</button>
+          <button class="tab" data-tab="任务" type="button">任务</button>
+          <button class="tab" data-tab="副本" type="button">副本</button>
+          <button class="tab" data-tab="试炼" type="button">试炼</button>
+          <button class="tab" data-tab="区域" type="button">区域</button>
+        </div>
+
+        <div id="cards" class="card-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="practical" class="practical band">
+        <div class="section-head">
+          <p class="kicker">实用速查</p>
+          <h2>先补能直接用的内容</h2>
+          <p>
+            这里把公开资料里相对稳定的玩法结论拆成卡片：新手搭配、心法来源、武学造诣、奇术联动和资料录入规范。
+            具体坐标和数值仍保留待核验入口。
+          </p>
+        </div>
+        <div id="practicalBoard" class="practical-board"></div>
+      </section>
+
+      <section id="map" class="map-section band">
+        <div class="section-head">
+          <p class="kicker">地图索引</p>
+          <h2>先问在哪里，再问怎么做</h2>
+          <p>
+            开放世界资料以位置为第一索引。当前用静态小地图建立坐标化录入规范，
+            后续可以替换为动态地图插件或接入真实地图截图。
+          </p>
+        </div>
+        <div class="map-layout">
+          <div class="mini-map" aria-label="区域标记小地图">
+            <div class="map-river"></div>
+            <button class="map-pin active" style="--x: 24%; --y: 58%" data-map-region="清河" type="button">
+              <span>清河</span>
+            </button>
+            <button class="map-pin" style="--x: 52%; --y: 44%" data-map-region="开封" type="button">
+              <span>开封</span>
+            </button>
+            <button class="map-pin" style="--x: 76%; --y: 68%" data-map-region="河西" type="button">
+              <span>河西</span>
+            </button>
+            <button class="map-pin pending" style="--x: 62%; --y: 26%" data-map-region="青州" type="button">
+              <span>青州</span>
+            </button>
+          </div>
+          <div class="map-panel">
+            <div class="map-panel-head">
+              <p class="kicker">坐标字段</p>
+              <h3 id="mapRegionTitle">清河</h3>
+            </div>
+            <div id="mapEntries" class="map-entries"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="martial" class="band martial">
+        <div class="section-head">
+          <p class="kicker">武学体系</p>
+          <h2>武器是载体，武学才是条目</h2>
+          <p>
+            本站按“武器 → 武学 → 字段来源”组织。武器下面可以有多套武学，同一把武器也可能对应不同属性、定位和门派来源。
+            暂时不把单一攻略写成最终结论，属性、获取方式和版本状态都以“待复核 / 待补字段”保留。
+          </p>
+        </div>
+        <div class="feature-layout">
+          <div class="weapon-list" id="weaponList"></div>
+          <div class="feature-image">
+            <img src="https://nie.res.netease.com/r/pic/20241227/d136dc27-8731-4694-a01d-935a45921377.jpg" alt="燕云十六声官方场景宣传图" />
+          </div>
+        </div>
+      </section>
+
+      <section id="gamekee-martial" class="gamekee-martial">
+        <div class="section-head compact">
+          <p class="kicker">来源字段摘录</p>
+          <h2>武学获取与材料清单</h2>
+          <p>
+            已从社区资料页抽取武学事实字段，并转成本站结构化卡片。这里保留来源链接和核验状态，
+            不直接搬运长段原文，后续可继续补坐标截图与实测版本差异。
+          </p>
+        </div>
+        <div id="gamekeeBoard" class="gamekee-board"></div>
+      </section>
+
+      <section id="builds" class="builds">
+        <div class="section-head compact">
+          <p class="kicker">养成速查</p>
+          <h2>先定场景，再选武学</h2>
+          <p>
+            新手最容易被武器、武学、心法、奇术一起淹没。这里按使用场景给出整理模板，
+            先服务“能打、能活、能探索”，具体数值等版本实测后再精修。
+          </p>
+        </div>
+        <div class="build-controls" role="tablist" aria-label="养成场景">
+          <button class="build-filter active" data-build="新手游历" type="button">新手游历</button>
+          <button class="build-filter" data-build="单人强敌" type="button">单人强敌</button>
+          <button class="build-filter" data-build="多人支援" type="button">多人支援</button>
+          <button class="build-filter" data-build="探索解谜" type="button">探索解谜</button>
+        </div>
+        <div id="buildBoard" class="build-board"></div>
+      </section>
+
+      <section id="sects" class="sects">
+        <div class="section-head compact">
+          <p class="kicker">门派</p>
+          <h2>门派与无门无派</h2>
+          <p>公开资料常按“无门无派 + 十一个门派身份”理解。门派不只是职业选择，也关联声望、门规、驻地、角色关系和可偷师武学。</p>
+        </div>
+        <div id="sectMatrix" class="matrix"></div>
+      </section>
+
+      <section id="steal" class="steal-section band">
+        <div class="section-head">
+          <p class="kicker">偷师与门规</p>
+          <h2>武学不是孤立条目</h2>
+          <p>
+            偷师需要记录 NPC、坐标、资源、前置条件和失败风险；门派也要记录门规约束，
+            避免玩家为了短期武学选择影响长期奇遇和身份规划。
+          </p>
+        </div>
+        <div class="steal-layout">
+          <div>
+            <h3 class="subhead">偷师路径图</h3>
+            <div id="stealGuides" class="steal-guides"></div>
+          </div>
+          <div>
+            <h3 class="subhead">门规风险</h3>
+            <div id="sectWarnings" class="sect-warnings"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="characters" class="band people">
+        <div class="section-head compact">
+          <p class="kicker">人物</p>
+          <h2>人物按地域与势力串联</h2>
+          <p>资料站后续可以为每个角色补头像、登场任务、相关残章和剧情节点。</p>
+        </div>
+        <div class="people-layout">
+          <aside class="region-index" id="regionIndex"></aside>
+          <div class="people-board" id="peopleBoard"></div>
+        </div>
+      </section>
+
+      <section id="routes" class="routes">
+        <div class="section-head">
+          <p class="kicker">开荒路线</p>
+          <h2>把每天该做什么说清楚</h2>
+          <p>
+            这部分不写成死板流程，而是给资料站预留“今日目标、区域推进、待核验”的清单能力。
+            后续可以把坐标、截图、奖励和前置条件逐条接进来。
+          </p>
+        </div>
+        <div class="route-layout">
+          <div id="routeSteps" class="route-steps"></div>
+          <aside class="route-note">
+            <h3>记录字段</h3>
+            <ul>
+              <li>触发地点、时间、天气、前置任务。</li>
+              <li>关键 NPC、对话选择、战斗机制。</li>
+              <li>奖励类型、是否一次性、是否随版本调整。</li>
+              <li>截图证据、官方公告或实测来源。</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section id="quests" class="quests">
+        <div class="section-head compact">
+          <p class="kicker">任务</p>
+          <h2>把任务拆成可追踪的线</h2>
+          <p>先建任务类型和记录字段，后续补单条流程时不会把页面写乱。</p>
+        </div>
+        <div id="questLanes" class="quest-lanes"></div>
+      </section>
+
+      <section id="raids" class="raids band">
+        <div class="section-head">
+          <p class="kicker">副本与试炼</p>
+          <h2>从入门机制到团队分工</h2>
+          <p>
+            副本攻略按“玩法定位、队伍配置、核心机制、常见翻车点、速查口令”整理。
+            五人本、十人本和试炼会分开维护，避免把周常、首通、挑战打法混成一团。
+            社区攻略来源会标为“待核验”，等官方公告或实测确认后再转为可引用条目。
+          </p>
+        </div>
+        <div class="raid-controls" role="tablist" aria-label="副本分类">
+          <button class="raid-filter active" data-raid="全部" type="button">全部</button>
+          <button class="raid-filter" data-raid="五人本" type="button">五人本</button>
+          <button class="raid-filter" data-raid="十人本" type="button">十人本</button>
+          <button class="raid-filter" data-raid="试炼" type="button">试炼</button>
+          <button class="raid-filter" data-raid="镇守" type="button">镇守</button>
+        </div>
+        <div id="raidBoard" class="raid-board"></div>
+      </section>
+
+      <section id="sync" class="sync">
+        <div class="section-head compact">
+          <p class="kicker">持续更新</p>
+          <h2>与官方和版本节奏同步</h2>
+          <p>资料站保留更新流水、可信度标记和待补清单。官方公告优先，第三方攻略只作为打法经验补充。</p>
+        </div>
+        <div class="sync-grid">
+          <article>
+            <h3>最近版本</h3>
+            <p>官网新闻列表显示 2026 年 5 月 8 日已有 2.6.0B「海岱有朋来」更新与在线修复公告。</p>
+          </article>
+          <article>
+            <h3>后续区域</h3>
+            <p>官方 4 月展望提到青州主题区域、下半年江南大区域以及新的主题区域方向。</p>
+          </article>
+          <article>
+            <h3>武学动向</h3>
+            <p>官方已介绍手甲「天志垂象」与绳镖「千机索天」，后续还预告更多新流派。</p>
+          </article>
+        </div>
+        <div class="changelog">
+          <h3>当前待补</h3>
+          <ul>
+            <li>补 2.6.0B「海岱有朋来」更新公告的玩法变动、活动奖励和受影响条目。</li>
+            <li>为青州、江南、孤云、梨园建立版本观察页，区分已上线、已预告和待实测。</li>
+            <li>建立试炼/镇守轮换表，记录每周推荐心法、武器和奖励优先级。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="versions" class="versions band">
+        <div class="section-head">
+          <p class="kicker">版本快照</p>
+          <h2>强度结论必须带版本号</h2>
+          <p>
+            数值变动只记录可追溯来源。没有公告或实测表时不写“加强/削弱”，而是保留待录入行，
+            方便后续把 2.5、2.6、2.6.0B 的技能变化逐项补齐。
+          </p>
+        </div>
+        <div class="version-board" id="versionBoard"></div>
+      </section>
+
+      <section id="world" class="world band">
+        <div class="section-head">
+          <p class="kicker">世界观</p>
+          <h2>十世纪的乱世江湖</h2>
+          <p>
+            游戏时代背景落在五代十国语境中，以“燕云十六州”和后周北伐前的音律故事为命名来源。
+            站点内容会把历史典故、游戏改写和玩家可探索区域分开标注。
+          </p>
+        </div>
+        <div class="timeline">
+          <article>
+            <time>清河</time>
+            <h3>初入江湖</h3>
+            <p>不羡仙、百草野、隐月山、荒祠暗影、河山如故等内容构成早期探索密度。</p>
+          </article>
+          <article>
+            <time>开封</time>
+            <h3>市井与朝堂</h3>
+            <p>开封可承接市井、官府、商贸与暗线剧情；具体 NPC 和任务名需要按版本逐条核验。</p>
+          </article>
+          <article>
+            <time>河西</time>
+            <h3>边地与归义</h3>
+            <p>河西区域承接归义军、玉门关、敦煌文化等边地叙事；人物条目需区分历史原型和游戏登场。</p>
+          </article>
+          <article>
+            <time>青州</time>
+            <h3>主题区域</h3>
+            <p>官方 2026 年 4 月展望称青州为首个主题区域，适合单独记录风土、探索和特色玩法。</p>
+          </article>
+          <article>
+            <time>江南</time>
+            <h3>后续大区域</h3>
+            <p>官方展望提到下半年江南大区域方向，资料站先建立观察位，等待正式公告补细节。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="sources" class="sources">
+        <div class="section-head compact">
+          <p class="kicker">来源</p>
+          <h2>资料依据</h2>
+        </div>
+        <ul>
+          <li><a href="https://www.yysls.cn/" target="_blank" rel="noreferrer">《燕云十六声》官网</a></li>
+          <li><a href="https://www.yysls.cn/news/official/20241227/37780_1202836.html" target="_blank" rel="noreferrer">官网公测开启新闻</a></li>
+          <li><a href="https://www.yysls.cn/news/official/20241228/37780_1203099.html" target="_blank" rel="noreferrer">官网奇术介绍新闻</a></li>
+          <li><a href="https://www.yysls.cn/news/official/20251128/37780_1273683.html" target="_blank" rel="noreferrer">官网武器外观新闻，提及手甲</a></li>
+          <li><a href="https://www.yysls.cn/news/official/20251121/37780_1272470.html" target="_blank" rel="noreferrer">官网手甲「天志垂象」与绳镖「千机索天」介绍</a></li>
+          <li><a href="https://www.yysls.cn/news/official/20260410/37780_1295584.html" target="_blank" rel="noreferrer">官网 2026 年 4 月内容展望</a></li>
+          <li><a href="https://www.yysls.cn/m/news/update/" target="_blank" rel="noreferrer">官网更新公告列表</a></li>
+          <li><a href="https://www.gamekee.com/yysls/644041.html" target="_blank" rel="noreferrer">GameKee 武学介绍和获取</a></li>
+          <li><a href="https://store.epicgames.com/en-US/news/where-winds-meet-guide-how-to-unlock-all-weapon-martial-arts" target="_blank" rel="noreferrer">Epic Games 武器武学解锁指南</a></li>
+          <li><a href="https://store.steampowered.com/app/3564740/Where_Winds_Meet/" target="_blank" rel="noreferrer">Steam 商店页</a></li>
+          <li><a href="https://zh.wikipedia.org/wiki/%E7%87%95%E9%9B%B2%E5%8D%81%E5%85%AD%E8%81%B2" target="_blank" rel="noreferrer">维基百科条目</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>非官方资料站原型。内容以公开资料整理，适合继续扩展成完整攻略百科。</p>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
 </html>
